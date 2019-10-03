@@ -56,7 +56,6 @@ class SplashScreenTest extends Component {
     })
 
     await Promise.all(cacheImages);
-    console.log(cacheImages[0].uri)
     this.setState({ isAppReady: true });
   }
 }
