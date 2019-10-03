@@ -16,9 +16,11 @@ export default class ListItem extends Component {
     super(props);
     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
     this.panResponder = PanResponder.create({
-      // onStartShouldSetPanResponder: () => false,
-      // onStartShouldSetPanResponderCapture: () => false,
-      // onMoveShouldSetPanResponder: () => false,
+      onStartShouldSetPanResponder: () => false,
+      onStartShouldSetPanResponderCapture: () => false,
+      onMoveShouldSetPanResponder: (evt, gestureState) => {
+        return Math.abs(gestureState.dx) > Math.abs(gestureState.dy * 3);
+      },
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
         const {dx, dy} = gestureState;
         if (dx > 2 || dx < -2 || dy > 5 || dy < -5) {
