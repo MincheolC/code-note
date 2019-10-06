@@ -13,6 +13,10 @@ export default class MainScreen extends Component {
           title="FlatList"
           onPress={() => this.props.navigation.push('FlatList')}
         />
+        <Button
+          title="BasicFlatList"
+          onPress={() => this.props.navigation.push('BasicFlatList')}
+        />
       </ScrollView>
     )
   }
