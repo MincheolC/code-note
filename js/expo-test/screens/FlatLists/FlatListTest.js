@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=4yCch6x85Q8
+// Swipe delete, ScrollView가 안먹힘.. 해결방법 모르겠음.
 
 import React, { Component } from 'react';
 import {
@@ -7,8 +8,8 @@ import {
   Text,
   View
 } from 'react-native';
-import Data from '../constants/Data';
-import ListItem from '../components/ListItem';
+import Data from '../../constants/Data';
+import ListItem from '../../components/ListItem';
 
 export default class FlatListTest extends Component {
   constructor(props) {

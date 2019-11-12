@@ -1,0 +1,76 @@
+const workoutPrograms = [
+  {
+    id: '1',
+    type: 'hypertrophy',
+    targetPart: ['chest'],
+    name: 'flat bench press',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Bench-press-1.png',
+    description: '',
+  },
+  {
+    id: '2',
+    type: 'hypertrophy',
+    targetPart: ['chest'],
+    name: 'dumbbell bench press',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Dumbbell-bench-press-2.png',
+    description: '',
+  },
+  {
+    id: '3',
+    type: 'hypertrophy',
+    targetPart: ['chest'],
+    name: 'incline bench press',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Incline-bench-press-1.png',
+    description: '',
+  },
+  {
+    id: '4',
+    type: 'hypertrophy',
+    targetPart: ['chest'],
+    name: 'decline bench press',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Wide-grip-decline-bench-press-1.png',
+    description: '',
+  },
+  {
+    id: '5',
+    type: 'hypertrophy',
+    targetPart: ['chest'],
+    name: 'dips',
+    impUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Dipexercise.svg',
+    description: '',
+  },
+  {
+    id: '6',
+    type: 'isolation',
+    targetPart: ['chest'],
+    name: 'dumbbell fly',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Dumbbell-flys-1.png',
+    description: '',
+  },
+  {
+    id: '7',
+    type: 'isolation',
+    targetPart: ['chest'],
+    name: 'under grip cable crossover',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Crossover-with-bands-2.png',
+    description: '',
+  },
+  {
+    id: '8',
+    type: 'isolation',
+    targetPart: ['chest'],
+    name: 'over grip cable crossover',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Cable-crossover-2.png',
+    description: '',
+  },
+  {
+    id: '9',
+    type: 'isolation',
+    targetPart: ['chest'],
+    name: 'pack deck fly',
+    imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Butterfly-machine-2.png',
+    description: '',
+  }
+];
+
+export default workoutPrograms;
