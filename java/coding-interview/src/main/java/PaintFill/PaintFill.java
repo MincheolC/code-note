@@ -1,6 +1,6 @@
 package PaintFill;
 
-import java.util.Random;
+import CustomUtils.CustomUtils;
 
 public class PaintFill {
     private int[][] view;
@@ -12,19 +12,10 @@ public class PaintFill {
         this.initialize();
     }
 
-    private static int getRandomNumberInRange(int min, int max) {
-        if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-    }
-
     private void initialize() {
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {
-                view[i][j] = getRandomNumberInRange(0, 4);
+                view[i][j] = CustomUtils.getRandomNumberInRange(0, 4);
             }
         }
     }
