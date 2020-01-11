@@ -22,16 +22,17 @@ public class StackBox {
 
     private Box createRandomSizeBox() {
         return new Box(
-            CustomUtils.getRandomNumberInRange(0, 10),
-            CustomUtils.getRandomNumberInRange(0, 10),
-            CustomUtils.getRandomNumberInRange(0, 10)
+            CustomUtils.getRandomNumberInRange(1, 10),
+            CustomUtils.getRandomNumberInRange(1, 10),
+            CustomUtils.getRandomNumberInRange(1, 10)
         );
     }
 
     public void printBoxList() {
         for(int i = 0; i < boxCount; i++ ) {
             Box box = boxList.get(i);
-            System.out.println("Box[" + i + "] - height: " + box.getHeight() + ", width: " + box.getWidth() + ", depth: " + box.getDepth());
+//            System.out.println("Box[" + i + "] - height: " + box.getHeight() + ", width: " + box.getWidth() + ", depth: " + box.getDepth());
+            System.out.println(box.getHeight() + " " + box.getWidth() + " " + box.getDepth());
         }
     }
 
@@ -39,6 +40,8 @@ public class StackBox {
         Collections.sort(boxList, new BoxComparator());
         int maxHeight = 0;
         int[] stackMap = new int[boxList.size()];
+
+        // 박스 풀을 조절? = 가방에 최적해
         for (int i = 0; i < boxList.size(); i++ ) {
             int height = this.getMaxHeight(boxList, i, stackMap);
             maxHeight = Math.max(height, maxHeight);
