@@ -5,18 +5,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Prob4 {
-
+public class Prob5 {
     public static void main(String[] args) throws IOException {
-        int arraySize, input;
+        int arraySize, inputSize, input;
         int[] arr;
-        Listy listy;
+        Listy2 listy2;
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
         st = new StringTokenizer(br.readLine());
+
         arraySize = Integer.parseInt(st.nextToken());
-        input = Integer.parseInt(st.nextToken());
+        inputSize = Integer.parseInt(st.nextToken());
 
         arr = new int[arraySize];
         st = new StringTokenizer(br.readLine());
@@ -25,8 +26,12 @@ public class Prob4 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        listy = new Listy(arr);
-        System.out.println(listy.findIndex(input));
-    }
+        listy2 = new Listy2(arr);
 
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < inputSize; i++ ) {
+            input = Integer.parseInt(st.nextToken());
+            System.out.println(listy2.getRankOfNumber(input));
+        }
+    }
 }
