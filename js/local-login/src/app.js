@@ -11,7 +11,7 @@ async function startServer() {
     const logger = Container.get('logger');
     app.listen(port, err => {
         if (err) {
-            logger.error(JSON.stringify(err));
+            console.log(err);
             return;
         }
         logger.info(`Your server is ready on port ${port}`);

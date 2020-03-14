@@ -2,8 +2,6 @@ const express = require('express');
 const routes = require('./routes');
 const cookieParser = require('cookie-parser')
 
-
-
 const app = express();
 const port = 3000;
 
