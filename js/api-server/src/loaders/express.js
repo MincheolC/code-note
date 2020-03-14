@@ -1,5 +1,23 @@
+const express = require('express');
+const routes = require('../api');
+const config = require('../config');
+const { errors } = require('celebrate');
+
 module.exports = async ({ app }) => {
-    app.get('/status', (req, res) => { res.status(200).end(); });
-    app.get('/', (req, res) => res.send('Hello World!'));
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
+
+    app.use(config.api.prefix, routes(app));
+
+    app.get('/status', (req, res) => {
+        res.status(200).end();
+    });
+
+    // error handlers (next 필수)
+    // eslint-disable-next-line no-unused-vars
+    app.use((err, req, res, next) => {
+        res.status(err.statusCode || 500).send(err);
+    });
+    app.use(errors());
     return app;
 };
