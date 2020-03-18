@@ -1,55 +1,29 @@
 import * as React from 'react';
-import classnames from 'classnames';
-
-import styles from './style.css';
-
-export const ButtonType = {
-  BUTTON: 'button',
-  RESET: 'reset',
-  SUBMIT: 'submit',
-};
-
-export const ButtonTheme = {
-  DEFAULT: 'default',
-  ROUNDED: 'rounded',
-};
-
-export const ButtonSize = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-};
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const Button = props => {
-  const {type, onClick, children, theme, size, className, disabled} = props;
-  const classProps = classnames(
-    styles.button,
-    styles[theme],
-    styles[size],
-    {
-      [styles.disabled]: disabled,
-    },
-    className,
-  );
+  const {buttonColor, titleColor, title, onPress, fontSize} = props;
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      className={classProps}>
-      {children}
-    </button>
+    <TouchableOpacity
+      style={[styles.button, {backgroundColor: buttonColor}]}
+      onPress={onPress}>
+      <Text style={{fontSize: fontSize, color: titleColor}}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 
-Button.defaultProps = {
-  type: ButtonType.BUTTON,
-  theme: ButtonTheme.DEFAULT,
-  size: ButtonSize.MEDIUM,
-  onClick: () => {},
-  className: '',
-  disabled: false,
-};
+/*
+ * TODO: Button 종류 별로 theme을 만들어 놓기.
+ */
+const styles = StyleSheet.create({
+  button: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+    borderRadius: 5,
+  },
+});
 
 export default Button;
