@@ -2,14 +2,41 @@ import React from 'react';
 import {storiesOf} from '@storybook/react-native';
 import {action} from '@storybook/addon-actions';
 import Button from './';
-import {Colors, Typography} from '_styles';
+import {Colors} from '_styles';
 
-storiesOf('Button', module).add('default', () => (
-  <Button
-    buttonColor={Colors.BLUE_LIGHT_1}
-    title={'회원가입'}
-    titleColor={Colors.WHITE}
-    fontSize={Typography.FONT_SIZE_16}
-    onPress={action('clicked')}
-  />
-));
+storiesOf('Button', module)
+  .add('default', () => (
+    <Button
+      backgroundColor={Colors.HOMESS_BLUE_MEDIUM_2}
+      text={'이메일로 로그인하기'}
+      textColor={Colors.WHITE}
+      onPress={action('clicked')}
+    />
+  ))
+  .add('facebook', () => (
+    <Button
+      backgroundColor={Colors.WHITE}
+      text={'Facebook 로그인하기'}
+      textColor={Colors.BLACK}
+      onPress={action('clicked')}
+      theme={'facebook'}
+    />
+  ))
+  .add('google', () => (
+    <Button
+      backgroundColor={Colors.WHITE}
+      text={'Google 로그인하기'}
+      textColor={Colors.BLACK}
+      onPress={action('clicked')}
+      theme={'google'}
+    />
+  ))
+  .add('kakao', () => (
+    <Button
+      backgroundColor={Colors.WHITE}
+      text={'Kakao 로그인하기'}
+      textColor={Colors.BLACK}
+      onPress={action('clicked')}
+      theme={'kakao'}
+    />
+  ));

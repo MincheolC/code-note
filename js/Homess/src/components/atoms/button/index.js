@@ -1,30 +1,53 @@
 import * as React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import styled from 'styled-components/native';
+import {Typography, Colors} from '_styles';
 
-const Button = props => {
-  const {buttonColor, titleColor, title, onPress, fontSize} = props;
+const ButtonContainer = styled.TouchableOpacity`
+  width: 80%;
+  height: 40px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: ${props => props.backgroundColor};
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 2px ${Colors.GRAY_MEDIUM};
+`;
 
-  return (
-    <TouchableOpacity
-      style={[styles.button, {backgroundColor: buttonColor}]}
-      onPress={onPress}>
-      <Text style={{fontSize: fontSize, color: titleColor}}>{title}</Text>
-    </TouchableOpacity>
-  );
+const ButtonText = styled.Text`
+  font-size: ${Typography.FONT_SIZE_16}px;
+  color: ${props => props.textColor};
+  text-align: center;
+`;
+
+const Image = styled.Image`
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+`;
+
+const getSupportingTheme = theme => {
+  switch (theme) {
+    case 'kakao':
+      return <Image source={require('_assets/images/kakao_icon.png')} />;
+    case 'google':
+      return <Image source={require('_assets/images/google_icon.png')} />;
+    case 'facebook':
+      return <Image source={require('_assets/images/facebook_icon.png')} />;
+    default:
+      return null;
+  }
 };
 
-/*
- * TODO: Button 종류 별로 theme을 만들어 놓기.
- */
-const styles = StyleSheet.create({
-  button: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    margin: 10,
-    borderRadius: 5,
-  },
-});
+const Button = props => {
+  const {backgroundColor, textColor, text, onPress, theme} = props;
+
+  return (
+    <ButtonContainer onPress={onPress} backgroundColor={backgroundColor}>
+      {getSupportingTheme(theme)}
+      <ButtonText textColor={textColor}>{text}</ButtonText>
+    </ButtonContainer>
+  );
+};
 
 export default Button;
