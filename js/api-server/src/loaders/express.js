@@ -9,10 +9,6 @@ module.exports = async ({ app }) => {
 
     app.use(config.api.prefix, routes(app));
 
-    app.get('/status', (req, res) => {
-        res.status(200).end();
-    });
-
     // error handlers (next 필수)
     // eslint-disable-next-line no-unused-vars
     app.use((err, req, res, next) => {
