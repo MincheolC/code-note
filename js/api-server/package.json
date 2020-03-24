@@ -1,7 +1,7 @@
 {
   "name": "api-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "api-server",
   "main": "index.js",
   "scripts": {
     "start": "nodemon"
