@@ -1,7 +1,7 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react-native';
 import {action} from '@storybook/addon-actions';
-import Button from './';
+import Button from '.';
 import {Colors} from '_styles';
 
 storiesOf('Button', module)

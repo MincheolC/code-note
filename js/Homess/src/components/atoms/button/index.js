@@ -4,14 +4,14 @@ import {Typography, Colors} from '_styles';
 
 const ButtonContainer = styled.TouchableOpacity`
   width: 80%;
-  height: 40px;
+  height: 50px;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: ${props => props.backgroundColor};
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 2px ${Colors.GRAY_MEDIUM};
+  box-shadow: 5px 5px 5px ${Colors.GRAY_MEDIUM};
 `;
 
 const ButtonText = styled.Text`
@@ -21,8 +21,8 @@ const ButtonText = styled.Text`
 `;
 
 const Image = styled.Image`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   margin-right: 20px;
 `;
 
