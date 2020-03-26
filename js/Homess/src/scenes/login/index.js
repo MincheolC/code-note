@@ -14,7 +14,7 @@ const LoginButtonContainer = styled.View`
   justify-content: space-around;
 `;
 
-const TitleView = styled.View`
+const TitleContainer = styled.View`
   flex: 9;
   align-items: center;
   justify-content: center;
@@ -29,11 +29,17 @@ const LogoImage = styled.Image`
   height: 50%;
 `;
 
+const Title = styled.Text`
+  font-family: BMJUA;
+  font-size: 20px;
+`;
+
 const LoginScreen = ({navigation}) => (
   <LoginContainer>
-    <TitleView>
+    <TitleContainer>
+      <Title>{'아직도 쓰레기 직접 버리세요?ㅋㅋ'}</Title>
       <LogoImage source={require('_assets/images/homess_logo_2x.png')} />
-    </TitleView>
+    </TitleContainer>
     <LoginButtonContainer>
       <Button
         backgroundColor={Colors.HOMESS_BLUE_MEDIUM_2}
