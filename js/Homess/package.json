@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "android": "npx react-native run-android",
-    "ios": "npx react-native run-ios",
-    "start": "react-native start",
+    "ios": "yarn cache clean && npx react-native run-ios",
+    "start": "react-native --reset-cache start",
+    "reset": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean && yarn install",
     "test": "jest",
     "lint": "eslint .",
     "storybook": "start-storybook -p 7007",
@@ -26,7 +27,8 @@
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.3.0",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-vector-icons": "^6.6.0",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
