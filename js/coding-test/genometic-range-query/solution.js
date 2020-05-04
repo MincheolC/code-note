@@ -59,7 +59,7 @@ function solution2(S, P, Q) {
   for (let i = 0; i < points.length - 1; i += 1) {
     const from = points[i];
     const to = points[i + 1];
-    let impactFactor = "Z";
+    let impactFactor = 'Z';
 
     for (let j = from; j <= to; j += 1) {
       if (impactFactor > S[j]) {
@@ -76,7 +76,7 @@ function solution2(S, P, Q) {
   for (let i = 0; i < P.length; i += 1) {
     const from = indexes[P[i]];
     const to = indexes[Q[i]];
-    let impactFactor = from === to ? temp[points[from]].self : "Z";
+    let impactFactor = from === to ? temp[points[from]].self : 'Z';
 
     for (let j = from; j < to; j += 1) {
       if (impactFactor > temp[points[from]].right) {
@@ -119,9 +119,10 @@ function buildTree(currentNodes, indexedTree) {
     return;
   }
   const parentNodes = [];
-  const loopCount = (currentNodes.length % 2)
-    ? parseInt(currentNodes.length / 2, 10) + 1
-    : parseInt(currentNodes.length / 2, 10);
+  const loopCount =
+    currentNodes.length % 2
+      ? parseInt(currentNodes.length / 2, 10) + 1
+      : parseInt(currentNodes.length / 2, 10);
 
   for (let i = 0; i < loopCount; i += 1) {
     const a = currentNodes[2 * i];
@@ -133,7 +134,7 @@ function buildTree(currentNodes, indexedTree) {
 }
 
 function getMinimumImpact(compareList) {
-  let impact = "Z";
+  let impact = 'Z';
   compareList.forEach((element) => {
     if (impact > element) {
       impact = element;
@@ -192,7 +193,7 @@ function getImpactFactor(from, to, indexedTree) {
   return getMinimumImpact(compareList);
 }
 
-function solution(S, P, Q) {
+function solution3(S, P, Q) {
   // write your code in JavaScript (Node.js 8.9.4)
   const s = Array.from(S);
   const indexedTree = [s];
@@ -208,4 +209,54 @@ function solution(S, P, Q) {
   }
 
   return impactFactors;
+}
+
+// right
+
+function toImpactFactor(c) {
+  switch (c) {
+    case 'A':
+      return 1;
+    case 'C':
+      return 2;
+    case 'G':
+      return 3;
+    case 'T':
+      return 4;
+    default:
+      return null;
+  }
+}
+
+function solution4(S, P, Q) {
+  // write your code in JavaScript (Node.js 8.9.4)
+  const s = Array.from(S);
+  const impactFactorsAccumulator = [];
+
+  impactFactorsAccumulator[0] = [0, 0, 0, 0]; // A, C, G, T
+
+  for (let i = 0; i < s.length; i += 1) {
+    const exImpactFactor = Array.from(impactFactorsAccumulator[i]);
+    exImpactFactor[toImpactFactor(s[i]) - 1] += 1;
+    impactFactorsAccumulator[i + 1] = exImpactFactor;
+  }
+
+  const result = [];
+  for (let i = 0; i < P.length; i += 1) {
+    const p = P[i];
+    const q = Q[i];
+
+    if (p === q) {
+      result.push(toImpactFactor(s[p]));
+    } else {
+      for (let j = 0; j < 4; j += 1) {
+        const diff = impactFactorsAccumulator[q + 1][j] - impactFactorsAccumulator[p][j];
+        if (diff > 0) {
+          result.push(j + 1);
+          break;
+        }
+      }
+    }
+  }
+  return result;
 }
