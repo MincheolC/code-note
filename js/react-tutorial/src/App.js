@@ -6,9 +6,9 @@ import SetStateEx from './components/SetStateEx';
 function App() {
   return (
     <div className="App">
-      {/* <Game /> */}
+      <Game />
       {/* <Home /> */}
-      <SetStateEx />
+      {/* <SetStateEx /> */}
     </div>
   );
 }

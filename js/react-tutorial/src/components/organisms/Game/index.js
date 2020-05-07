@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from '../../moleculars/Board';
-import './style.css';
+import styles from './style.css';
 
 function calculateWinner(squares) {
   const lines = [
@@ -81,11 +81,11 @@ class Game extends React.Component {
     }
 
     return (
-      <div className="game">
-        <div className="game-board">
+      <div className={styles.game}>
+        <div>
           <Board squares={current.squares} onClick={(i) => this.handleClick(i)}/>
         </div>
-        <div className="game-info">
+        <div className={styles.gameInfo}>
           <div>{status}</div>
           <ol>{moves}</ol>
         </div>
