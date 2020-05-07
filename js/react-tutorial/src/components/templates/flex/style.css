@@ -1,0 +1,19 @@
+main {
+  width: 100%;
+  display: flex;
+}
+
+main, article, aside {
+  border: 1px solid #fcddd1;
+  padding: 5px;
+  float: left;
+}
+
+article {
+  background-color: #fff4dd;
+  width: 74%;
+}
+
+aside {
+  width: 24%;
+}

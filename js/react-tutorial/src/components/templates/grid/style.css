@@ -1,0 +1,21 @@
+div {
+  border: 1px solid #fcddd1;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 24% 75%;
+  grid-template-rows: 300px 300px;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.div1 {
+  background-color: #fff4dd;
+  align-self: end;
+  justify-self: end;
+}
+
+.div4 {
+  align-self: center;
+}
