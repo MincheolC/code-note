@@ -54,9 +54,10 @@ body {
 .container {
   border: 10px solid rgba(black, 0.1);
   border-radius: 10px;
-  width: 400px;
+  max-width: 400px;
+  min-width: 300px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
   grid-template-rows: repeat(2, 100px);
   grid-auto-rows: 100px;
 }
