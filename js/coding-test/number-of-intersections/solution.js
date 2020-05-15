@@ -29,5 +29,8 @@ function solution(A) {
     const num = getIntersectNum(leftPoints, rightPoints[i]);
     intersections += num - 1 - i;
   }
+  if (intersections > 10000000) {
+    return -1;
+  }
   return intersections;
 }
