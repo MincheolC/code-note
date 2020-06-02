@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/coding-test/programmers/stack-queue2/solution.js"
+      "program": "${workspaceFolder}/coding-test/programmers/dfs1/solution.js"
     }
   ]
 }
