@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/coding-test/programmers/dfs1/solution.js"
+      "program": "${workspaceFolder}/coding-test/programmers/dynamic-p2/solution.js"
     }
   ]
 }
