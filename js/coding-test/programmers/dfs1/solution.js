@@ -3,10 +3,7 @@ function solution(numbers, target) {
 }
 
 function dfs(numbers, target, index, num) {
-  if (index === numbers.length) {
-    return num === target ? 1 : 0;
-  } else {
-    return dfs(numbers, target, index + 1, num + numbers[index]) + dfs(numbers, target, index + 1, num - numbers[index]);
-  }
+  if (index === numbers.length) return num === target ? 1 : 0;
+  return dfs(numbers, target, index + 1, num + numbers[index]) + dfs(numbers, target, index + 1, num - numbers[index]);
 }
 console.log(solution([1, 1, 1, 1, 1], 3));
