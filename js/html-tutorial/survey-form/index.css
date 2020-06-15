@@ -34,7 +34,7 @@ body::before {
       rgba(58, 58, 158, 0.1),
       rgba(136, 136, 206, 0.3)
     ),
-    url("./sky.jpg");
+    url("../assets/sky.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
