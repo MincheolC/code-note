@@ -1,4 +1,4 @@
-# How this app has bean built
+# How this app has been built
 Referred from [sequelize express-example](https://github.com/sequelize/express-example/blob/master/README.md)
 ### Express Setup
 ```sh
