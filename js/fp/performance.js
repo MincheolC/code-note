@@ -13,36 +13,26 @@ const functionalLazy = arr => {
 }
 
 // 성능 비교: 명령형 vs 함수형
+/*
+ * imperative execute time:  6
+ * functional execute time:  22
+ * functionalLazy execute time:  9
+ */
 const arr = Array(1000000).fill(1);
-arr[200] = 10;
+arr[2000] = 10;
 
 let startTime = new Date().getTime();
-console.log(imperative(arr));
+imperative(arr);
 let endTime = new Date().getTime();
 console.log("imperative execute time: ", endTime - startTime);
 
 startTime = new Date().getTime();
-console.log(functional(arr));
+functional(arr);
 endTime = new Date().getTime();
 console.log("functional execute time: ", endTime - startTime);
 
 startTime = new Date().getTime();
-console.log(functionalLazy(arr));
+functionalLazy(arr);
 endTime = new Date().getTime();
 console.log("functionalLazy execute time: ", endTime - startTime);
 
-
-const sum = (a) => {
-  const a1 = a + 2;
-  console.log(a1);
-  return (b) => {
-    const b1 = b + 3;
-    console.log(b1);
-    return (c) => {
-      return a1 + b1 + c
-    }
-  }
-}
-console.log(sum(1)(2)(3))
-const a12 = sum(1)(2);
-console.log(a12(4), a12(6), a12(10));
