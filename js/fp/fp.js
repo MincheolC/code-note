@@ -21,7 +21,7 @@ const names = [
  * 추가적으로 오름차순으로 정렬한다.
  */
 
-// 절차지향적 프로그래밍
+// 절차지향적 프로그래밍 (How를 표현)
 const result = [];
 
 for (let i = 0; i < names.length; i += 1) {
@@ -41,7 +41,7 @@ for (let i = 0; i < names.length; i += 1) {
 result.sort();
 console.log(result);
 
-// 함수형 프로그래밍.
+// 함수형 프로그래밍 (What을 표현)
 const replaceSpace = (str) => {
   return str.replace(/(_|-)/, " ");
 };
