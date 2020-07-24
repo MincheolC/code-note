@@ -1,16 +1,8 @@
 const { inc } = require("rambda");
 
-const pow = (num1, num2) => {
-  return Math.pow(num1, num2);
-}
-
-const negate = (num) => {
-  return num * -1;
-}
-
-const increase = (num) => {
-  return num + 1;
-}
+const pow = (num1, num2) => Math.pow(num1, num2);
+const negate = (num) => num * -1;
+const increase = (num) => num + 1;
 
 // 절차적 프로그래밍
 console.log(increase(negate(pow(2, 3))));

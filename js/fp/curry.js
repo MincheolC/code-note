@@ -93,3 +93,5 @@ pipe(
   curriedDelKey('age'),
   curriedRenameKey('work')('job'),
 )(person));
+
+module.exports = { curry };
