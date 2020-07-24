@@ -24,7 +24,7 @@ const compose = (...fns) => {
 
 const pipe = (...fns) => {
   return (...args) => {
-    return fns.reduce((res, fn) => [fn.call(null, ...res)], args)[0];
+    return fns.reduce((res, fn) =>[fn.call(null, ...res)], args)[0];
   }
 }
 
@@ -33,3 +33,8 @@ const piped = pipe(pow, negate, increase)
 
 console.log(composed(2, 3));
 console.log(piped(2, 3));
+
+module.exports = {
+  pipe,
+  compose,
+}
