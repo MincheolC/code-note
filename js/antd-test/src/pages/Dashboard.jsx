@@ -5,7 +5,7 @@ import Temperature from '@/components/Charts/Temperature';
 
 export default () => (
   <PageContainer>
-    <Card style={{ width: 700, height: 450 }}>
+    <Card style={{ width: 700 }}>
       <Temperature />
     </Card>
   </PageContainer>
