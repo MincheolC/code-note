@@ -12,7 +12,7 @@ export default defineConfig({
   },
   locale: {
     // default zh-CN
-    default: 'ko-KR',
+    default: 'en-US',
     // default true, when it is true, will use `navigator.language` overwrite default
     antd: true,
     baseNavigator: true,
@@ -47,13 +47,13 @@ export default defineConfig({
           routes: [
             {
               path: '/',
-              redirect: '/welcome',
+              redirect: '/dashboard',
             },
             {
-              path: '/welcome',
-              name: 'welcome',
+              path: '/dashboard',
+              name: 'Dashboard',
               icon: 'smile',
-              component: './Welcome',
+              component: './Dashboard',
             },
             {
               path: '/admin',
