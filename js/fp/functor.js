@@ -13,7 +13,7 @@ const newFunctor2 = functor.map(x => f(g(x)));
 console.log(newFunctor, newFunctor2);
 
 /**
- * Maybe를 활용한 undefine나 null 해결.
+ * Maybe를 활용한 undefine나 null 해결. 함수 컴포지션에서 에러 처리시에 아주 우아하게 처리할 수 있게 도와주는 함수자.
  */
 
 class Maybe {
