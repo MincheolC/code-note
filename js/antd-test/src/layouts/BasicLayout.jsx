@@ -101,6 +101,7 @@ const BasicLayout = props => {
     authority: undefined,
   };
   const { formatMessage } = useIntl();
+
   return (
     <ProLayout
       logo={logo}
@@ -118,7 +119,7 @@ const BasicLayout = props => {
         {
           path: '/',
           breadcrumbName: formatMessage({
-            id: 'menu.home',
+            id: 'menu.dashboard',
           }),
         },
         ...routers,
