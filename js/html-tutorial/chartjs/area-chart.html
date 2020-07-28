@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+  <link rel="stylesheet" href="./index.css" />
+  <script src="./utils.js"></script>
+</head>
+<body>
+  <div class="chart-container">
+    <canvas id="chart-0"></canvas>
+
+    <div class="toolbar">
+			<button onclick="toggleSmooth(this)">Smooth</button>
+			<button onclick="randomize(this)">Randomize</button>
+		</div>
+  </div>
+  <script>
+    var presets = window.chartColors;
+		var utils = Samples.utils;
+		var inputs = {
+			min: 20,
+			max: 80,
+			count: 16,
+			decimals: 2,
+			continuity: 1
+		};
+
+		function generateData() {
+			return utils.numbers(inputs);
+		}
+
+		function generateLabels() {
+			return utils.months({count: inputs.count});
+		}
+
+		utils.srand(42);
+
+		var data = {
+			labels: generateLabels(),
+			datasets: [{
+				backgroundColor: utils.transparentize(presets.red),
+				borderColor: presets.red,
+				data: generateData(),
+				label: 'Temperature',
+				fill: false
+			}]
+		};
+
+		var options = {
+			maintainAspectRatio: false,
+			spanGaps: false,
+			elements: {
+				line: {
+					tension: 0.000001
+				}
+			},
+			scales: {
+				y: {
+					stacked: true,
+				}
+			},
+		};
+
+		var chart = new Chart('chart-0', {
+			type: 'line',
+			data: data,
+			options: options
+		});
+
+
+		// eslint-disable-next-line no-unused-vars
+		function toggleSmooth(btn) {
+			var value = btn.classList.toggle('btn-on');
+			chart.options.elements.line.tension = value ? 0.4 : 0.000001;
+			chart.update();
+		}
+
+		// eslint-disable-next-line no-unused-vars
+		function randomize() {
+			chart.data.datasets.forEach(function(dataset) {
+				dataset.data = generateData();
+			});
+			chart.update();
+		}
+  </script>
+</body>
+</html>
