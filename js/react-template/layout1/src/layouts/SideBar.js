@@ -1,4 +1,6 @@
 import React from 'react';
+import { Router, Route, Link } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,9 +21,13 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import TuneIcon from '@material-ui/icons/Tune';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import PersonIcon from '@material-ui/icons/Person';
+import Dashboard from '../pages/Dashboard';
+import Management from '../pages/Management';
+import Alarm from '../pages/Alarm';
 
 
 const drawerWidth = 200;
+const history = createBrowserHistory();
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -124,6 +130,7 @@ export default function MiniDrawer() {
           </Typography>
         </Toolbar>
       </AppBar>
+      <Router history={history}>
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, {
@@ -144,15 +151,15 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          <ListItem button key={'Dashboard'}>
+          <ListItem button component={Link} to="/dashboard" key={'Dashboard'}>
             <ListItemIcon><DashboardIcon/></ListItemIcon>
             <ListItemText primary={'Dashboard'} />
           </ListItem>
-          <ListItem button key={'Management'}>
+          <ListItem button component={Link} to="/management" key={'Management'}>
             <ListItemIcon><TuneIcon/></ListItemIcon>
             <ListItemText primary={'Management'} />
           </ListItem>
-          <ListItem button key={'Alarm'}>
+          <ListItem button component={Link} to="/alarm" key={'Alarm'}>
             <ListItemIcon><AlarmIcon/></ListItemIcon>
             <ListItemText primary={'Alarm'} />
           </ListItem>
@@ -167,7 +174,11 @@ export default function MiniDrawer() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/management" component={Management} />
+        <Route exact path="/alarm" component={Alarm} />
       </main>
+      </Router>
     </div>
   );
 }
