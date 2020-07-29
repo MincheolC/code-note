@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +42,7 @@ export default () => {
     minDo: null,
     maxDo: null,
     minBrix: null,
-    maxBirx: null,
+    maxBrix: null,
   });
 
   const handleKombuItem = (e) => {
@@ -50,18 +52,25 @@ export default () => {
       [id]: type === "text" ? value : Number(value),
     })
   }
+  const handleClick = () => setKombuItems(kombuItems.set(kombuItem.series, kombuItem));
 
   return (
-    <>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="series"
-          label="시리즈"
-          variant="outlined"
-          type="text"
-          size="small"
-          onChange={handleKombuItem}
-        />
+    <div className={classes.root}>
+      <form noValidate autoComplete="off">
+        <div className={classes.rangeWrapper}>
+          <Typography variant="h6">
+            이름
+          </Typography>
+          <TextField
+            id="series"
+            label="시리즈"
+            variant="outlined"
+            type="text"
+            size="small"
+            onChange={handleKombuItem}
+            fullWidth
+          />
+        </div>
         <div className={classes.rangeWrapper}>
           <Typography variant="h6">
             PH
@@ -159,6 +168,9 @@ export default () => {
           />
         </div>
       </form>
-    </>
+      <Button variant="contained" color="primary" startIcon={<SaveIcon />} onClick={handleClick}>
+        저장
+      </Button>
+    </div>
   )
 }
