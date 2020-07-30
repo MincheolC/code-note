@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 
-// import Table from './Table';
 import Table from '../../components/Table';
 
 const useStyles = makeStyles((theme) => ({
