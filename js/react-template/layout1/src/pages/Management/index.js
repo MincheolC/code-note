@@ -5,6 +5,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 
+// import Table from './Table';
+import Table from '../../components/Table';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -28,6 +31,46 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
+
+function createData(name, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBrix, maxBrix) {
+  return { name, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBrix, maxBrix };
+}
+
+const headCells = [
+  { id: 'name', numeric: false, disablePadding: true, label: 'Series' },
+  { id: 'minPh', numeric: true, disablePadding: false, label: '최저 PH' },
+  { id: 'maxPh', numeric: true, disablePadding: false, label: '최고 PH' },
+  { id: 'minTemp', numeric: true, disablePadding: false, label: '최저 온도' },
+  { id: 'maxTemp', numeric: true, disablePadding: false, label: '최고 온도' },
+  { id: 'minDo', numeric: true, disablePadding: false, label: '최저 DO' },
+  { id: 'maxDo', numeric: true, disablePadding: false, label: '최고 DO' },
+  { id: 'minBrix', numeric: true, disablePadding: false, label: '최저 당도' },
+  { id: 'maxBrix', numeric: true, disablePadding: false, label: '최고 당도' },
+];
+
+const rows = [
+  createData('Original', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
+  createData('Lemon', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
+  createData('Black Current', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
+];
+
+function createTestData(name, ph, temp, doxy, brix) {
+  return { name, ph, temp, doxy, brix };
+}
+
+const testHeadCells = [
+  { id: 'name', numeric: false, disablePadding: true, label: 'Series' },
+  { id: 'ph', numeric: true, disablePadding: false, label: 'PH' },
+  { id: 'temp', numeric: true, disablePadding: false, label: '온도' },
+  { id: 'doxy', numeric: true, disablePadding: false, label: 'DO' },
+  { id: 'brix', numeric: true, disablePadding: false, label: '당도' },
+];
+
+const testRows = [
+  createTestData('Original', 2.5, 36.5, 13.33, 79),
+  createTestData('Lemon', 2.5, 36.5, 13.33, 79),
+  createTestData('Black Current', 2.5, 36.5, 13.33, 79),
+];
 
 export default () => {
   const classes = useStyles();
@@ -55,6 +98,7 @@ export default () => {
   const handleClick = () => setKombuItems(kombuItems.set(kombuItem.series, kombuItem));
 
   return (
+    <>
     <div className={classes.root}>
       <form noValidate autoComplete="off">
         <div className={classes.rangeWrapper}>
@@ -172,5 +216,12 @@ export default () => {
         저장
       </Button>
     </div>
+    <div>
+      <Table headCells={headCells} rows={rows}/>
+    </div>
+    <div>
+      <Table headCells={testHeadCells} rows={testRows}/>
+    </div>
+    </>
   )
 }
