@@ -5,28 +5,9 @@ import {
 } from '@material-ui/icons';
 import MaterialTable from 'material-table';
 
-export default function AdvancedTable() {
-  const [state, setState] = React.useState({
-    columns: [
-      { title: 'Name', field: 'name' },
-      { title: 'Surname', field: 'surname' },
-      { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-      {
-        title: 'Birth Place',
-        field: 'birthCity',
-        lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-      },
-    ],
-    data: [
-      { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-      {
-        name: 'Zerya Betül',
-        surname: 'Baran',
-        birthYear: 2017,
-        birthCity: 34,
-      },
-    ],
-  });
+export default function AdvancedTable(props) {
+  const { columns, data } = props;
+  const [state, setState] = React.useState({columns, data});
 
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -54,6 +35,16 @@ export default function AdvancedTable() {
       title="Editable Example"
       columns={state.columns}
       data={state.data}
+      localization={{
+        header: {
+          actions: '수정 | 삭제'
+        },
+        body: {
+          editRow: {
+            deleteText: '정말 삭제하시겠습니까?'
+          }
+        }
+      }}
       editable={{
         onRowAdd: (newData) =>
           new Promise((resolve) => {
