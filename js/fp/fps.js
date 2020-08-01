@@ -63,6 +63,24 @@ class Left extends Either {
   }
 }
 
+class IO {
+  static of(value) {
+    return new IO(() => value);
+  }
+
+  constructor(fn) {
+    this.value = fn;
+  }
+
+  map(fn) {
+    return new IO( pipe( this.value, fn ) );
+  }
+
+  runIO() {
+    return this.value();
+  }
+}
+
 const curry = (fn) => {
   const arity = fn.length; // 인수
   return function _curry(...args) {
@@ -86,6 +104,7 @@ const pipe = (...fns) => {
 module.exports = {
   Maybe,
   Either,
+  IO,
   curry,
   pipe,
   compose,
