@@ -39,8 +39,8 @@ console.log(lambda01)
 console.log(lambda01 + '')
 console.log(func01)
 console.log(func01 + '')
-console.log(lambda02().toString())
-console.log(func02().toString())
+console.log(lambda02().toString()) // 2
+console.log(func02().toString())   // 3
 fCall({ number: 2})
 fCall.call({ number: 2 })
 
