@@ -26,6 +26,10 @@ import Management from '../pages/Management';
 import Alarm from '../pages/Alarm';
 
 
+import Adb from '@material-ui/icons/Adb';
+import TestView from '../pages/TestView';
+
+
 const drawerWidth = 200;
 const history = createBrowserHistory();
 
@@ -163,6 +167,10 @@ export default function MiniDrawer() {
             <ListItemIcon><AlarmIcon/></ListItemIcon>
             <ListItemText primary={'Alarm'} />
           </ListItem>
+          <ListItem button component={Link} to="/test" key={'TestView'}>
+            <ListItemIcon><Adb/></ListItemIcon>
+            <ListItemText primary={'TestView'} />
+          </ListItem>
         </List>
         <Divider />
         <List>
@@ -177,6 +185,7 @@ export default function MiniDrawer() {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/management" component={Management} />
         <Route exact path="/alarm" component={Alarm} />
+        <Route exact path="/test" component={TestView} />
       </main>
       </Router>
     </div>
