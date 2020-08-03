@@ -5,7 +5,6 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import AddIcon from '@material-ui/icons/Add';
-import SaveIcon from '@material-ui/icons/Save';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MyModal() {
+export default function MyModal(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -53,9 +52,7 @@ export default function MyModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Button variant="contained" color="primary" startIcon={<SaveIcon />} onClick={handleClose}>
-              Save
-            </Button>
+            {React.cloneElement(props.children, { closeModal: handleClose })}
           </div>
         </Fade>
       </Modal>
