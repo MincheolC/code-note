@@ -21,29 +21,6 @@ import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
-/* Dummy Data
-function createData(name, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBrix, maxBrix) {
-  return { name, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBrix, maxBrix };
-}
-
-const rows = [
-  createData('Original', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
-  createData('Lemon', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
-  createData('Black Current', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
-];
-
-const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Series' },
-  { id: 'minPh', numeric: true, disablePadding: false, label: '최저 PH' },
-  { id: 'maxPh', numeric: true, disablePadding: false, label: '최고 PH' },
-  { id: 'minTemp', numeric: true, disablePadding: false, label: '최저 온도' },
-  { id: 'maxTemp', numeric: true, disablePadding: false, label: '최고 온도' },
-  { id: 'minDo', numeric: true, disablePadding: false, label: '최저 DO' },
-  { id: 'maxDo', numeric: true, disablePadding: false, label: '최고 DO' },
-  { id: 'minBrix', numeric: true, disablePadding: false, label: '최저 당도' },
-  { id: 'maxBrix', numeric: true, disablePadding: false, label: '최고 당도' },
-];
-*/
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

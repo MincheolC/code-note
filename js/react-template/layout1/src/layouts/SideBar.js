@@ -22,12 +22,12 @@ import TuneIcon from '@material-ui/icons/Tune';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import PersonIcon from '@material-ui/icons/Person';
 import Dashboard from '../pages/Dashboard';
-import Management from '../pages/Management';
+import Tables from '../pages/Tables';
 import Alarm from '../pages/Alarm';
 
 
 import Adb from '@material-ui/icons/Adb';
-import TestView from '../pages/TestView';
+import ModalWithChild from '../pages/ModalWithChild';
 
 
 const drawerWidth = 200;
@@ -159,17 +159,17 @@ export default function MiniDrawer() {
             <ListItemIcon><DashboardIcon/></ListItemIcon>
             <ListItemText primary={'Dashboard'} />
           </ListItem>
-          <ListItem button component={Link} to="/management" key={'Management'}>
+          <ListItem button component={Link} to="/tables" key={'Tables'}>
             <ListItemIcon><TuneIcon/></ListItemIcon>
-            <ListItemText primary={'Management'} />
+            <ListItemText primary={'Tables'} />
           </ListItem>
           <ListItem button component={Link} to="/alarm" key={'Alarm'}>
             <ListItemIcon><AlarmIcon/></ListItemIcon>
             <ListItemText primary={'Alarm'} />
           </ListItem>
-          <ListItem button component={Link} to="/test" key={'TestView'}>
+          <ListItem button component={Link} to="/modalWithChild" key={'ModalWithChild'}>
             <ListItemIcon><Adb/></ListItemIcon>
-            <ListItemText primary={'TestView'} />
+            <ListItemText primary={'Modal'} />
           </ListItem>
         </List>
         <Divider />
@@ -183,9 +183,9 @@ export default function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/management" component={Management} />
+        <Route exact path="/tables" component={Tables} />
         <Route exact path="/alarm" component={Alarm} />
-        <Route exact path="/test" component={TestView} />
+        <Route exact path="/modalWithChild" component={ModalWithChild} />
       </main>
       </Router>
     </div>
