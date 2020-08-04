@@ -6,11 +6,11 @@ import {
 import MaterialTable from 'material-table';
 
 export default function AdvancedTable(props) {
-  const { columns, data } = props;
+  const { columns, data, setData, title, pageSize } = props;
   const [state, setState] = React.useState({columns, data});
 
   const tableIcons = {
-    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+    Add: forwardRef((props, ref) => <AddBox {...props} color='primary' ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
     Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
     Delete: forwardRef((props, ref) => <Delete {...props} ref={ref} />),
@@ -32,8 +32,8 @@ export default function AdvancedTable(props) {
   return (
     <MaterialTable
       icons={tableIcons}
-      title="Editable Example"
-      columns={state.columns}
+      title={title || "Editable Example"}
+      columns={columns}
       data={state.data}
       localization={{
         header: {
@@ -45,6 +45,9 @@ export default function AdvancedTable(props) {
           }
         }
       }}
+      options={{
+        pageSize: pageSize || 5,
+      }}
       editable={{
         onRowAdd: (newData) =>
           new Promise((resolve) => {
@@ -53,6 +56,7 @@ export default function AdvancedTable(props) {
               setState((prevState) => {
                 const data = [...prevState.data];
                 data.push(newData);
+                setData(data)
                 return { ...prevState, data };
               });
             }, 600);
@@ -65,6 +69,7 @@ export default function AdvancedTable(props) {
                 setState((prevState) => {
                   const data = [...prevState.data];
                   data[data.indexOf(oldData)] = newData;
+                  setData(data)
                   return { ...prevState, data };
                 });
               }
@@ -77,6 +82,7 @@ export default function AdvancedTable(props) {
               setState((prevState) => {
                 const data = [...prevState.data];
                 data.splice(data.indexOf(oldData), 1);
+                setData(data)
                 return { ...prevState, data };
               });
             }, 600);

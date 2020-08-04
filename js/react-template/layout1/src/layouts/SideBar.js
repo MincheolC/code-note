@@ -21,14 +21,13 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import TuneIcon from '@material-ui/icons/Tune';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import PersonIcon from '@material-ui/icons/Person';
+import AdbIcon from '@material-ui/icons/Adb';
 import Dashboard from '../pages/Dashboard';
 import Tables from '../pages/Tables';
 import Alarm from '../pages/Alarm';
-
-
-import Adb from '@material-ui/icons/Adb';
 import ModalWithChild from '../pages/ModalWithChild';
 
+import Test from '../pages/Management';
 
 const drawerWidth = 200;
 const history = createBrowserHistory();
@@ -168,8 +167,12 @@ export default function MiniDrawer() {
             <ListItemText primary={'Alarm'} />
           </ListItem>
           <ListItem button component={Link} to="/modalWithChild" key={'ModalWithChild'}>
-            <ListItemIcon><Adb/></ListItemIcon>
+            <ListItemIcon><AdbIcon/></ListItemIcon>
             <ListItemText primary={'Modal'} />
+          </ListItem>
+          <ListItem button component={Link} to="/test" key={'Test'}>
+            <ListItemIcon><AdbIcon/></ListItemIcon>
+            <ListItemText primary={'Test'} />
           </ListItem>
         </List>
         <Divider />
@@ -186,6 +189,7 @@ export default function MiniDrawer() {
         <Route exact path="/tables" component={Tables} />
         <Route exact path="/alarm" component={Alarm} />
         <Route exact path="/modalWithChild" component={ModalWithChild} />
+        <Route exact path="/test" component={Test} />
       </main>
       </Router>
     </div>

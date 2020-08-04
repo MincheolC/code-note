@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AdvancedTable from '../../components/AdvancedTable';
 
 function createData(series, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBrix, maxBrix, other) {
@@ -7,7 +7,7 @@ function createData(series, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBri
 
 export default () => {
   const columns = [
-    { title: 'Series', field: 'series' },
+    { title: '품목명', field: 'series' },
     { title: '최저 PH', field: 'minPh', type: 'numeric' },
     { title: '최고 PH', field: 'maxPh', type: 'numeric' },
     { title: '최저 온도', field: 'minTemp', type: 'numeric' },
@@ -18,13 +18,10 @@ export default () => {
     { title: '최고 당도', field: 'maxBrix', type: 'numeric' },
     {},
   ];
-  const data = [
-    createData('Original', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
-    createData('Lemon', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
-    createData('Black Current', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79),
-  ];
+
+  const [data, setData] = useState([createData('Original', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79)]);
 
   return (
-    <AdvancedTable columns={columns} data={data}/>
+    <AdvancedTable columns={columns} data={data} setData={setData}/>
   )
 }
