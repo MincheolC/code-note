@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import AdvancedTable from '../../components/AdvancedTable';
+import { selectManagement, update } from './slice';
+
 
 function createData(series, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBrix, maxBrix, other) {
   return { series, minPh, maxPh, minTemp, maxTemp, minDo, maxDo, minBrix, maxBrix, other };
@@ -19,7 +23,15 @@ const columns = [
 ];
 
 export default () => {
-  const [data, setData] = useState([createData('Original', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79)]);
+  // const [data, setData] = useState([createData('Original', 2.5, 3.6, 35, 36.5, 13.33, 13.37, 77, 79)]);
+
+  const data = useSelector(selectManagement);
+  const dispatch = useDispatch();
+
+  const setData = data => {
+    console.log('setData ', data);
+    dispatch(update(data));
+  };
 
   return (
     <AdvancedTable columns={columns} data={data} setData={setData} title="최적 범위 관리 시스템" pageSize={10}/>

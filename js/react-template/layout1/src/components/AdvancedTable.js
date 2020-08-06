@@ -35,6 +35,7 @@ export default function AdvancedTable(props) {
       title={title || "Editable Example"}
       columns={columns}
       data={state.data}
+      // data={data}
       localization={{
         header: {
           actions: '수정 | 삭제'
@@ -59,6 +60,7 @@ export default function AdvancedTable(props) {
                 setData(data)
                 return { ...prevState, data };
               });
+              // setData(() => [...data, newData]);
             }, 600);
           }),
         onRowUpdate: (newData, oldData) =>
@@ -69,9 +71,16 @@ export default function AdvancedTable(props) {
                 setState((prevState) => {
                   const data = [...prevState.data];
                   data[data.indexOf(oldData)] = newData;
+                  console.log(prevState.data, newData);
+                  console.log('updated', data)
                   setData(data)
                   return { ...prevState, data };
                 });
+                // setData((() => {
+                //   const nData = [...data];
+                //   nData[nData.indexOf(oldData)] = newData;
+                //   return nData;
+                // })());
               }
             }, 600);
           }),
@@ -85,6 +94,11 @@ export default function AdvancedTable(props) {
                 setData(data)
                 return { ...prevState, data };
               });
+              // setData((() => {
+              //   const nData = [...data];
+              //   nData.splice(nData.indexOf(oldData), 1);
+              //   return nData;
+              // })());
             }, 600);
           }),
       }}
