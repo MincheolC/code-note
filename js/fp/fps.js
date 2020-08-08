@@ -101,6 +101,8 @@ const pipe = (...fns) => {
   }
 }
 
+const map = curry((fn, functor) => functor.map(fn));
+
 module.exports = {
   Maybe,
   Either,
@@ -108,4 +110,5 @@ module.exports = {
   curry,
   pipe,
   compose,
+  map,
 }
