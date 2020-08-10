@@ -1,5 +1,4 @@
-const { curry } = require('./curry');
-const { pipe } = require('./composition');
+const { curry, pipe } = require('./fps');
 
 const f = a => a + 1;
 const g = b => b * 2;
@@ -10,7 +9,7 @@ const newFunctor = functor.map(g).map(f);
 const newFunctor2 = functor.map(x => f(g(x)));
 
 // [3, 5, 7]  [3, 5, 7]
-console.log(newFunctor, newFunctor2);
+// console.log(newFunctor, newFunctor2);
 
 /**
  * Maybe를 활용한 undefine나 null 해결. 함수 컴포지션에서 에러 처리시에 아주 우아하게 처리할 수 있게 도와주는 함수자.

@@ -19,7 +19,7 @@ const logProp = curry((prop, value) => console.log(value[prop]));
 const printAxelBookTitle = pipe(
   getBookById(books),
   map(validateAuthorAxel),
-  map(map(logProp('title'))) // Functor타입이 리턴되면 두번 벗겨줘야하는 문제가 있음.
+  map(map(logProp('title'))) // 함수가 Functor타입을 리턴하면 두번 벗겨줘야하는 문제가 있음.
 )
 
 printAxelBookTitle('book1');
