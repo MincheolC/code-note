@@ -1,4 +1,5 @@
 import React from 'react';
+import UserPage from './components/organisms/UserPage';
 // import Game from './components/organisms/Game';
 // import Home from './components/Home';
 // import SetStateEx from './components/SetStateEx';
@@ -8,7 +9,8 @@ import React from 'react';
 // import BlogFloat from './components/layoutTest/BlogFloat';
 // import GridTest from './components/layoutTest/GridTest';
 // import InputFocusRef from './components/atoms/InputFocusRef';
-import UserList from './components/moleculars/UserList';
+// import UserList from './components/moleculars/UserList';
+
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
       {/* <BlogFloat /> */}
       {/* <GridTest /> */}
       {/* <InputFocusRef /> */}
-      <UserList />
+      {/* <UserList /> */}
+      <UserPage />
     </div>
   );
 }
