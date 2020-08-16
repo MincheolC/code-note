@@ -1,6 +1,4 @@
 import React from 'react';
-import UseRefVsVariable from './components/atoms/UseRefVsVariable'
-// import UserPage from './components/organisms/UserPage';
 // import Game from './components/organisms/Game';
 // import Home from './components/Home';
 // import SetStateEx from './components/SetStateEx';
@@ -11,6 +9,8 @@ import UseRefVsVariable from './components/atoms/UseRefVsVariable'
 // import GridTest from './components/layoutTest/GridTest';
 // import InputFocusRef from './components/atoms/InputFocusRef';
 // import UserList from './components/moleculars/UserList';
+// import UseRefVsVariable from './components/atoms/UseRefVsVariable'
+import UserPage from './components/organisms/UserPage';
 
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
       {/* <GridTest /> */}
       {/* <InputFocusRef /> */}
       {/* <UserList /> */}
-      {/* <UserPage /> */}
-      <UseRefVsVariable />
+      {/* <UseRefVsVariable /> */}
+      <UserPage />
     </div>
   );
 }
