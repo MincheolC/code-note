@@ -1,5 +1,6 @@
 import React from 'react';
-import UserPage from './components/organisms/UserPage';
+import UseRefVsVariable from './components/atoms/UseRefVsVariable'
+// import UserPage from './components/organisms/UserPage';
 // import Game from './components/organisms/Game';
 // import Home from './components/Home';
 // import SetStateEx from './components/SetStateEx';
@@ -25,7 +26,8 @@ function App() {
       {/* <GridTest /> */}
       {/* <InputFocusRef /> */}
       {/* <UserList /> */}
-      <UserPage />
+      {/* <UserPage /> */}
+      <UseRefVsVariable />
     </div>
   );
 }
