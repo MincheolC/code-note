@@ -1,8 +1,14 @@
 import React from 'react';
 
-const User = ({ user, onRemove }) => (
+const User = ({ user, onRemove, onToggle }) => (
   <div>
-    <b>{user.username}</b>
+    <b
+      style={{
+        cursor: 'pointer',
+        color: user.active ? 'green' : 'black'
+      }}
+      onClick={() => onToggle(user.id)}
+    >{user.username}</b>
     <span>({user.email})</span>
     <button onClick={() => onRemove(user.id)}>삭제</button>
   </div>
