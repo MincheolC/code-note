@@ -1,4 +1,4 @@
-import React, {useState, useRef, useMemo} from 'react';
+import React, {useState, useRef, useMemo, useCallback} from 'react';
 import UserList from '../../moleculars/UserList';
 import CreateUser from '../../atoms/CreateUser';
 
@@ -34,35 +34,47 @@ function UserPage() {
     }
   ]);
 
-  const onChange = e => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value
-    });
-  };
-  const onCreate = () => {
-    const user = {
-      id: nextId.current,
-      username,
-      email,
-      active: false,
-    }
-    setUsers([...users, user]);  // = [users.concat(user)]
-    setInputs({
-      username: '',
-      email: ''
-    });
-    nextId.current += 1;
-  }
-  const onRemove = id => {
-    setUsers(users.filter(user => user.id !== id));
-  }
+  const onChange = useCallback(
+    e => {
+      const { name, value } = e.target;
+      setInputs({
+        ...inputs,
+        [name]: value
+      });
+    },
+    [inputs]
+  );
+  const onCreate = useCallback(
+    () => {
+      const user = {
+        id: nextId.current,
+        username,
+        email,
+        active: false,
+      }
+      setUsers([...users, user]);  // = [users.concat(user)]
+      setInputs({
+        username: '',
+        email: ''
+      });
+      nextId.current += 1;
+    },
+    [users, username, email]
+  );
+  const onRemove = useCallback(
+    id => {
+      setUsers(users.filter(user => user.id !== id));
+    },
+    [users]
+  )
 
-  const onToggle = id => {
-    // setUsers(users.map(user => (user.id === id) ? {...user, active: true} : {...user, active: false}))
-    setUsers(users.map(user => (user.id === id) ? {...user, active: !user.active} : user))
-  }
+  const onToggle = useCallback(
+    id => {
+      // setUsers(users.map(user => (user.id === id) ? {...user, active: true} : {...user, active: false}))
+      setUsers(users.map(user => (user.id === id) ? {...user, active: !user.active} : user))
+    },
+    [users]
+  );
 
   const nextId = useRef(4);
   const count = useMemo(() => countActiveUsers(users), [users]);
@@ -76,4 +88,4 @@ function UserPage() {
   )
 }
 
-export default UserPage
+export default React.memo(UserPage)

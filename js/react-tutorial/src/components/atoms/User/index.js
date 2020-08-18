@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 
 const User = ({ user, onRemove, onToggle }) => {
-
   useEffect(() => {
     console.log(user);
     return () => {
@@ -24,4 +23,4 @@ const User = ({ user, onRemove, onToggle }) => {
   )
 };
 
-export default User;
+export default React.memo(User);
