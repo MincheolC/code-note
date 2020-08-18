@@ -1,4 +1,4 @@
-import React, {useState, useRef, useMemo, useCallback} from 'react';
+import React, {useReducer, useState, useRef, useMemo, useCallback} from 'react';
 import UserList from '../../moleculars/UserList';
 import CreateUser from '../../atoms/CreateUser';
 
@@ -7,13 +7,12 @@ function countActiveUsers(users) {
   return users.filter(user => user.active).length;
 }
 
-function UserPage() {
-  const [inputs, setInputs] = useState({
+const initialState = {
+  inputs: {
     username: '',
     email: '',
-  });
-  const {username, email} = inputs;
-  const [users, setUsers] = useState([
+  },
+  users: [
     {
       id: 1,
       username: 'mincheol',
@@ -31,49 +30,93 @@ function UserPage() {
       username: 'liz',
       email: 'liz@example.com',
       active: false
-    }
-  ]);
+    },
+  ]
+}
+
+function reducer(state, action) {
+  switch(action.type) {
+    case 'CHANGE_INPUT':
+      return {
+        ...state,
+        inputs: {
+          ...state.inputs,
+          [action.name]: action.value
+        }
+      };
+    case 'CREATE_USER':
+      return {
+        inpusts: initialState.inputs,
+        users: state.users.concat(action.user),
+      }
+    case 'REMOVE_USER':
+      return {
+        ...state,
+        users: state.users.filter(user => user.id !== action.id)
+      }
+    case 'TOGGLE_USER':
+      return {
+        ...state,
+        users: state.users.map(user =>
+          user.id === action.id ? {...user, active: !user.active} : user
+        )
+      }
+    default:
+      return state;
+  }
+}
+
+function UserPage() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { users } = state;
+  const { username, email } = state.inputs;
 
   const onChange = useCallback(
     e => {
       const { name, value } = e.target;
-      setInputs({
-        ...inputs,
-        [name]: value
-      });
+      dispatch({
+        type: 'CHANGE_INPUT',
+        name,
+        value,
+      })
     },
-    [inputs]
+    []
   );
+
   const onCreate = useCallback(
     () => {
-      const user = {
-        id: nextId.current,
-        username,
-        email,
-        active: false,
-      }
-      setUsers([...users, user]);  // = [users.concat(user)]
-      setInputs({
-        username: '',
-        email: ''
-      });
+      dispatch({
+        type: 'CREATE_USER',
+        user: {
+          id: nextId.current,
+          username,
+          email,
+          active: false,
+        }
+      })
       nextId.current += 1;
     },
-    [users, username, email]
+    [username, email]
   );
+
   const onRemove = useCallback(
     id => {
-      setUsers(users.filter(user => user.id !== id));
+      dispatch({
+        type: 'REMOVE_USER',
+        id,
+      })
     },
-    [users]
+    []
   )
 
   const onToggle = useCallback(
     id => {
-      // setUsers(users.map(user => (user.id === id) ? {...user, active: true} : {...user, active: false}))
-      setUsers(users.map(user => (user.id === id) ? {...user, active: !user.active} : user))
+      dispatch({
+        type: 'TOGGLE_USER',
+        id,
+      })
     },
-    [users]
+    []
   );
 
   const nextId = useRef(4);

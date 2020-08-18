@@ -11,6 +11,7 @@ import React from 'react';
 // import UserList from './components/moleculars/UserList';
 // import UseRefVsVariable from './components/atoms/UseRefVsVariable'
 import UserPage from './components/organisms/UserPage';
+// import Counter from './components/atoms/Counter';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       {/* <UserList /> */}
       {/* <UseRefVsVariable /> */}
       <UserPage />
+      {/* <Counter /> */}
     </div>
   );
 }
