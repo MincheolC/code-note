@@ -10,7 +10,8 @@ import React from 'react';
 // import InputFocusRef from './components/atoms/InputFocusRef';
 // import UserList from './components/moleculars/UserList';
 // import UseRefVsVariable from './components/atoms/UseRefVsVariable'
-import UserPage from './components/organisms/UserPage';
+// import UserPage from './components/organisms/UserPage';
+import ErrorTest from './components/organisms/ErrorTest';
 // import Counter from './components/atoms/Counter';
 
 
@@ -28,8 +29,9 @@ function App() {
       {/* <InputFocusRef /> */}
       {/* <UserList /> */}
       {/* <UseRefVsVariable /> */}
-      <UserPage />
+      {/* <UserPage /> */}
       {/* <Counter /> */}
+      <ErrorTest />
     </div>
   );
 }
