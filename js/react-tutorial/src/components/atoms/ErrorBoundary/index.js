@@ -10,10 +10,10 @@ export default class ErrorBoundary extends Component {
     console.log('에러가 발생했습니다.');
     console.log({
       error,
-      info
+      info,
     });
     this.setState({
-      error: true
+      error: true,
     });
 
     // 프로덕션 환경에서는 Didcatch로 잡으면 센트리로 보내지 않음.
