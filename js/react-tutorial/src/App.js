@@ -13,7 +13,8 @@ import React from 'react';
 // import UserPage from './components/organisms/UserPage';
 // import ErrorTest from './components/organisms/ErrorTest';
 // import Counter from './components/atoms/Counter';
-import Todo from './components/organisms/Todo';
+// import Todo from './components/organisms/Todo';
+import UsersAPI from './components/atoms/UsersAPI';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
       {/* <UserPage /> */}
       {/* <Counter /> */}
       {/* <ErrorTest /> */}
-      <Todo />
+      {/* <Todo /> */}
+      <UsersAPI />
     </div>
   );
 }
