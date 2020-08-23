@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import useAsync from '../../hooks/useAsync';
+// import useAsync from '../../hooks/useAsync';
+import { useAsync } from 'react-async';
 
 async function getUsers() {
   const response = await axios.get(
@@ -9,7 +10,7 @@ async function getUsers() {
   return response.data;
 }
 
-async function getUser(id) {
+async function getUser({ id }) {
   const response = await axios.get(
     `https://jsonplaceholder.typicode.com/users/${id}`,
   );
@@ -17,8 +18,12 @@ async function getUser(id) {
 }
 
 function User({ id }) {
-  const [state] = useAsync(() => getUser(id), [id]);
-  const { isLoading, error, data: user } = state;
+  const { data: user, error, isLoading } = useAsync({
+    promiseFn: getUser,
+    id,
+    watch: id,
+  });
+
   if (isLoading) return <div>로딩 중...</div>;
   if (error) return <div>에러 발생</div>;
   if (!user) return null;
@@ -34,10 +39,11 @@ function User({ id }) {
 }
 
 function UsersAPI() {
-  const [state, refetch] = useAsync(getUsers, [], true);
+  const { data: users, error, isLoading, run } = useAsync({
+    deferFn: getUsers,
+  });
   const [userId, setUserId] = useState(null);
 
-  const { isLoading, error, data: users } = state;
   if (isLoading) return <div>로딩 중...</div>;
   if (error) return <div>에러 발생</div>;
 
@@ -55,7 +61,7 @@ function UsersAPI() {
             </li>
           ))}
       </ul>
-      <button onClick={refetch}>다시 불러오기</button>
+      <button onClick={run}>다시 불러오기</button>
       {userId && <User id={userId} />}
     </>
   );
