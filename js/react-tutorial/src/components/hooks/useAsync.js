@@ -31,7 +31,7 @@ const initialState = {
   error: null,
 };
 
-function useAsync(callback, deps = []) {
+function useAsync(callback, deps = [], skip = false) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const fetchData = async () => {
     dispatch({ type: 'LOADING' });
@@ -44,7 +44,7 @@ function useAsync(callback, deps = []) {
   };
 
   useEffect(() => {
-    fetchData();
+    if (!skip) fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
