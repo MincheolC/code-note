@@ -1,40 +1,29 @@
-import React from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Link } from "react-router-dom";
+import About from "./components/About";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/dashboard'>Dashboard</Link>
-          </li>
-        </ul>
-
-        <hr />
-
-        <Switch>
-          <Route exact path='/'><Home /></Route>
-          <Route exact path='/dashboard'><Dashboard /></Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <div>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/profile/mincheol">Me</Link>
+        </li>
+      </ul>
+      <hr />
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/profile/:username" component={Profile} />
+    </div>
   );
-}
-
-function Home() {
-  return (
-    <h2>Home</h2>
-  )
-}
-
-function Dashboard() {
-  return (
-    <h2>Dashboard</h2>
-  )
 }
 
 export default App;
