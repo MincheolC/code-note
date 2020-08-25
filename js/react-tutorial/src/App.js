@@ -15,6 +15,7 @@ import React from 'react';
 // import Counter from './components/atoms/Counter';
 // import Todo from './components/organisms/Todo';
 import UsersAPI from './components/atoms/UsersAPI';
+import { UsersProvider } from './components/contexts/UserAPIContext';
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
       {/* <Counter /> */}
       {/* <ErrorTest /> */}
       {/* <Todo /> */}
-      <UsersAPI />
+      <UsersProvider>
+        <UsersAPI />
+      </UsersProvider>
     </div>
   );
 }
