@@ -12,24 +12,37 @@ import logger from "redux-logger";
 import ReduxThunk from "redux-thunk";
 import createSagaMiddleware from "redux-saga";
 
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
-const sagaMiddleware = createSagaMiddleware();
+const customHistory = createBrowserHistory();
+const sagaMiddleware = createSagaMiddleware({
+  context: {
+    history: customHistory,
+  },
+});
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(ReduxThunk, sagaMiddleware, logger))
+  composeWithDevTools(
+    applyMiddleware(
+      // ReduxThunk.withExtraArgument({ history: customHistory }),
+      ReduxThunk,
+      sagaMiddleware,
+      logger
+    )
+  )
 );
 
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router history={customHistory}>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
