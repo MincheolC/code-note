@@ -11,6 +11,8 @@ import rootReducer from "./redux/modules";
 import logger from "redux-logger";
 import ReduxThunk from "redux-thunk";
 
+import { BrowserRouter } from "react-router-dom";
+
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(ReduxThunk, logger))
@@ -18,9 +20,11 @@ const store = createStore(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
