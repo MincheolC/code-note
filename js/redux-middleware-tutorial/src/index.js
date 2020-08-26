@@ -7,16 +7,21 @@ import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import rootReducer from "./redux/modules";
+import rootReducer, { rootSaga } from "./redux/modules";
 import logger from "redux-logger";
 import ReduxThunk from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
 
 import { BrowserRouter } from "react-router-dom";
 
+const sagaMiddleware = createSagaMiddleware();
+
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(ReduxThunk, logger))
+  composeWithDevTools(applyMiddleware(ReduxThunk, sagaMiddleware, logger))
 );
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
