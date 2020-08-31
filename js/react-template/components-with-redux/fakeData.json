@@ -88,5 +88,35 @@
       "carbs": 67,
       "protein": 32
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Mincheol",
+      "age": 31,
+      "phone": "01066470203",
+      "email": "mccha0407@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Tom",
+      "age": 29,
+      "phone": "0101231234",
+      "email": "tom@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Ann",
+      "age": 18,
+      "phone": "0103214321",
+      "email": "ann@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Jack",
+      "age": 32,
+      "phone": "0101021004",
+      "email": "jack@gmail.com"
+    }
   ]
 }
