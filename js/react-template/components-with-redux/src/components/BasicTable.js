@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
-function EditableTable(props) {
+function BasicTable(props) {
   const { rows, columns } = props;
 
   return (
@@ -38,4 +38,4 @@ function EditableTable(props) {
   );
 }
 
-export default EditableTable;
+export default BasicTable;
