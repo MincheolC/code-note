@@ -1,28 +1,92 @@
 {
-  "teas": [
+  "foods": [
     {
       "id": 1,
-      "name": "original",
-      "tempHighOp": 30,
-      "tempLowOp": 29.5,
-      "phHighOp": 3.5,
-      "phLowOp": 3,
-      "doHighOp": 80,
-      "doLowOp": 78,
-      "brixHighOp": 2,
-      "brixLowOp": 1
+      "name": "Cupcake",
+      "calories": 305,
+      "fat": 3.7,
+      "carbs": 67,
+      "protein": 3
     },
     {
       "id": 2,
-      "name": "lemon",
-      "tempHighOp": 25,
-      "tempLowOp": 19.5,
-      "phHighOp": 4.5,
-      "phLowOp": 2,
-      "doHighOp": 90,
-      "doLowOp": 77,
-      "brixHighOp": 0,
-      "brixLowOp": 0
+      "name": "Donut",
+      "calories": 205,
+      "fat": 4.7,
+      "carbs": 27,
+      "protein": 4
+    },
+    {
+      "id": 3,
+      "name": "Eclair",
+      "calories": 405,
+      "fat": 5.7,
+      "carbs": 47,
+      "protein": 23
+    },
+    {
+      "id": 4,
+      "name": "Frozen yoghurt",
+      "calories": 505,
+      "fat": 3.7,
+      "carbs": 37,
+      "protein": 13
+    },
+    {
+      "id": 5,
+      "name": "Gingerbread",
+      "calories": 605,
+      "fat": 5.7,
+      "carbs": 67,
+      "protein": 32
+    },
+    {
+      "id": 6,
+      "name": "Honeycomb",
+      "calories": 305,
+      "fat": 3.7,
+      "carbs": 67,
+      "protein": 3
+    },
+    {
+      "id": 7,
+      "name": "Ice cream sandwich",
+      "calories": 205,
+      "fat": 4.7,
+      "carbs": 27,
+      "protein": 4
+    },
+    {
+      "id": 8,
+      "name": "Jelly Bean",
+      "calories": 405,
+      "fat": 5.7,
+      "carbs": 47,
+      "protein": 23
+    },
+    {
+      "id": 9,
+      "name": "KitKat",
+      "calories": 505,
+      "fat": 3.7,
+      "carbs": 37,
+      "protein": 13
+    },
+    {
+      "id": 10,
+      "name": "Lollipop",
+      "calories": 605,
+      "fat": 5.7,
+      "carbs": 67,
+      "protein": 32
+    },
+    {
+      "id": 11,
+      "name": "Marshmallow",
+      "calories": 605,
+      "fat": 5.7,
+      "carbs": 67,
+      "protein": 32
     }
   ]
 }

@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import EditableTableContainer from "../containers/EditableTableContainer";
+import BasicTableContainer from "../containers/BasicTableContainer";
 
 function Navigation() {
   return (
     <Router>
       <ul>
         <li>
-          <Link to="/editabletable">Editable Table</Link>
+          <Link to="/basictable">Basic Table</Link>
         </li>
       </ul>
       <Switch>
-        <Route path="/editabletable" component={EditableTableContainer}></Route>
+        <Route path="/basictable" component={BasicTableContainer}></Route>
       </Switch>
     </Router>
   );
