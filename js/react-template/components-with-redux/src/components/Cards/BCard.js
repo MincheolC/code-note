@@ -9,7 +9,7 @@ import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import FlightTakeoffIcon from "@material-ui/icons/FlightTakeoff";
 import RoomIcon from "@material-ui/icons/Room";
 
-import { INDIGO, GRAY } from "../libs/styleUtils";
+import { INDIGO, GRAY } from "../../libs/styleUtils";
 
 const useStyles = makeStyles((theme) => ({
   root: {

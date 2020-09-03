@@ -1,8 +1,9 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import BCard from "../components/BCard";
-import CCard from "../components/CCard";
+import BCard from "../components/Cards/BCard";
+import CCard from "../components/Cards/CCard";
+import DCard from "../components/Cards/DCard";
 import { hexToRgb, INDIGO } from "../libs/styleUtils";
 
 function CardsContainer() {
@@ -21,8 +22,11 @@ function CardsContainer() {
         <Grid item xs={4}>
           <CCard />
         </Grid>
+        <Grid item xs={8}>
+          <DCard isToday={true} />
+        </Grid>
         <Grid item xs={6}>
-          <Paper style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}>3</Paper>
+          <DCard />
         </Grid>
         <Grid item xs={6}>
           <Paper style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>4</Paper>

@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 
-import { INDIGO, GRAY, WHITE } from "../libs/styleUtils";
+import { INDIGO, GRAY, WHITE } from "../../libs/styleUtils";
 
 const useStyles = makeStyles((theme) => ({
   root: {

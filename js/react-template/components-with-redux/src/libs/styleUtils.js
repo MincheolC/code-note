@@ -37,7 +37,6 @@ export const INDIGO = [
   "#3b5bdb",
   "#364fc7",
 ];
-
 export const GRAY = [
   "#f8f9fa",
   "#f1f3f5",
@@ -49,6 +48,18 @@ export const GRAY = [
   "#495057",
   "#343a40",
   "#212529",
+];
+export const RED = [
+  "#fff5f5",
+  "#ffe3e3",
+  "#ffc9c9",
+  "#ffa8a8",
+  "#ff8787",
+  "#ff6b6b",
+  "#fa5252",
+  "#f03e3e",
+  "#e03131",
+  "#c92a2a",
 ];
 
 export const WHITE = "#fff";
