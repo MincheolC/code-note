@@ -6,15 +6,17 @@ import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import WarningIcon from "@material-ui/icons/Warning";
 
-import { GRAY, WHITE, RED } from "../../libs/styleUtils";
+import { INDIGO, GRAY, WHITE } from "../../libs/styleUtils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(1),
     position: "relative",
+    background: `linear-gradient(90deg, ${INDIGO[8]} 1%, ${WHITE} 1%)`,
   },
   title: {
-    color: RED[7],
+    textAlign: "center",
+    color: INDIGO[8],
     fontWeight: "Bold",
     fontSize: 16,
   },
@@ -29,9 +31,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
   },
   warn: {
+    margin: "auto",
     width: 30,
     height: 30,
-    color: RED[7],
+    color: INDIGO[8],
     backgroundColor: WHITE,
   },
   timer: {
@@ -42,22 +45,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function DCard({ isToday }) {
+function ECard({ isToday }) {
   const classes = useStyles();
   return (
-    <Paper className={classes.root} elevation={2}>
+    <Paper className={classes.root} elevation={3}>
       <Grid container alignItems="center">
-        <Grid item xs>
+        <Grid item xs={1}>
           <Avatar className={classes.warn}>
             <WarningIcon />
           </Avatar>
         </Grid>
         <Grid item xs>
-          <Typography className={classes.title}>PH 초과</Typography>
+          <Typography className={classes.title}>PH 미달</Typography>
         </Grid>
         <Grid item xs={7}>
           <Typography className={classes.content}>
-            측정값: <b>3.5</b> (0.1 초과)
+            측정값: <b>2.1</b> ( <span style={{ color: INDIGO[8] }}>-0.4</span>{" "}
+            )
           </Typography>
           <Typography className={classes.content}>
             최적 범위: 2.5 ~ 3.4
@@ -75,4 +79,4 @@ function DCard({ isToday }) {
   );
 }
 
-export default DCard;
+export default ECard;
