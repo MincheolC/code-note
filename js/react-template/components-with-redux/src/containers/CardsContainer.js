@@ -7,7 +7,9 @@ import DCard from "../components/Cards/DCard";
 import ECard from "../components/Cards/ECard";
 import FCard from "../components/Cards/FCard";
 import GCard from "../components/Cards/GCard";
-import { hexToRgb, INDIGO } from "../libs/styleUtils";
+import HCard from "../components/Cards/HCard";
+import ICard from "../components/Cards/ICard";
+import { hexToRgb, INDIGO } from "../assets/jss";
 
 function CardsContainer() {
   return (
@@ -36,6 +38,12 @@ function CardsContainer() {
         </Grid>
         <Grid item xs={6}>
           <GCard />
+        </Grid>
+        <Grid item xs={6}>
+          <HCard />
+        </Grid>
+        <Grid item xs={3}>
+          <ICard />
         </Grid>
       </Grid>
     </Paper>
