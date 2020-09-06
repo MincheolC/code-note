@@ -196,803 +196,963 @@
   "tankDatas": [
     {
       "name": "tank1",
-      "temp": 30.1,
-      "ph": 2.89,
-      "dox": 75,
-      "brix": 36,
-      "createdAt": 1599372000
-    },
-    {
-      "name": "tank1",
-      "temp": 30.9,
-      "ph": 3.03,
-      "dox": 71,
-      "brix": 47,
-      "createdAt": 1599372036
-    },
-    {
-      "name": "tank1",
-      "temp": 29.8,
-      "ph": 3.03,
-      "dox": 72,
-      "brix": 38,
-      "createdAt": 1599372072
-    },
-    {
-      "name": "tank1",
-      "temp": 31,
-      "ph": 2.79,
-      "dox": 74,
-      "brix": 36,
-      "createdAt": 1599372108
-    },
-    {
-      "name": "tank1",
-      "temp": 30.4,
-      "ph": 2.92,
-      "dox": 74,
-      "brix": 54,
-      "createdAt": 1599372144
-    },
-    {
-      "name": "tank1",
-      "temp": 31.2,
-      "ph": 3.1,
-      "dox": 72,
-      "brix": 35,
-      "createdAt": 1599372180
-    },
-    {
-      "name": "tank1",
-      "temp": 30.8,
-      "ph": 2.82,
-      "dox": 70,
-      "brix": 54,
-      "createdAt": 1599372216
-    },
-    {
-      "name": "tank1",
-      "temp": 29.6,
-      "ph": 2.82,
-      "dox": 71,
-      "brix": 51,
-      "createdAt": 1599372252
-    },
-    {
-      "name": "tank1",
-      "temp": 30.2,
-      "ph": 2.99,
-      "dox": 70,
-      "brix": 43,
-      "createdAt": 1599372288
-    },
-    {
-      "name": "tank1",
-      "temp": 30.3,
-      "ph": 2.87,
-      "dox": 75,
-      "brix": 52,
-      "createdAt": 1599372324
-    },
-    {
-      "name": "tank1",
-      "temp": 30,
-      "ph": 2.72,
-      "dox": 72,
-      "brix": 42,
-      "createdAt": 1599372360
-    },
-    {
-      "name": "tank1",
-      "temp": 29.7,
-      "ph": 2.56,
-      "dox": 75,
-      "brix": 48,
-      "createdAt": 1599372396
-    },
-    {
-      "name": "tank1",
-      "temp": 31.4,
-      "ph": 2.92,
-      "dox": 70,
-      "brix": 44,
-      "createdAt": 1599372432
-    },
-    {
-      "name": "tank1",
-      "temp": 31.4,
-      "ph": 2.55,
-      "dox": 70,
-      "brix": 44,
-      "createdAt": 1599372468
-    },
-    {
-      "name": "tank1",
-      "temp": 29.9,
-      "ph": 2.73,
-      "dox": 71,
-      "brix": 46,
-      "createdAt": 1599372504
-    },
-    {
-      "name": "tank1",
-      "temp": 29.9,
-      "ph": 2.97,
-      "dox": 72,
-      "brix": 54,
-      "createdAt": 1599372540
-    },
-    {
-      "name": "tank1",
-      "temp": 29,
-      "ph": 2.66,
-      "dox": 73,
-      "brix": 48,
-      "createdAt": 1599372576
-    },
-    {
-      "name": "tank1",
-      "temp": 29.9,
-      "ph": 2.67,
-      "dox": 73,
-      "brix": 49,
-      "createdAt": 1599372612
-    },
-    {
-      "name": "tank1",
-      "temp": 29.3,
-      "ph": 2.71,
-      "dox": 71,
-      "brix": 48,
-      "createdAt": 1599372648
-    },
-    {
-      "name": "tank1",
-      "temp": 29.3,
-      "ph": 3.03,
-      "dox": 74,
-      "brix": 38,
-      "createdAt": 1599372684
-    },
-    {
-      "name": "tank1",
-      "temp": 30.4,
-      "ph": 2.85,
-      "dox": 71,
-      "brix": 53,
-      "createdAt": 1599372720
-    },
-    {
-      "name": "tank1",
-      "temp": 30,
-      "ph": 3.01,
-      "dox": 75,
-      "brix": 39,
-      "createdAt": 1599372756
-    },
-    {
-      "name": "tank1",
-      "temp": 30.9,
-      "ph": 2.83,
-      "dox": 70,
-      "brix": 40,
-      "createdAt": 1599372792
-    },
-    {
-      "name": "tank1",
-      "temp": 29.1,
-      "ph": 3,
-      "dox": 70,
-      "brix": 53,
-      "createdAt": 1599372828
-    },
-    {
-      "name": "tank1",
-      "temp": 29.3,
-      "ph": 2.68,
-      "dox": 72,
-      "brix": 46,
-      "createdAt": 1599372864
-    },
-    {
-      "name": "tank1",
-      "temp": 31.1,
-      "ph": 3.05,
-      "dox": 73,
-      "brix": 54,
-      "createdAt": 1599372900
-    },
-    {
-      "name": "tank1",
-      "temp": 31.3,
-      "ph": 2.9,
-      "dox": 71,
-      "brix": 36,
-      "createdAt": 1599372936
-    },
-    {
-      "name": "tank1",
-      "temp": 31,
-      "ph": 3.06,
-      "dox": 70,
-      "brix": 47,
-      "createdAt": 1599372972
-    },
-    {
-      "name": "tank1",
-      "temp": 30.6,
-      "ph": 3.09,
-      "dox": 70,
-      "brix": 35,
-      "createdAt": 1599373008
-    },
-    {
-      "name": "tank1",
-      "temp": 29.7,
-      "ph": 3.06,
-      "dox": 73,
-      "brix": 37,
-      "createdAt": 1599373044
-    },
-    {
-      "name": "tank1",
-      "temp": 29.8,
-      "ph": 3.08,
-      "dox": 73,
-      "brix": 44,
-      "createdAt": 1599373080
-    },
-    {
-      "name": "tank1",
-      "temp": 29.8,
-      "ph": 3.1,
-      "dox": 75,
-      "brix": 48,
-      "createdAt": 1599373116
-    },
-    {
-      "name": "tank1",
-      "temp": 29.6,
-      "ph": 2.65,
-      "dox": 75,
-      "brix": 46,
-      "createdAt": 1599373152
-    },
-    {
-      "name": "tank1",
-      "temp": 29.7,
-      "ph": 3.02,
-      "dox": 74,
-      "brix": 38,
-      "createdAt": 1599373188
-    },
-    {
-      "name": "tank1",
-      "temp": 29.2,
-      "ph": 2.76,
-      "dox": 73,
-      "brix": 51,
-      "createdAt": 1599373224
-    },
-    {
-      "name": "tank1",
-      "temp": 29.2,
-      "ph": 2.75,
-      "dox": 70,
-      "brix": 40,
-      "createdAt": 1599373260
-    },
-    {
-      "name": "tank1",
-      "temp": 29.8,
-      "ph": 3.09,
-      "dox": 73,
-      "brix": 48,
-      "createdAt": 1599373296
-    },
-    {
-      "name": "tank1",
-      "temp": 30.1,
-      "ph": 2.54,
-      "dox": 74,
-      "brix": 35,
-      "createdAt": 1599373332
-    },
-    {
-      "name": "tank1",
-      "temp": 29.5,
-      "ph": 2.93,
-      "dox": 74,
-      "brix": 48,
-      "createdAt": 1599373368
-    },
-    {
-      "name": "tank1",
-      "temp": 29.4,
-      "ph": 2.8,
-      "dox": 75,
-      "brix": 50,
-      "createdAt": 1599373404
-    },
-    {
-      "name": "tank1",
-      "temp": 29.2,
-      "ph": 3.09,
-      "dox": 70,
-      "brix": 51,
-      "createdAt": 1599373440
-    },
-    {
-      "name": "tank1",
-      "temp": 29.7,
-      "ph": 3.12,
-      "dox": 74,
-      "brix": 44,
-      "createdAt": 1599373476
-    },
-    {
-      "name": "tank1",
-      "temp": 30.8,
-      "ph": 2.61,
-      "dox": 71,
-      "brix": 49,
-      "createdAt": 1599373512
-    },
-    {
-      "name": "tank1",
-      "temp": 29.8,
-      "ph": 2.76,
-      "dox": 70,
-      "brix": 35,
-      "createdAt": 1599373548
-    },
-    {
-      "name": "tank1",
-      "temp": 29.4,
-      "ph": 3.14,
-      "dox": 71,
-      "brix": 36,
-      "createdAt": 1599373584
-    },
-    {
-      "name": "tank1",
-      "temp": 31.4,
-      "ph": 2.89,
-      "dox": 70,
-      "brix": 50,
-      "createdAt": 1599373620
-    },
-    {
-      "name": "tank1",
-      "temp": 29.8,
-      "ph": 2.9,
-      "dox": 74,
-      "brix": 44,
-      "createdAt": 1599373656
-    },
-    {
-      "name": "tank1",
-      "temp": 30.4,
-      "ph": 2.86,
-      "dox": 75,
-      "brix": 35,
-      "createdAt": 1599373692
-    },
-    {
-      "name": "tank1",
-      "temp": 30.4,
-      "ph": 2.53,
-      "dox": 72,
-      "brix": 37,
-      "createdAt": 1599373728
-    },
-    {
-      "name": "tank1",
-      "temp": 29.6,
-      "ph": 2.96,
-      "dox": 71,
-      "brix": 44,
-      "createdAt": 1599373764
-    },
-    {
-      "name": "tank1",
-      "temp": 29,
-      "ph": 3.05,
-      "dox": 73,
-      "brix": 55,
-      "createdAt": 1599373800
-    },
-    {
-      "name": "tank1",
-      "temp": 30.6,
-      "ph": 2.83,
-      "dox": 74,
-      "brix": 46,
-      "createdAt": 1599373836
-    },
-    {
-      "name": "tank1",
-      "temp": 30.9,
-      "ph": 3.07,
-      "dox": 71,
-      "brix": 45,
-      "createdAt": 1599373872
-    },
-    {
-      "name": "tank1",
-      "temp": 30.6,
-      "ph": 2.67,
-      "dox": 72,
-      "brix": 35,
-      "createdAt": 1599373908
-    },
-    {
-      "name": "tank1",
-      "temp": 29,
-      "ph": 2.99,
-      "dox": 72,
-      "brix": 51,
-      "createdAt": 1599373944
-    },
-    {
-      "name": "tank1",
-      "temp": 29.6,
-      "ph": 2.56,
-      "dox": 75,
-      "brix": 45,
-      "createdAt": 1599373980
-    },
-    {
-      "name": "tank1",
-      "temp": 29.1,
-      "ph": 2.75,
-      "dox": 75,
-      "brix": 41,
-      "createdAt": 1599374016
-    },
-    {
-      "name": "tank1",
-      "temp": 30.4,
-      "ph": 3.07,
-      "dox": 72,
-      "brix": 45,
-      "createdAt": 1599374052
-    },
-    {
-      "name": "tank1",
-      "temp": 31.2,
-      "ph": 2.55,
-      "dox": 70,
-      "brix": 41,
-      "createdAt": 1599374088
-    },
-    {
-      "name": "tank1",
-      "temp": 31.1,
-      "ph": 2.82,
-      "dox": 73,
-      "brix": 53,
-      "createdAt": 1599374124
-    },
-    {
-      "name": "tank1",
-      "temp": 29.6,
-      "ph": 2.86,
-      "dox": 70,
-      "brix": 41,
-      "createdAt": 1599374160
-    },
-    {
-      "name": "tank1",
-      "temp": 29.4,
-      "ph": 3.11,
-      "dox": 74,
-      "brix": 41,
-      "createdAt": 1599374196
-    },
-    {
-      "name": "tank1",
-      "temp": 31.3,
-      "ph": 2.96,
-      "dox": 73,
-      "brix": 49,
-      "createdAt": 1599374232
-    },
-    {
-      "name": "tank1",
-      "temp": 30.1,
-      "ph": 2.87,
-      "dox": 74,
-      "brix": 49,
-      "createdAt": 1599374268
-    },
-    {
-      "name": "tank1",
-      "temp": 29.3,
-      "ph": 2.89,
-      "dox": 71,
-      "brix": 35,
-      "createdAt": 1599374304
-    },
-    {
-      "name": "tank1",
-      "temp": 29.2,
-      "ph": 2.92,
-      "dox": 73,
-      "brix": 36,
-      "createdAt": 1599374340
-    },
-    {
-      "name": "tank1",
-      "temp": 30.3,
-      "ph": 3.05,
-      "dox": 72,
-      "brix": 49,
-      "createdAt": 1599374376
-    },
-    {
-      "name": "tank1",
-      "temp": 29.2,
-      "ph": 2.62,
-      "dox": 74,
-      "brix": 36,
-      "createdAt": 1599374412
-    },
-    {
-      "name": "tank1",
-      "temp": 29.5,
-      "ph": 2.69,
-      "dox": 75,
-      "brix": 40,
-      "createdAt": 1599374448
-    },
-    {
-      "name": "tank1",
       "temp": 31.5,
-      "ph": 2.61,
-      "dox": 70,
-      "brix": 42,
-      "createdAt": 1599374484
-    },
-    {
-      "name": "tank1",
-      "temp": 30,
-      "ph": 2.83,
+      "ph": 2.84,
       "dox": 73,
       "brix": 40,
-      "createdAt": 1599374520
-    },
-    {
-      "name": "tank1",
-      "temp": 30.3,
-      "ph": 2.68,
-      "dox": 73,
-      "brix": 46,
-      "createdAt": 1599374556
-    },
-    {
-      "name": "tank1",
-      "temp": 31.4,
-      "ph": 2.58,
-      "dox": 71,
-      "brix": 45,
-      "createdAt": 1599374592
-    },
-    {
-      "name": "tank1",
-      "temp": 29.1,
-      "ph": 2.59,
-      "dox": 72,
-      "brix": 50,
-      "createdAt": 1599374628
-    },
-    {
-      "name": "tank1",
-      "temp": 29.9,
-      "ph": 2.52,
-      "dox": 74,
-      "brix": 36,
-      "createdAt": 1599374664
-    },
-    {
-      "name": "tank1",
-      "temp": 31.1,
-      "ph": 2.86,
-      "dox": 71,
-      "brix": 41,
-      "createdAt": 1599374700
-    },
-    {
-      "name": "tank1",
-      "temp": 29.5,
-      "ph": 2.66,
-      "dox": 72,
-      "brix": 47,
-      "createdAt": 1599374736
+      "createdAt": 1599400800
     },
     {
       "name": "tank1",
       "temp": 30.7,
-      "ph": 2.76,
-      "dox": 70,
-      "brix": 37,
-      "createdAt": 1599374772
-    },
-    {
-      "name": "tank1",
-      "temp": 29.8,
-      "ph": 2.58,
-      "dox": 72,
-      "brix": 52,
-      "createdAt": 1599374808
+      "ph": 2.63,
+      "dox": 71,
+      "brix": 38,
+      "createdAt": 1599400860
     },
     {
       "name": "tank1",
       "temp": 29.9,
-      "ph": 2.63,
+      "ph": 2.7,
       "dox": 74,
-      "brix": 54,
-      "createdAt": 1599374844
+      "brix": 39,
+      "createdAt": 1599400920
+    },
+    {
+      "name": "tank1",
+      "temp": 30.2,
+      "ph": 2.72,
+      "dox": 75,
+      "brix": 38,
+      "createdAt": 1599400980
+    },
+    {
+      "name": "tank1",
+      "temp": 29.6,
+      "ph": 2.7,
+      "dox": 73,
+      "brix": 37,
+      "createdAt": 1599401040
     },
     {
       "name": "tank1",
       "temp": 31,
-      "ph": 3.08,
+      "ph": 2.56,
       "dox": 72,
-      "brix": 41,
-      "createdAt": 1599374880
+      "brix": 45,
+      "createdAt": 1599401100
     },
     {
       "name": "tank1",
-      "temp": 29.1,
-      "ph": 3.03,
-      "dox": 72,
-      "brix": 44,
-      "createdAt": 1599374916
-    },
-    {
-      "name": "tank1",
-      "temp": 31.2,
-      "ph": 2.71,
+      "temp": 30.3,
+      "ph": 2.53,
       "dox": 74,
-      "brix": 51,
-      "createdAt": 1599374952
+      "brix": 40,
+      "createdAt": 1599401160
     },
     {
       "name": "tank1",
       "temp": 29.3,
       "ph": 2.95,
       "dox": 73,
-      "brix": 45,
-      "createdAt": 1599374988
+      "brix": 39,
+      "createdAt": 1599401220
+    },
+    {
+      "name": "tank1",
+      "temp": 29.9,
+      "ph": 2.51,
+      "dox": 72,
+      "brix": 39,
+      "createdAt": 1599401280
     },
     {
       "name": "tank1",
       "temp": 29.7,
-      "ph": 2.91,
+      "ph": 2.54,
+      "dox": 74,
+      "brix": 54,
+      "createdAt": 1599401340
+    },
+    {
+      "name": "tank1",
+      "temp": 31.4,
+      "ph": 3.13,
+      "dox": 74,
+      "brix": 51,
+      "createdAt": 1599401400
+    },
+    {
+      "name": "tank1",
+      "temp": 30.1,
+      "ph": 2.88,
+      "dox": 73,
+      "brix": 42,
+      "createdAt": 1599401460
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 2.95,
+      "dox": 70,
+      "brix": 37,
+      "createdAt": 1599401520
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 2.98,
+      "dox": 70,
+      "brix": 45,
+      "createdAt": 1599401580
+    },
+    {
+      "name": "tank1",
+      "temp": 30.3,
+      "ph": 2.69,
       "dox": 71,
-      "brix": 36,
-      "createdAt": 1599375024
+      "brix": 51,
+      "createdAt": 1599401640
+    },
+    {
+      "name": "tank1",
+      "temp": 30.7,
+      "ph": 2.85,
+      "dox": 75,
+      "brix": 54,
+      "createdAt": 1599401700
+    },
+    {
+      "name": "tank1",
+      "temp": 30.8,
+      "ph": 2.72,
+      "dox": 70,
+      "brix": 38,
+      "createdAt": 1599401760
+    },
+    {
+      "name": "tank1",
+      "temp": 29.2,
+      "ph": 2.77,
+      "dox": 75,
+      "brix": 55,
+      "createdAt": 1599401820
+    },
+    {
+      "name": "tank1",
+      "temp": 29.5,
+      "ph": 2.52,
+      "dox": 70,
+      "brix": 41,
+      "createdAt": 1599401880
+    },
+    {
+      "name": "tank1",
+      "temp": 30.4,
+      "ph": 2.78,
+      "dox": 72,
+      "brix": 42,
+      "createdAt": 1599401940
+    },
+    {
+      "name": "tank1",
+      "temp": 30.1,
+      "ph": 2.87,
+      "dox": 75,
+      "brix": 53,
+      "createdAt": 1599402000
+    },
+    {
+      "name": "tank1",
+      "temp": 30.1,
+      "ph": 2.72,
+      "dox": 73,
+      "brix": 44,
+      "createdAt": 1599402060
+    },
+    {
+      "name": "tank1",
+      "temp": 30.6,
+      "ph": 2.91,
+      "dox": 72,
+      "brix": 39,
+      "createdAt": 1599402120
+    },
+    {
+      "name": "tank1",
+      "temp": 29.2,
+      "ph": 2.57,
+      "dox": 73,
+      "brix": 47,
+      "createdAt": 1599402180
     },
     {
       "name": "tank1",
       "temp": 29.1,
-      "ph": 2.74,
+      "ph": 2.95,
       "dox": 73,
+      "brix": 43,
+      "createdAt": 1599402240
+    },
+    {
+      "name": "tank1",
+      "temp": 31.2,
+      "ph": 3,
+      "dox": 74,
+      "brix": 53,
+      "createdAt": 1599402300
+    },
+    {
+      "name": "tank1",
+      "temp": 30.8,
+      "ph": 3.08,
+      "dox": 75,
+      "brix": 46,
+      "createdAt": 1599402360
+    },
+    {
+      "name": "tank1",
+      "temp": 29.4,
+      "ph": 2.71,
+      "dox": 75,
+      "brix": 38,
+      "createdAt": 1599402420
+    },
+    {
+      "name": "tank1",
+      "temp": 29,
+      "ph": 3.02,
+      "dox": 71,
+      "brix": 49,
+      "createdAt": 1599402480
+    },
+    {
+      "name": "tank1",
+      "temp": 29.1,
+      "ph": 2.86,
+      "dox": 74,
+      "brix": 44,
+      "createdAt": 1599402540
+    },
+    {
+      "name": "tank1",
+      "temp": 29.3,
+      "ph": 3.05,
+      "dox": 73,
+      "brix": 42,
+      "createdAt": 1599402600
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 2.99,
+      "dox": 74,
+      "brix": 40,
+      "createdAt": 1599402660
+    },
+    {
+      "name": "tank1",
+      "temp": 29.4,
+      "ph": 3.11,
+      "dox": 70,
       "brix": 55,
-      "createdAt": 1599375060
+      "createdAt": 1599402720
+    },
+    {
+      "name": "tank1",
+      "temp": 29.5,
+      "ph": 2.81,
+      "dox": 72,
+      "brix": 54,
+      "createdAt": 1599402780
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 2.88,
+      "dox": 70,
+      "brix": 47,
+      "createdAt": 1599402840
+    },
+    {
+      "name": "tank1",
+      "temp": 31.5,
+      "ph": 2.54,
+      "dox": 73,
+      "brix": 52,
+      "createdAt": 1599402900
+    },
+    {
+      "name": "tank1",
+      "temp": 30.3,
+      "ph": 2.84,
+      "dox": 72,
+      "brix": 47,
+      "createdAt": 1599402960
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 2.75,
+      "dox": 70,
+      "brix": 42,
+      "createdAt": 1599403020
+    },
+    {
+      "name": "tank1",
+      "temp": 30,
+      "ph": 2.88,
+      "dox": 71,
+      "brix": 47,
+      "createdAt": 1599403080
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 2.8,
+      "dox": 74,
+      "brix": 55,
+      "createdAt": 1599403140
+    },
+    {
+      "name": "tank1",
+      "temp": 29.3,
+      "ph": 3.08,
+      "dox": 73,
+      "brix": 46,
+      "createdAt": 1599403200
+    },
+    {
+      "name": "tank1",
+      "temp": 31.2,
+      "ph": 2.66,
+      "dox": 72,
+      "brix": 44,
+      "createdAt": 1599403260
+    },
+    {
+      "name": "tank1",
+      "temp": 30.4,
+      "ph": 2.69,
+      "dox": 73,
+      "brix": 37,
+      "createdAt": 1599403320
+    },
+    {
+      "name": "tank1",
+      "temp": 29.1,
+      "ph": 2.79,
+      "dox": 73,
+      "brix": 47,
+      "createdAt": 1599403380
+    },
+    {
+      "name": "tank1",
+      "temp": 29.4,
+      "ph": 2.64,
+      "dox": 72,
+      "brix": 42,
+      "createdAt": 1599403440
     },
     {
       "name": "tank1",
       "temp": 31,
       "ph": 2.96,
-      "dox": 75,
-      "brix": 37,
-      "createdAt": 1599375096
-    },
-    {
-      "name": "tank1",
-      "temp": 29.6,
-      "ph": 2.53,
-      "dox": 74,
-      "brix": 55,
-      "createdAt": 1599375132
-    },
-    {
-      "name": "tank1",
-      "temp": 29.4,
-      "ph": 2.72,
-      "dox": 75,
-      "brix": 35,
-      "createdAt": 1599375168
-    },
-    {
-      "name": "tank1",
-      "temp": 30.1,
-      "ph": 3.13,
-      "dox": 71,
-      "brix": 52,
-      "createdAt": 1599375204
-    },
-    {
-      "name": "tank1",
-      "temp": 30.3,
-      "ph": 3.08,
-      "dox": 75,
-      "brix": 36,
-      "createdAt": 1599375240
+      "dox": 70,
+      "brix": 40,
+      "createdAt": 1599403500
     },
     {
       "name": "tank1",
       "temp": 31.1,
-      "ph": 2.65,
-      "dox": 70,
-      "brix": 52,
-      "createdAt": 1599375276
+      "ph": 2.56,
+      "dox": 71,
+      "brix": 46,
+      "createdAt": 1599403560
     },
     {
       "name": "tank1",
-      "temp": 29.9,
-      "ph": 3.08,
-      "dox": 70,
-      "brix": 40,
-      "createdAt": 1599375312
-    },
-    {
-      "name": "tank1",
-      "temp": 29.9,
-      "ph": 2.52,
-      "dox": 73,
-      "brix": 37,
-      "createdAt": 1599375348
-    },
-    {
-      "name": "tank1",
-      "temp": 29.9,
-      "ph": 2.84,
-      "dox": 70,
-      "brix": 49,
-      "createdAt": 1599375384
-    },
-    {
-      "name": "tank1",
-      "temp": 30.7,
-      "ph": 3.15,
-      "dox": 73,
-      "brix": 47,
-      "createdAt": 1599375420
-    },
-    {
-      "name": "tank1",
-      "temp": 31,
-      "ph": 3.06,
-      "dox": 73,
-      "brix": 41,
-      "createdAt": 1599375456
-    },
-    {
-      "name": "tank1",
-      "temp": 30.6,
-      "ph": 3.13,
-      "dox": 75,
-      "brix": 53,
-      "createdAt": 1599375492
-    },
-    {
-      "name": "tank1",
-      "temp": 30.4,
+      "temp": 30.8,
       "ph": 2.72,
       "dox": 73,
-      "brix": 48,
-      "createdAt": 1599375528
+      "brix": 37,
+      "createdAt": 1599403620
+    },
+    {
+      "name": "tank1",
+      "temp": 29.8,
+      "ph": 2.84,
+      "dox": 73,
+      "brix": 44,
+      "createdAt": 1599403680
+    },
+    {
+      "name": "tank1",
+      "temp": 29.4,
+      "ph": 3.03,
+      "dox": 70,
+      "brix": 35,
+      "createdAt": 1599403740
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 2.51,
+      "dox": 71,
+      "brix": 43,
+      "createdAt": 1599403800
+    },
+    {
+      "name": "tank1",
+      "temp": 29.2,
+      "ph": 2.89,
+      "dox": 74,
+      "brix": 52,
+      "createdAt": 1599403860
+    },
+    {
+      "name": "tank1",
+      "temp": 30,
+      "ph": 2.7,
+      "dox": 72,
+      "brix": 46,
+      "createdAt": 1599403920
+    },
+    {
+      "name": "tank1",
+      "temp": 29,
+      "ph": 2.78,
+      "dox": 72,
+      "brix": 41,
+      "createdAt": 1599403980
+    },
+    {
+      "name": "tank1",
+      "temp": 29.6,
+      "ph": 2.61,
+      "dox": 70,
+      "brix": 51,
+      "createdAt": 1599404040
     },
     {
       "name": "tank1",
       "temp": 30.9,
-      "ph": 2.52,
+      "ph": 2.59,
+      "dox": 74,
+      "brix": 44,
+      "createdAt": 1599404100
+    },
+    {
+      "name": "tank1",
+      "temp": 30.6,
+      "ph": 3.03,
+      "dox": 71,
+      "brix": 38,
+      "createdAt": 1599404160
+    },
+    {
+      "name": "tank1",
+      "temp": 31.3,
+      "ph": 2.61,
+      "dox": 74,
+      "brix": 48,
+      "createdAt": 1599404220
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 2.6,
+      "dox": 73,
+      "brix": 43,
+      "createdAt": 1599404280
+    },
+    {
+      "name": "tank1",
+      "temp": 30.3,
+      "ph": 2.72,
       "dox": 71,
       "brix": 44,
-      "createdAt": 1599375564
+      "createdAt": 1599404340
+    },
+    {
+      "name": "tank1",
+      "temp": 31.2,
+      "ph": 2.77,
+      "dox": 75,
+      "brix": 43,
+      "createdAt": 1599404400
+    },
+    {
+      "name": "tank1",
+      "temp": 30.8,
+      "ph": 3.14,
+      "dox": 75,
+      "brix": 49,
+      "createdAt": 1599404460
+    },
+    {
+      "name": "tank1",
+      "temp": 30.4,
+      "ph": 3.04,
+      "dox": 75,
+      "brix": 44,
+      "createdAt": 1599404520
+    },
+    {
+      "name": "tank1",
+      "temp": 29.9,
+      "ph": 2.6,
+      "dox": 75,
+      "brix": 47,
+      "createdAt": 1599404580
+    },
+    {
+      "name": "tank1",
+      "temp": 29.2,
+      "ph": 2.87,
+      "dox": 75,
+      "brix": 39,
+      "createdAt": 1599404640
+    },
+    {
+      "name": "tank1",
+      "temp": 30.1,
+      "ph": 3.12,
+      "dox": 75,
+      "brix": 47,
+      "createdAt": 1599404700
+    },
+    {
+      "name": "tank1",
+      "temp": 30.1,
+      "ph": 3.15,
+      "dox": 73,
+      "brix": 51,
+      "createdAt": 1599404760
+    },
+    {
+      "name": "tank1",
+      "temp": 30.5,
+      "ph": 2.76,
+      "dox": 73,
+      "brix": 38,
+      "createdAt": 1599404820
+    },
+    {
+      "name": "tank1",
+      "temp": 30.8,
+      "ph": 2.59,
+      "dox": 75,
+      "brix": 41,
+      "createdAt": 1599404880
+    },
+    {
+      "name": "tank1",
+      "temp": 30.3,
+      "ph": 2.84,
+      "dox": 75,
+      "brix": 35,
+      "createdAt": 1599404940
+    },
+    {
+      "name": "tank1",
+      "temp": 29.1,
+      "ph": 3.07,
+      "dox": 71,
+      "brix": 35,
+      "createdAt": 1599405000
+    },
+    {
+      "name": "tank1",
+      "temp": 29.2,
+      "ph": 2.83,
+      "dox": 71,
+      "brix": 44,
+      "createdAt": 1599405060
+    },
+    {
+      "name": "tank1",
+      "temp": 31.3,
+      "ph": 2.54,
+      "dox": 71,
+      "brix": 38,
+      "createdAt": 1599405120
+    },
+    {
+      "name": "tank1",
+      "temp": 29.8,
+      "ph": 2.97,
+      "dox": 73,
+      "brix": 55,
+      "createdAt": 1599405180
+    },
+    {
+      "name": "tank1",
+      "temp": 29.3,
+      "ph": 3.01,
+      "dox": 73,
+      "brix": 52,
+      "createdAt": 1599405240
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 2.97,
+      "dox": 72,
+      "brix": 37,
+      "createdAt": 1599405300
+    },
+    {
+      "name": "tank1",
+      "temp": 31.3,
+      "ph": 2.89,
+      "dox": 71,
+      "brix": 52,
+      "createdAt": 1599405360
+    },
+    {
+      "name": "tank1",
+      "temp": 31.4,
+      "ph": 2.91,
+      "dox": 73,
+      "brix": 55,
+      "createdAt": 1599405420
+    },
+    {
+      "name": "tank1",
+      "temp": 30.5,
+      "ph": 2.71,
+      "dox": 73,
+      "brix": 38,
+      "createdAt": 1599405480
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 2.59,
+      "dox": 73,
+      "brix": 47,
+      "createdAt": 1599405540
+    },
+    {
+      "name": "tank1",
+      "temp": 30.3,
+      "ph": 2.77,
+      "dox": 70,
+      "brix": 53,
+      "createdAt": 1599405600
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 2.53,
+      "dox": 72,
+      "brix": 50,
+      "createdAt": 1599405660
+    },
+    {
+      "name": "tank1",
+      "temp": 30.8,
+      "ph": 3.03,
+      "dox": 74,
+      "brix": 47,
+      "createdAt": 1599405720
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 2.68,
+      "dox": 73,
+      "brix": 48,
+      "createdAt": 1599405780
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 2.51,
+      "dox": 72,
+      "brix": 54,
+      "createdAt": 1599405840
+    },
+    {
+      "name": "tank1",
+      "temp": 29.2,
+      "ph": 2.75,
+      "dox": 71,
+      "brix": 41,
+      "createdAt": 1599405900
+    },
+    {
+      "name": "tank1",
+      "temp": 29.1,
+      "ph": 2.8,
+      "dox": 74,
+      "brix": 43,
+      "createdAt": 1599405960
+    },
+    {
+      "name": "tank1",
+      "temp": 29.1,
+      "ph": 3.13,
+      "dox": 72,
+      "brix": 44,
+      "createdAt": 1599406020
+    },
+    {
+      "name": "tank1",
+      "temp": 30,
+      "ph": 2.65,
+      "dox": 74,
+      "brix": 45,
+      "createdAt": 1599406080
+    },
+    {
+      "name": "tank1",
+      "temp": 31.3,
+      "ph": 3.1,
+      "dox": 74,
+      "brix": 44,
+      "createdAt": 1599406140
+    },
+    {
+      "name": "tank1",
+      "temp": 30,
+      "ph": 2.69,
+      "dox": 70,
+      "brix": 50,
+      "createdAt": 1599406200
+    },
+    {
+      "name": "tank1",
+      "temp": 29.6,
+      "ph": 2.76,
+      "dox": 71,
+      "brix": 53,
+      "createdAt": 1599406260
+    },
+    {
+      "name": "tank1",
+      "temp": 31.5,
+      "ph": 2.7,
+      "dox": 71,
+      "brix": 47,
+      "createdAt": 1599406320
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 3,
+      "dox": 71,
+      "brix": 46,
+      "createdAt": 1599406380
+    },
+    {
+      "name": "tank1",
+      "temp": 29.5,
+      "ph": 3.04,
+      "dox": 70,
+      "brix": 40,
+      "createdAt": 1599406440
+    },
+    {
+      "name": "tank1",
+      "temp": 30.8,
+      "ph": 2.56,
+      "dox": 74,
+      "brix": 43,
+      "createdAt": 1599406500
+    },
+    {
+      "name": "tank1",
+      "temp": 31.1,
+      "ph": 3.07,
+      "dox": 71,
+      "brix": 41,
+      "createdAt": 1599406560
+    },
+    {
+      "name": "tank1",
+      "temp": 30.9,
+      "ph": 2.78,
+      "dox": 72,
+      "brix": 52,
+      "createdAt": 1599406620
+    },
+    {
+      "name": "tank1",
+      "temp": 31,
+      "ph": 2.62,
+      "dox": 74,
+      "brix": 36,
+      "createdAt": 1599406680
+    },
+    {
+      "name": "tank1",
+      "temp": 30.6,
+      "ph": 2.62,
+      "dox": 73,
+      "brix": 53,
+      "createdAt": 1599406740
+    },
+    {
+      "name": "tank1",
+      "temp": 31.3,
+      "ph": 2.78,
+      "dox": 75,
+      "brix": 48,
+      "createdAt": 1599406800
+    },
+    {
+      "name": "tank1",
+      "temp": 29.7,
+      "ph": 2.63,
+      "dox": 70,
+      "brix": 54,
+      "createdAt": 1599406860
+    },
+    {
+      "name": "tank1",
+      "temp": 29,
+      "ph": 2.82,
+      "dox": 73,
+      "brix": 51,
+      "createdAt": 1599406920
+    },
+    {
+      "name": "tank1",
+      "temp": 30.7,
+      "ph": 2.62,
+      "dox": 72,
+      "brix": 36,
+      "createdAt": 1599406980
+    },
+    {
+      "name": "tank1",
+      "temp": 29.5,
+      "ph": 2.57,
+      "dox": 75,
+      "brix": 43,
+      "createdAt": 1599407040
+    },
+    {
+      "name": "tank1",
+      "temp": 29.4,
+      "ph": 2.75,
+      "dox": 75,
+      "brix": 41,
+      "createdAt": 1599407100
+    },
+    {
+      "name": "tank1",
+      "temp": 30.1,
+      "ph": 2.8,
+      "dox": 74,
+      "brix": 52,
+      "createdAt": 1599407160
+    },
+    {
+      "name": "tank1",
+      "temp": 29.3,
+      "ph": 2.74,
+      "dox": 75,
+      "brix": 53,
+      "createdAt": 1599407220
+    },
+    {
+      "name": "tank1",
+      "temp": 31.5,
+      "ph": 2.67,
+      "dox": 73,
+      "brix": 37,
+      "createdAt": 1599407280
+    },
+    {
+      "name": "tank1",
+      "temp": 29.3,
+      "ph": 2.62,
+      "dox": 70,
+      "brix": 51,
+      "createdAt": 1599407340
+    },
+    {
+      "name": "tank1",
+      "temp": 29.3,
+      "ph": 3.04,
+      "dox": 72,
+      "brix": 46,
+      "createdAt": 1599407400
+    },
+    {
+      "name": "tank1",
+      "temp": 30.5,
+      "ph": 3.05,
+      "dox": 74,
+      "brix": 39,
+      "createdAt": 1599407460
+    },
+    {
+      "name": "tank1",
+      "temp": 29.2,
+      "ph": 3.08,
+      "dox": 74,
+      "brix": 53,
+      "createdAt": 1599407520
+    },
+    {
+      "name": "tank1",
+      "temp": 30.7,
+      "ph": 2.91,
+      "dox": 75,
+      "brix": 51,
+      "createdAt": 1599407580
+    },
+    {
+      "name": "tank1",
+      "temp": 30.9,
+      "ph": 2.67,
+      "dox": 70,
+      "brix": 45,
+      "createdAt": 1599407640
+    },
+    {
+      "name": "tank1",
+      "temp": 30.4,
+      "ph": 2.96,
+      "dox": 73,
+      "brix": 55,
+      "createdAt": 1599407700
+    },
+    {
+      "name": "tank1",
+      "temp": 29,
+      "ph": 2.91,
+      "dox": 72,
+      "brix": 36,
+      "createdAt": 1599407760
+    },
+    {
+      "name": "tank1",
+      "temp": 29.4,
+      "ph": 2.76,
+      "dox": 72,
+      "brix": 54,
+      "createdAt": 1599407820
+    },
+    {
+      "name": "tank1",
+      "temp": 30,
+      "ph": 3.08,
+      "dox": 71,
+      "brix": 41,
+      "createdAt": 1599407880
+    },
+    {
+      "name": "tank1",
+      "temp": 30.5,
+      "ph": 2.98,
+      "dox": 71,
+      "brix": 38,
+      "createdAt": 1599407940
     }
   ]
 }

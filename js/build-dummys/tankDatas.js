@@ -14,9 +14,9 @@ function createRandomValues(from, to) {
  * createdAt (number)
  */
 
-function build(diff) {
-  const from = moment.tz("2020-09-06 15:00", "Asia/Seoul").unix();
-  const to = moment.tz("2020-09-06 16:00", "Asia/Seoul").unix();
+function build() {
+  const from = moment.tz("2020-09-07 00:00", "Asia/Seoul").unix();
+  const to = moment.tz("2020-09-07 01:00", "Asia/Seoul").unix();
 
   const datas = [];
 
@@ -30,7 +30,7 @@ function build(diff) {
       brix: createRandomValues(35, 55),
       createdAt: time,
     });
-    time += 36;
+    time += 60;
   }
   return datas;
 }

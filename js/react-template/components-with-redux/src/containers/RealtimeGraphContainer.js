@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTankDatas } from "../redux/modules/tankDatas";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+import { getTankRealtimeData } from "../redux/modules/tankDatas";
 import { INDIGO, WHITE, RED, ORANGE, GRAY } from "../assets/jss";
-import RealtimeGraphContainer from "./RealtimeGraphContainer";
-import AGraph from "../components/Graphs/AGraph";
 import moment from "moment";
+import AGraph from "../components/Graphs/AGraph";
 
 function createData(tankDatas, key) {
+  const yCount = 10;
+  const n = tankDatas.length > yCount ? tankDatas.length - yCount : 0;
+
   return tankDatas
     .map((tankData) => ({
       x: moment(tankData.createdAt * 1000),
       y: tankData[key],
     }))
-    .slice(0, 60);
+    .slice(n, n + yCount);
 }
 
 const graphData = {
@@ -26,9 +26,9 @@ const graphData = {
       backgroundColor: INDIGO[7],
       borderColor: INDIGO[7], // line
 
-      pointBackgroundColor: INDIGO[7],
+      pointBackgroundColor: WHITE,
       pointBorderWidth: 1,
-      pointRadius: 2,
+      pointRadius: 3,
 
       pointHoverRadius: 3,
       pointHoverBackgroundColor: WHITE,
@@ -74,32 +74,36 @@ const graphData = {
       backgroundColor: GRAY[7],
       borderColor: GRAY[7], // line
 
-      pointBackgroundColor: GRAY[7],
-      pointBorderWidth: 1,
-      pointRadius: 2,
+      pointBackgroundColor: WHITE,
+      pointBorderWidth: 2,
+      pointRadius: 3,
 
-      pointHoverRadius: 3,
+      pointHoverRadius: 5,
       pointHoverBackgroundColor: WHITE,
       pointHoverBorderColor: GRAY[7],
-      pointHoverBorderWidth: 1,
+      pointHoverBorderWidth: 2,
     },
   ],
 };
 
 const options = {
+  animation: {
+    duration: 100,
+    easing: "linear", // easeInOutBack, easeInOutQuad
+  },
   scales: {
-    maintainAspectRatio: false,
     xAxes: [
       {
         type: "time",
-        time: {
-          unit: "minute",
-          displayFormats: {
-            second: "HH:mm:ss",
-            minute: "HH:mm",
-            day: "MM D HH:mm",
-          },
-        },
+        distribution: "series",
+        // time: {
+        //   unit: "minute",
+        //   displayFormats: {
+        //     second: "HH:mm:ss",
+        //     minute: "HH:mm",
+        //     day: "MM D HH:mm",
+        //   },
+        // },
       },
     ],
     yAxes: [
@@ -114,34 +118,26 @@ const options = {
   },
 };
 
-function GraphsContainer() {
-  const { loading, error, tankDatas: data } = useSelector(
+function RealtimeGraphContainer() {
+  const { loading, error, realtimeTankData: data } = useSelector(
     (state) => state.tankDatas
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTankDatas());
+    const interval = setInterval(() => {
+      dispatch(getTankRealtimeData());
+    }, 2000);
+    return () => {
+      clearInterval(interval);
+    };
   }, [dispatch]);
 
   if (data) {
     graphData.datasets[0].data = createData(data, "temp");
-    graphData.datasets[1].data = createData(data, "ph");
-    graphData.datasets[2].data = createData(data, "dox");
     graphData.datasets[3].data = createData(data, "brix");
   }
-  return (
-    <Paper style={{ padding: 30 }}>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          {data && <AGraph data={graphData} options={options} />}
-        </Grid>
-        <Grid item xs={6}>
-          <RealtimeGraphContainer />
-        </Grid>
-      </Grid>
-    </Paper>
-  );
+  return <>{data && <AGraph data={graphData} options={options} />}</>;
 }
 
-export default GraphsContainer;
+export default RealtimeGraphContainer;
