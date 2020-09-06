@@ -7,6 +7,7 @@ import EditableTableRowContainer from "../containers/EditableTableRowContainer";
 import ACardListContainer from "../containers/ACardListContainer";
 import AGridListContainer from "../containers/AGridListContainer";
 import CardsContainer from "../containers/CardsContainer";
+import GraphsContainer from "../containers/GraphsContainer";
 
 function Navigation() {
   return (
@@ -28,10 +29,13 @@ function Navigation() {
           <Link to="/a_cardlist">Card List Version A</Link>
         </li>
         <li>
+          <Link to="/a_gridlist">Grid List Version A</Link>
+        </li>
+        <li>
           <Link to="/cards">Cards</Link>
         </li>
         <li>
-          <Link to="/a_gridlist">Grid List Version A</Link>
+          <Link to="/graphs">Graphs</Link>
         </li>
       </ul>
 
@@ -47,8 +51,9 @@ function Navigation() {
           component={SortSelectTableContainer}
         ></Route>
         <Route path="/a_cardlist" component={ACardListContainer}></Route>
-        <Route path="/cards" component={CardsContainer}></Route>
         <Route path="/a_gridlist" component={AGridListContainer}></Route>
+        <Route path="/cards" component={CardsContainer}></Route>
+        <Route path="/graphs" component={GraphsContainer}></Route>
       </Switch>
     </Router>
   );
