@@ -70,6 +70,7 @@ const graphData = {
     {
       label: "용존산소량",
       fill: false,
+      lineTension: 0.25,
 
       backgroundColor: GRAY[7],
       borderColor: GRAY[7], // line
@@ -87,23 +88,16 @@ const graphData = {
 };
 
 const options = {
+  responsive: true,
   animation: {
-    duration: 100,
-    easing: "linear", // easeInOutBack, easeInOutQuad
+    duration: 0,
   },
+  legend: false,
   scales: {
     xAxes: [
       {
         type: "time",
         distribution: "series",
-        // time: {
-        //   unit: "minute",
-        //   displayFormats: {
-        //     second: "HH:mm:ss",
-        //     minute: "HH:mm",
-        //     day: "MM D HH:mm",
-        //   },
-        // },
       },
     ],
     yAxes: [
@@ -127,7 +121,7 @@ function RealtimeGraphContainer() {
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch(getTankRealtimeData());
-    }, 2000);
+    }, 1000);
     return () => {
       clearInterval(interval);
     };

@@ -6,6 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import { INDIGO, WHITE, RED, ORANGE, GRAY } from "../assets/jss";
 import RealtimeGraphContainer from "./RealtimeGraphContainer";
 import AGraph from "../components/Graphs/AGraph";
+import BGraph from "../components/Graphs/BGraph";
+import CGraph from "../components/Graphs/CGraph";
 import moment from "moment";
 
 function createData(tankDatas, key) {
@@ -138,6 +140,12 @@ function GraphsContainer() {
         </Grid>
         <Grid item xs={6}>
           <RealtimeGraphContainer />
+        </Grid>
+        <Grid item xs={6}>
+          <BGraph />
+        </Grid>
+        <Grid item xs={6}>
+          <CGraph data={{ type: "line", data: graphData, options }} />
         </Grid>
       </Grid>
     </Paper>
