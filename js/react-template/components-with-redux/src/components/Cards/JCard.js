@@ -11,12 +11,12 @@ import styles from "../../assets/jss/components/cardsStyle";
 const useStyles = makeStyles(styles);
 
 function JCard(props) {
-  const { color, data, type, title, content } = props;
+  const { color, data, type, title, content, unit } = props;
   const classes = useStyles();
   return (
     <Card>
       <CardHeader color={color}>
-        <AStyledChart data={data} type={type} />
+        <AStyledChart data={data} type={type} unit={unit} />
       </CardHeader>
       <CardBody>
         <h1 className={classes.title}>{title}</h1>

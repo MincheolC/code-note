@@ -182,6 +182,9 @@ function GraphsContainer() {
             />
           )}
         </Grid>
+        <Grid item xs={12}>
+          <RealtimeGraphContainer />
+        </Grid>
         {/* <Grid item xs={6}>
           {data && <AGraph data={graphData} options={options} />}
         </Grid>

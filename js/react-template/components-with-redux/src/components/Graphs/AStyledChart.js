@@ -12,7 +12,7 @@ import {
   grayCardHeader,
 } from "../../assets/jss";
 
-function AStyledChart({ data, label, type }) {
+function AStyledChart({ data, label, type, unit }) {
   const graphData = {
     datasets: [
       {
@@ -36,6 +36,9 @@ function AStyledChart({ data, label, type }) {
   };
 
   const options = {
+    animation: {
+      duration: 0,
+    },
     layout: {
       padding: {
         left: 25,
@@ -67,6 +70,7 @@ function AStyledChart({ data, label, type }) {
           time: {
             unit: "minute",
             displayFormats: {
+              second: "HH:mm:ss",
               minute: "HH:mm",
               day: "MM D HH:mm",
             },
@@ -123,6 +127,9 @@ function AStyledChart({ data, label, type }) {
     options.scales.yAxes[0].ticks.min = 0;
     options.scales.yAxes[0].ticks.max = 100;
     options.scales.yAxes[0].ticks.stepSize = 20;
+  }
+  if (unit) {
+    options.scales.xAxes[0].time.unit = unit;
   }
   return <AGraph data={graphData} options={options} />;
 }
