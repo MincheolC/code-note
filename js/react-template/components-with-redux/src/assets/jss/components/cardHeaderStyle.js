@@ -4,6 +4,7 @@ import {
   grayCardHeader,
   redCardHeader,
   yellowCardHeader,
+  greenCardHeader,
   WHITE,
 } from "../";
 
@@ -14,7 +15,7 @@ const cardHeaderStyle = {
     borderBottom: "none",
     background: "transparent",
     zIndex: "3 !important",
-    "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader": {
+    "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader": {
       margin: "0 15px",
       padding: "0",
       position: "relative",
@@ -23,7 +24,7 @@ const cardHeaderStyle = {
     "&:first-child": {
       borderRadius: "calc(.25rem - 1px) calc(.25rem - 1px) 0 0",
     },
-    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader": {
+    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader": {
       "&:not($cardHeaderIcon)": {
         borderRadius: "3px",
         marginTop: "-20px",
@@ -47,7 +48,7 @@ const cardHeaderStyle = {
     marginRight: "0px !important",
   },
   cardHeaderIcon: {
-    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader": {
+    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader": {
       background: "transparent",
       boxShadow: "none",
     },
@@ -94,6 +95,12 @@ const cardHeaderStyle = {
     color: WHITE,
     "&:not($cardHeaderIcon)": {
       ...yellowCardHeader,
+    },
+  },
+  greenCardHeader: {
+    color: WHITE,
+    "&:not($cardHeaderIcon)": {
+      ...greenCardHeader,
     },
   },
 };

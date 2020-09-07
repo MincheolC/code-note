@@ -5,11 +5,12 @@ import {
   orangeCardHeader,
   redCardHeader,
   yellowCardHeader,
+  greenCardHeader,
 } from "../";
 
 const cardIconStyle = {
   cardIcon: {
-    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader": {
+    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader": {
       borderRadius: "3px",
       backgroundColor: GRAY[0],
       padding: "15px",
@@ -23,6 +24,7 @@ const cardIconStyle = {
   orangeCardHeader,
   redCardHeader,
   yellowCardHeader,
+  greenCardHeader,
 };
 
 export default cardIconStyle;

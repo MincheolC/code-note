@@ -87,6 +87,18 @@ export const YELLOW = [
   "#f08c00",
   "#e67700",
 ];
+export const GREEN = [
+  "#ebfbee",
+  "#d3f9d8",
+  "#b2f2bb",
+  "#8ce99a",
+  "#69db7c",
+  "#51cf66",
+  "#40c057",
+  "#37b24d",
+  "#2f9e44",
+  "#2b8a3e",
+];
 
 /* boxShadow */
 export const boxShadow = {
@@ -114,6 +126,10 @@ export const yellowBoxShadow = {
   boxShadow: `0 4px 20px 0 rgba(${hexToRgb(BLACK)}, 0.14),
      0 7px 10px -5px rgba(${hexToRgb(YELLOW[6])}, 0.4)`,
 };
+export const greenBoxShadow = {
+  boxShadow: `0 4px 20px 0 rgba(${hexToRgb(BLACK)}, 0.14),
+     0 7px 10px -5px rgba(${hexToRgb(GREEN[6])}, 0.4)`,
+};
 
 /* CardHeader */
 export const indigoCardHeader = {
@@ -134,5 +150,9 @@ export const orangeCardHeader = {
 };
 export const yellowCardHeader = {
   background: `linear-gradient(60deg, ${YELLOW[6]}, ${YELLOW[8]})`,
+  ...yellowBoxShadow,
+};
+export const greenCardHeader = {
+  background: `linear-gradient(60deg, ${GREEN[6]}, ${GREEN[8]})`,
   ...yellowBoxShadow,
 };

@@ -16,3 +16,5 @@ console.log(isToday(1599148628));
 console.log(getTimeString(1599116228, 'MM/DD/YYYY'));
 console.log(getTimeString(1599116228, 'A hh:mm'));
 console.log(isToday(1599116228));
+
+console.log(moment(new Date('Sep 6, 2020, 11:00:00 pm')).format('MMM D YYYY, hh:mm A'));

@@ -7,7 +7,7 @@ import { INDIGO, WHITE, RED, ORANGE, GRAY } from "../assets/jss";
 import RealtimeGraphContainer from "./RealtimeGraphContainer";
 import AGraph from "../components/Graphs/AGraph";
 import BGraph from "../components/Graphs/BGraph";
-import CGraph from "../components/Graphs/CGraph";
+import AStyledChart from "../components/Graphs/AStyledChart";
 import moment from "moment";
 
 function createData(tankDatas, key) {
@@ -16,7 +16,7 @@ function createData(tankDatas, key) {
       x: moment(tankData.createdAt * 1000),
       y: tankData[key],
     }))
-    .slice(0, 60);
+    .slice(0, 15);
 }
 
 const graphData = {
@@ -138,7 +138,7 @@ function GraphsContainer() {
         <Grid item xs={6}>
           {data && <AGraph data={graphData} options={options} />}
         </Grid>
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <RealtimeGraphContainer />
         </Grid>
         <Grid item xs={6}>
@@ -146,6 +146,9 @@ function GraphsContainer() {
         </Grid>
         <Grid item xs={6}>
           <CGraph data={{ type: "line", data: graphData, options }} />
+        </Grid> */}
+        <Grid item xs={6}>
+          {data && <AStyledChart data={createData(data, "temp")} />}
         </Grid>
       </Grid>
     </Paper>
