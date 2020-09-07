@@ -21,7 +21,7 @@ const cardFooterStyle = {
     backgroundColor: "transparent",
   },
   cardFooterStats: {
-    borderTop: `1px solid ${GRAY[6]}`,
+    borderTop: `1px solid ${GRAY[3]}`,
     marginTop: "20px",
     "& svg": {
       position: "relative",
@@ -40,7 +40,7 @@ const cardFooterStyle = {
     },
   },
   cardFooterChart: {
-    borderTop: `1px solid ${GRAY[9]}`,
+    borderTop: `1px solid ${GRAY[3]}`,
   },
 };
 

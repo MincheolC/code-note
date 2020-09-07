@@ -7,6 +7,8 @@ import { INDIGO, WHITE, RED, ORANGE, GRAY } from "../assets/jss";
 import RealtimeGraphContainer from "./RealtimeGraphContainer";
 import AGraph from "../components/Graphs/AGraph";
 import BGraph from "../components/Graphs/BGraph";
+import JCard from "../components/Cards/JCard";
+import ICard from "../components/Cards/ICard";
 import AStyledChart from "../components/Graphs/AStyledChart";
 import moment from "moment";
 
@@ -133,12 +135,57 @@ function GraphsContainer() {
     graphData.datasets[3].data = createData(data, "brix");
   }
   return (
-    <Paper style={{ padding: 30 }}>
+    <Paper style={{ padding: 30, background: "#eeeeee" }}>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
-          {data && <AGraph data={graphData} options={options} />}
+        <Grid item xs={3}>
+          <ICard />
+        </Grid>
+        <Grid item xs={3}>
+          <ICard />
+        </Grid>
+        <Grid item xs={3}>
+          <ICard />
+        </Grid>
+        <Grid item xs={3}>
+          <ICard />
+        </Grid>
+        <Grid item xs={4}>
+          {data && (
+            <JCard
+              color={"indigo"}
+              data={createData(data, "temp")}
+              type={"temp"}
+              title={"온도"}
+              content={"정상 범위: 28 ~ 32  측정값: 29.5"}
+            />
+          )}
+        </Grid>
+        <Grid item xs={4}>
+          {data && (
+            <JCard
+              color={"yellow"}
+              data={createData(data, "ph")}
+              type={"ph"}
+              title={"PH"}
+              content={"정상 범위: 28 ~ 32 측정값: 29.5"}
+            />
+          )}
+        </Grid>
+        <Grid item xs={4}>
+          {data && (
+            <JCard
+              color={"red"}
+              data={createData(data, "dox")}
+              type={"dox"}
+              title={"DO"}
+              content={"정상 범위: 28 ~ 32  측정값: 29.5"}
+            />
+          )}
         </Grid>
         {/* <Grid item xs={6}>
+          {data && <AGraph data={graphData} options={options} />}
+        </Grid>
+        <Grid item xs={6}>
           <RealtimeGraphContainer />
         </Grid>
         <Grid item xs={6}>
@@ -146,10 +193,10 @@ function GraphsContainer() {
         </Grid>
         <Grid item xs={6}>
           <CGraph data={{ type: "line", data: graphData, options }} />
-        </Grid> */}
+        </Grid>
         <Grid item xs={6}>
           {data && <AStyledChart data={createData(data, "temp")} />}
-        </Grid>
+        </Grid> */}
       </Grid>
     </Paper>
   );

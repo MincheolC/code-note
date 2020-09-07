@@ -2,7 +2,7 @@ import { GRAY } from "../";
 
 const cardsStyle = {
   title: {
-    color: GRAY[9],
+    color: GRAY[6],
     marginTop: "0px",
     minHeight: "auto",
     fontWeight: "300",
