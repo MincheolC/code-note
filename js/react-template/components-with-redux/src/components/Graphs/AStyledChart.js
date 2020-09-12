@@ -66,15 +66,15 @@ function AStyledChart({ data, label, type, unit }) {
       xAxes: [
         {
           type: "time",
-          // distribution: "series",
-          time: {
-            unit: "minute",
-            displayFormats: {
-              second: "HH:mm:ss",
-              minute: "HH:mm",
-              day: "MM D HH:mm",
-            },
-          },
+          distribution: "series",
+          // time: {
+          //   unit: "minute",
+          //   displayFormats: {
+          //     second: "HH:mm:ss",
+          //     minute: "HH:mm",
+          //     day: "MM D HH:mm",
+          //   },
+          // },
           gridLines: {
             color: `rgba(${hexToRgb(WHITE)}, 0.3)`,
             borderDash: [5, 10],
@@ -128,9 +128,9 @@ function AStyledChart({ data, label, type, unit }) {
     options.scales.yAxes[0].ticks.max = 100;
     options.scales.yAxes[0].ticks.stepSize = 20;
   }
-  if (unit) {
-    options.scales.xAxes[0].time.unit = unit;
-  }
+  // if (unit) {
+  //   options.scales.xAxes[0].time.unit = unit;
+  // }
   return <AGraph data={graphData} options={options} />;
 }
 

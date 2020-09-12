@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import WarningIcon from "@material-ui/icons/Warning";
 
-import { GRAY, WHITE, RED } from "../../libs/styleUtils";
+import { GRAY, WHITE, RED } from "../../assets/jss";
 
 const useStyles = makeStyles((theme) => ({
   root: {

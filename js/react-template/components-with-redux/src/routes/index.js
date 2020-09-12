@@ -8,6 +8,7 @@ import ACardListContainer from "../containers/ACardListContainer";
 import AGridListContainer from "../containers/AGridListContainer";
 import CardsContainer from "../containers/CardsContainer";
 import GraphsContainer from "../containers/GraphsContainer";
+import PoppersContainer from "../containers/PoppersContainer";
 
 function Navigation() {
   return (
@@ -37,6 +38,9 @@ function Navigation() {
         <li>
           <Link to="/graphs">Graphs</Link>
         </li>
+        <li>
+          <Link to="/poppers">Poppers</Link>
+        </li>
       </ul>
 
       <Switch>
@@ -54,6 +58,7 @@ function Navigation() {
         <Route path="/a_gridlist" component={AGridListContainer}></Route>
         <Route path="/cards" component={CardsContainer}></Route>
         <Route path="/graphs" component={GraphsContainer}></Route>
+        <Route path="/poppers" component={PoppersContainer}></Route>
       </Switch>
     </Router>
   );
