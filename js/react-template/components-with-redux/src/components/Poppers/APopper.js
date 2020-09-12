@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Popper from "@material-ui/core/Popper";
+import Badge from "@material-ui/core/Badge";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     color: GRAY[8],
-    fontSize: 30,
+    fontSize: 25,
   },
   paper: {
     padding: theme.spacing(1),
@@ -60,7 +61,16 @@ function APopper(props) {
   return (
     <>
       <IconButton onClick={handleClick}>
-        <Notifications className={classes.icon} />
+        <Badge
+          badgeContent={
+            notificationRecords.filter(
+              (notificationRecord) => notificationRecord.createdAt >= 1599836400
+            ).length
+          }
+          color="error"
+        >
+          <Notifications className={classes.icon} />
+        </Badge>
       </IconButton>
       <Popper open={open} anchorEl={anchorEl} placement={"bottom-end"}>
         <Paper>
