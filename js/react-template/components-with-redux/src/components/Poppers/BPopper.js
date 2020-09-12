@@ -4,7 +4,7 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Notifications from "@material-ui/icons/Notifications";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
 import Popper from "@material-ui/core/Popper";
 import Badge from "@material-ui/core/Badge";
 import List from "@material-ui/core/List";
@@ -15,7 +15,7 @@ import { GRAY } from "../../assets/jss";
 
 const useStyles = makeStyles((theme) => ({
   list: {
-    minWidth: 360,
+    minWidth: 300,
     maxWidth: 480,
   },
   icon: {
@@ -26,6 +26,12 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     backgroundColor: theme.palette.background.paper,
   },
+  title: {
+    color: GRAY[8],
+    fontSize: 16,
+    padding: 10,
+    borderRadius: 3,
+  },
   content: {
     color: GRAY[7],
     fontSize: 14,
@@ -33,21 +39,21 @@ const useStyles = makeStyles((theme) => ({
   time: {
     display: "inline-block",
     color: GRAY[5],
-    fontSize: 14,
+    fontSize: 12,
   },
 }));
 
 function CListText() {
   const classes = useStyles();
   return (
-    <Grid container direction="row" justify="space-between">
+    <>
       <Typography className={classes.content}>Tank1 PH 0.1 초과</Typography>
       <Typography className={classes.time}>2020-09-12 12:32 PM</Typography>
-    </Grid>
+    </>
   );
 }
 
-function APopper(props) {
+function BPopper(props) {
   const { notificationRecords } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -73,20 +79,24 @@ function APopper(props) {
         </Badge>
       </IconButton>
       <Popper open={open} anchorEl={anchorEl} placement={"bottom-end"}>
-        <Paper>
+        <Paper elevation={3}>
           <ClickAwayListener onClickAway={() => setAnchorEl(null)}>
-            <List className={classes.list}>
-              {notificationRecords
-                .filter(
-                  (notificationRecord) =>
-                    notificationRecord.createdAt >= 1599836400
-                )
-                .map(({ code, content, createdAt }, index) => (
-                  <ListItem key={index} alignItems="flex-start">
-                    <ListItemText primary={<CListText />} />
-                  </ListItem>
-                ))}
-            </List>
+            <div>
+              <Typography className={classes.title}>알림</Typography>
+              <Divider />
+              <List dense className={classes.list}>
+                {notificationRecords
+                  .filter(
+                    (notificationRecord) =>
+                      notificationRecord.createdAt >= 1599836400
+                  )
+                  .map(({ code, content, createdAt }, index) => (
+                    <ListItem key={index} alignItems="flex-start">
+                      <ListItemText primary={<CListText />} />
+                    </ListItem>
+                  ))}
+              </List>
+            </div>
           </ClickAwayListener>
         </Paper>
       </Popper>
@@ -94,4 +104,4 @@ function APopper(props) {
   );
 }
 
-export default APopper;
+export default BPopper;

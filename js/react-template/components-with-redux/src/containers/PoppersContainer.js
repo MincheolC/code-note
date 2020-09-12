@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import APopper from "../components/Poppers/APopper";
+import BPopper from "../components/Poppers/BPopper";
 
 function PoppersContainer() {
   const data = [
@@ -40,7 +41,7 @@ function PoppersContainer() {
           <APopper notificationRecords={data} />
         </Grid>
         <Grid item container xs={4} justify="flex-end" alignItems="center">
-          <APopper notificationRecords={data} />
+          <BPopper notificationRecords={data} />
         </Grid>
         <Grid item container xs={4} justify="flex-end" alignItems="center">
           <APopper notificationRecords={data} />
