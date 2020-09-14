@@ -16,11 +16,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     "& .MuiTextField-root": {
-      margin: theme.spacing(1),
+      margin: 8,
       width: 120,
     },
     "& .MuiButton-root": {
-      margin: theme.spacing(1),
+      margin: 8,
       width: 120,
     },
   },
