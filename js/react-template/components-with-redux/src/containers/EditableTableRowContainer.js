@@ -15,6 +15,14 @@ import {
   removeUser,
   createUser,
 } from "../redux/modules/users";
+import { userValidator } from "../libs/formSchema";
+
+const columns = [
+  { id: "name", numeric: false, disablePadding: false, label: "Name" },
+  { id: "age", numeric: true, disablePadding: false, label: "Age" },
+  { id: "phone", numeric: false, disablePadding: false, label: "Phone" },
+  { id: "email", numeric: false, disablePadding: false, label: "Email" },
+];
 
 function EditableTableRowContainer() {
   const { loading, error, data } = useSelector((state) => state.users);
@@ -66,8 +74,10 @@ function EditableTableRowContainer() {
                 <EditableTableRow
                   key={row.id}
                   row={row}
+                  columns={columns}
                   onUpdate={onUpdate}
                   onRemove={onRemove}
+                  validator={userValidator}
                 />
               ))}
             </TableBody>

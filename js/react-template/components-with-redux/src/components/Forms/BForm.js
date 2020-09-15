@@ -84,7 +84,9 @@ function BForm(props) {
                 value={values.name}
                 onChange={handleChange}
                 error={touched.name && Boolean(errors.name)}
-                helperText={touched.name ? errors.name : ""}
+                helperText={
+                  touched.name && Boolean(errors.name) ? errors.name : ""
+                }
               />
               <TextField
                 type="email"
@@ -93,7 +95,9 @@ function BForm(props) {
                 value={values.email}
                 onChange={handleChange}
                 error={touched.email && Boolean(errors.email)}
-                helperText={touched.email ? errors.email : ""}
+                helperText={
+                  touched.email && Boolean(errors.email) ? errors.email : ""
+                }
               />
               <TextField
                 type="text"
@@ -102,7 +106,9 @@ function BForm(props) {
                 value={values.phone}
                 onChange={handleChange}
                 error={touched.phone && Boolean(errors.phone)}
-                helperText={touched.phone ? errors.phone : ""}
+                helperText={
+                  touched.phone && Boolean(errors.phone) ? errors.phone : ""
+                }
               />
               <TextField
                 required
@@ -111,7 +117,11 @@ function BForm(props) {
                 type="number"
                 onChange={handleChange}
                 error={touched.phLowOp && Boolean(errors.phLowOp)}
-                helperText={touched.phLowOp ? errors.phLowOp : ""}
+                helperText={
+                  touched.phLowOp && Boolean(errors.phLowOp)
+                    ? errors.phLowOp
+                    : ""
+                }
               />
               <TextField
                 required
@@ -120,7 +130,11 @@ function BForm(props) {
                 type="number"
                 onChange={handleChange}
                 error={touched.phHighOp && Boolean(errors.phHighOp)}
-                helperText={touched.phHighOp ? errors.phHighOp : ""}
+                helperText={
+                  touched.phHighOp && Boolean(errors.phHighOp)
+                    ? errors.phHighOp
+                    : ""
+                }
               />
             </Box>
             <Box className={classes.box} margin={1}>

@@ -59,7 +59,7 @@ function CTableHead(props) {
           <TableCell
             key={column.id}
             align="left"
-            padding={column.disablePadding ? "none" : "default"}
+            padding="none"
             sortDirection={orderBy === column.id ? order : false}
           >
             <TableSortLabel
@@ -196,6 +196,7 @@ export default function EditableTable(props) {
                     <EditableTableRow
                       key={row.id}
                       row={row}
+                      columns={columns}
                       onUpdate={onUpdate}
                       onRemove={onRemove}
                     />
