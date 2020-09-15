@@ -54,8 +54,10 @@ function EditableTableRow(props) {
   };
 
   const handleUpdate = () => {
-    onUpdate(state.rowData);
-    setState({ ...state, isModifying: false });
+    if (Object.keys(rowErrors).length === 0) {
+      onUpdate(state.rowData);
+      setState({ ...state, isModifying: false });
+    }
   };
 
   const getType = (key) => columns.find((e) => e.id === key).type;
@@ -72,7 +74,13 @@ function EditableTableRow(props) {
             </Tooltip>
             <Tooltip title="취소">
               <IconButton
-                onClick={() => setState({ ...state, isModifying: false })}
+                onClick={() =>
+                  setState({
+                    ...state,
+                    rowData: { ...row },
+                    isModifying: false,
+                  })
+                }
               >
                 <CloseIcon />
               </IconButton>

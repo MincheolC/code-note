@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { getFoods, updateFood, removeFood } from "../redux/modules/foods";
 import EditableTable from "../components/EditableTable";
+import { foodValidator } from "../libs/formSchema";
 
 const useStyles = makeStyles((theme) => ({
   progress: {
@@ -59,6 +60,7 @@ function EditableTableContainer() {
           columns={columns}
           onUpdate={onUpdate}
           onRemove={onRemove}
+          validator={foodValidator}
         />
       )}
     </>

@@ -140,7 +140,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EditableTable(props) {
-  const { rows, columns, onRemove, onUpdate, title } = props;
+  const { rows, columns, onRemove, onUpdate, title, validator } = props;
   const classes = useStyles();
   const [order, setOrder] = useState("asc");
   const [orderBy, setOrderBy] = useState("calories");
@@ -199,6 +199,7 @@ export default function EditableTable(props) {
                       columns={columns}
                       onUpdate={onUpdate}
                       onRemove={onRemove}
+                      validator={validator}
                     />
                   );
                 })}
