@@ -2,18 +2,7 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import moment from "moment";
 import LineChart from "./LineChart";
-import {
-  hexToRgb,
-  WHITE,
-  GRAY,
-  INDIGO,
-  RED,
-  greenCardHeader,
-  redCardHeader,
-  indigoCardHeader,
-  orangeCardHeader,
-  grayCardHeader,
-} from "../../assets/jss";
+import { hexToRgb, WHITE, GRAY, INDIGO, RED } from "../../assets/jss";
 
 function BStyledLineChart({ data, label, type, unit }) {
   const graphData = {

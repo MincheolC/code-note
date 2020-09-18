@@ -24,9 +24,7 @@ function getData(tankDatas, key) {
 }
 
 function RealtimeGraphContainer(props) {
-  const { loading, error, realtimeTankData: data } = useSelector(
-    (state) => state.tankDatas
-  );
+  const { realtimeTankData: data } = useSelector((state) => state.tankDatas);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,14 +40,10 @@ function RealtimeGraphContainer(props) {
     <>
       {data && data.length > 0 && (
         <Grid container spacing={3}>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <JCard
               color={"indigo"}
-              data={[
-                createData(data, 0, "temp"),
-                createData(data, 1, "temp"),
-                createData(data, 2, "temp"),
-              ]}
+              data={[createData(data, 0, "temp")]}
               type={"temp"}
               title={"온도"}
               content={`정상 범위: 28 ~ 32  측정값: ${
@@ -58,14 +52,10 @@ function RealtimeGraphContainer(props) {
               unit={"second"}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <JCard
               color={"yellow"}
-              data={[
-                createData(data, 0, "ph"),
-                createData(data, 1, "ph"),
-                createData(data, 2, "ph"),
-              ]}
+              data={[createData(data, 0, "ph")]}
               type={"ph"}
               title={"PH"}
               content={`정상 범위: 28 ~ 32  측정값: ${
@@ -74,7 +64,7 @@ function RealtimeGraphContainer(props) {
               unit={"second"}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <JCard
               color={"gray"}
               data={[
@@ -90,7 +80,7 @@ function RealtimeGraphContainer(props) {
               unit={"second"}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <BStyledLineChart
               data={[
                 createData(data, 0, "temp"),
@@ -100,7 +90,7 @@ function RealtimeGraphContainer(props) {
               type={"temp"}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <AStyledBarChart data={getData(data, "temp")} type={"temp"} />
           </Grid>
         </Grid>

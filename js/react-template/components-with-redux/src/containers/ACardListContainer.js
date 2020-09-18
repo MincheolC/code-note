@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecords } from "../redux/modules/records";
 import ACardList from "../components/ACardList";
@@ -14,11 +13,7 @@ function ACardListContainer() {
     dispatch(getRecords());
   }, [dispatch]);
 
-  return (
-    <Paper style={{ backgroundColor: "#fff5f5" }}>
-      {data && <ACardList records={data} />}
-    </Paper>
-  );
+  return <>{data && <ACardList records={data} />}</>;
 }
 
 export default ACardListContainer;

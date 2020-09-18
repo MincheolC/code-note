@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import APopper from "../components/Poppers/APopper";
 import BPopper from "../components/Poppers/BPopper";
 
@@ -35,19 +34,17 @@ function PoppersContainer() {
     },
   ];
   return (
-    <Paper style={{ background: "#aaaaaa" }} elevation={3}>
-      <Grid container spacing={3}>
-        <Grid item container xs={4} justify="flex-end" alignItems="center">
-          <APopper notificationRecords={data} />
-        </Grid>
-        <Grid item container xs={4} justify="flex-end" alignItems="center">
-          <BPopper notificationRecords={data} />
-        </Grid>
-        <Grid item container xs={4} justify="flex-end" alignItems="center">
-          <APopper notificationRecords={data} />
-        </Grid>
+    <Grid container spacing={3}>
+      <Grid item container xs={4} justify="flex-end" alignItems="center">
+        <APopper notificationRecords={data} />
       </Grid>
-    </Paper>
+      <Grid item container xs={4} justify="flex-end" alignItems="center">
+        <BPopper notificationRecords={data} />
+      </Grid>
+      <Grid item container xs={4} justify="flex-end" alignItems="center">
+        <APopper notificationRecords={data} />
+      </Grid>
+    </Grid>
   );
 }
 

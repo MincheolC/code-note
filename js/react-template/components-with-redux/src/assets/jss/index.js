@@ -24,6 +24,8 @@ export const hexToRgb = (input) => {
   );
 };
 
+export const DRAWER_WIDTH = 240;
+
 /* Color - https://yeun.github.io/open-color/ */
 export const WHITE = "#fff";
 export const BLACK = "#000";

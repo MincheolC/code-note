@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import BCard from "../components/Cards/BCard";
 import CCard from "../components/Cards/CCard";
@@ -9,44 +8,35 @@ import FCard from "../components/Cards/FCard";
 import GCard from "../components/Cards/GCard";
 import HCard from "../components/Cards/HCard";
 import ICard from "../components/Cards/ICard";
-import { hexToRgb, INDIGO } from "../assets/jss";
 
 function CardsContainer() {
   return (
-    <Paper
-      style={{
-        padding: 30,
-        width: "60%",
-        backgroundColor: `rgba(${hexToRgb(INDIGO[0])}, 0.5)`,
-      }}
-    >
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <BCard />
-        </Grid>
-        <Grid item xs={4}>
-          <CCard />
-        </Grid>
-        <Grid item xs={8}>
-          <DCard isToday={true} />
-        </Grid>
-        <Grid item xs={8}>
-          <ECard />
-        </Grid>
-        <Grid item xs={6}>
-          <FCard />
-        </Grid>
-        <Grid item xs={6}>
-          <GCard />
-        </Grid>
-        <Grid item xs={6}>
-          <HCard />
-        </Grid>
-        <Grid item xs={3}>
-          <ICard />
-        </Grid>
+    <Grid container spacing={3}>
+      <Grid item xs={4}>
+        <BCard />
       </Grid>
-    </Paper>
+      <Grid item xs={3}>
+        <CCard />
+      </Grid>
+      <Grid item xs={5}>
+        <DCard isToday={true} />
+      </Grid>
+      <Grid item xs={4}>
+        <ECard />
+      </Grid>
+      <Grid item xs={4}>
+        <FCard />
+      </Grid>
+      <Grid item xs={4}>
+        <GCard />
+      </Grid>
+      <Grid item xs={6}>
+        <HCard />
+      </Grid>
+      <Grid item xs={3}>
+        <ICard />
+      </Grid>
+    </Grid>
   );
 }
 
