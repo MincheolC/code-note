@@ -5,7 +5,7 @@ import Card from "./Card";
 import CardBody from "./CardBody";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
-import AStyledChart from "../Graphs/AStyledChart";
+import AStyledLineChart from "../Graphs/AStyledLineChart";
 import styles from "../../assets/jss/components/cardsStyle";
 
 const useStyles = makeStyles(styles);
@@ -16,7 +16,7 @@ function JCard(props) {
   return (
     <Card>
       <CardHeader color={color}>
-        <AStyledChart data={data} type={type} unit={unit} />
+        <AStyledLineChart data={data} type={type} unit={unit} />
       </CardHeader>
       <CardBody>
         <h1 className={classes.title}>{title}</h1>

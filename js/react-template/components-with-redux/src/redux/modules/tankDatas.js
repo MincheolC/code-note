@@ -94,13 +94,13 @@ export default function tankDatas(state = initialState, action) {
         loading: false,
         realtimeTankData:
           state.realtimeTankData.length < 100
-            ? state.realtimeTankData.concat(action.realtimeTankData)
+            ? state.realtimeTankData.concat([action.realtimeTankData])
             : state.realtimeTankData
                 .slice(
                   state.realtimeTankData.length - 20,
                   state.realtimeTankData.length
                 )
-                .concat(action.realtimeTankData),
+                .concat([action.realtimeTankData]),
         error: null,
       };
     case GET_TANK_REALTIME_DATA_ERROR:

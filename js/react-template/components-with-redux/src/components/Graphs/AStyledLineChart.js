@@ -1,10 +1,12 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import moment from "moment";
-import AGraph from "./AGraph";
+import LineChart from "./LineChart";
 import {
   hexToRgb,
   WHITE,
+  INDIGO,
+  RED,
   greenCardHeader,
   redCardHeader,
   indigoCardHeader,
@@ -12,7 +14,7 @@ import {
   grayCardHeader,
 } from "../../assets/jss";
 
-function AStyledChart({ data, label, type, unit }) {
+function AStyledLineChart({ data, label, type, unit }) {
   const graphData = {
     datasets: [
       {
@@ -30,6 +32,40 @@ function AStyledChart({ data, label, type, unit }) {
         pointHoverRadius: 3,
         pointHoverBackgroundColor: WHITE,
         pointHoverBorderColor: WHITE,
+        pointHoverBorderWidth: 3,
+      },
+      {
+        fill: false,
+        lineTension: 0,
+
+        backgroundColor: INDIGO[2],
+        borderColor: INDIGO[2], // line
+        borderWidth: 4,
+
+        pointBackgroundColor: INDIGO[2],
+        pointBorderWidth: 1,
+        pointRadius: 4,
+
+        pointHoverRadius: 3,
+        pointHoverBackgroundColor: INDIGO[2],
+        pointHoverBorderColor: INDIGO[2],
+        pointHoverBorderWidth: 3,
+      },
+      {
+        fill: false,
+        lineTension: 0,
+
+        backgroundColor: RED[2],
+        borderColor: RED[2], // line
+        borderWidth: 4,
+
+        pointBackgroundColor: RED[2],
+        pointBorderWidth: 1,
+        pointRadius: 4,
+
+        pointHoverRadius: 3,
+        pointHoverBackgroundColor: RED[2],
+        pointHoverBorderColor: RED[2],
         pointHoverBorderWidth: 3,
       },
     ],
@@ -116,22 +152,26 @@ function AStyledChart({ data, label, type, unit }) {
       ],
     },
   };
-  graphData.datasets[0].data = data;
-  graphData.datasets[0].label = label;
+  graphData.datasets[0].data = data[0];
+  graphData.datasets[0].label = "0";
+  graphData.datasets[1].data = data[1];
+  graphData.datasets[1].label = "1";
+  graphData.datasets[2].data = data[2];
+  graphData.datasets[2].label = "2";
   if (type === "ph") {
     options.scales.yAxes[0].ticks.min = 0;
-    options.scales.yAxes[0].ticks.max = 10;
-    options.scales.yAxes[0].ticks.stepSize = 2;
+    options.scales.yAxes[0].ticks.max = 3;
+    options.scales.yAxes[0].ticks.stepSize = 0.5;
   }
   if (type === "dox") {
-    options.scales.yAxes[0].ticks.min = 0;
-    options.scales.yAxes[0].ticks.max = 100;
-    options.scales.yAxes[0].ticks.stepSize = 20;
+    options.scales.yAxes[0].ticks.min = 30;
+    options.scales.yAxes[0].ticks.max = 60;
+    options.scales.yAxes[0].ticks.stepSize = 5;
   }
   // if (unit) {
   //   options.scales.xAxes[0].time.unit = unit;
   // }
-  return <AGraph data={graphData} options={options} />;
+  return <LineChart data={graphData} options={options} />;
 }
 
-export default AStyledChart;
+export default AStyledLineChart;
