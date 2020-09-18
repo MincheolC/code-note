@@ -10,7 +10,9 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    fontWeight: "bold",
+  },
+  title: {
+    fontFamily: "'Jua', sans-serif",
   },
   container: {
     display: "flex",
@@ -35,7 +37,9 @@ function CountDown(props) {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h2">발효 시간</Typography>
+      <Typography classNames={classes.title} variant="h2">
+        발효 시간
+      </Typography>
       <Typography variant="p">{`시작: ${format(
         startedAt,
         "yyyy-MM-dd HH:mm"

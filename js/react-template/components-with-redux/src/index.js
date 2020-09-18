@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -19,11 +21,19 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga);
 
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["Jua", "Noto Sans KR", "sans-serif"].join(","),
+  },
+});
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <MuiThemeProvider theme={theme}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
