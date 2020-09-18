@@ -23,7 +23,8 @@ sagaMiddleware.run(rootSaga);
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: ["Jua", "Noto Sans KR", "sans-serif"].join(","),
+    // fontFamily: ["Open Sans", "Do Hyeon", "sans-serif"].join(","),
+    fontFamily: ["Spoqa Han Sans", "sans-serif"].join(","),
   },
 });
 

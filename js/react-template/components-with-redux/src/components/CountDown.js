@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     margin: "0 2rem",
     textAlign: "center",
     "& p": {
-      fontWeight: "bold",
+      fontWeight: 600,
     },
     "& span": {
       fontSize: "1rem",

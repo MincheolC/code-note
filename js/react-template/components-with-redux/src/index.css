@@ -1,60 +1,3 @@
-@font-face {
-  font-family: "Jua";
-  font-style: "normal";
-  src: url("./assets/fonts/Jua/Jua-Regular.ttf") format("truetype");
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-@font-face {
-  font-family: "Do Hyeon";
-  font-style: "normal";
-  src: url("./assets/fonts/Do_Hyeon/DoHyeon-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Godo";
-  font-style: "normal";
-  font-weight: 400;
-  src: url("./assets/fonts/godoFont/GodoM.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Godo";
-  font-weight: 500;
-  src: url("./assets/fonts/godoFont/GodoB.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Noto Sans KR";
-  font-weight: 100;
-  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Thin.otf") format("opentype");
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-@font-face {
-  font-family: "Noto Sans KR";
-  font-weight: 300;
-  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Light.otf")
-    format("opentype");
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-@font-face {
-  font-family: "Noto Sans KR";
-  font-style: "normal";
-  font-weight: 400;
-  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Regular.otf")
-    format("opentype");
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-@font-face {
-  font-family: "Noto Sans KR";
-  font-weight: 500;
-  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Medium.otf")
-    format("opentype");
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-@font-face {
-  font-family: "Noto Sans KR";
-  font-weight: 700;
-  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Bold.otf") format("opentype");
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -67,4 +10,117 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Jua */
+@font-face {
+  font-family: "Jua";
+  font-style: "normal";
+  src: url("./assets/fonts/Jua/Jua-Regular.ttf") format("truetype");
+  unicode-range: U+AC00- U+D7A3;
+}
+/* Do Hyeon */
+@font-face {
+  font-family: "Do Hyeon";
+  font-style: "normal";
+  src: url("./assets/fonts/Do_Hyeon/DoHyeon-Regular.ttf") format("truetype");
+  unicode-range: U+AC00- U+D7A3;
+}
+/* Godo */
+@font-face {
+  font-family: "Godo";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("./assets/fonts/godoFont/GodoM.ttf") format("truetype");
+  unicode-range: U+AC00- U+D7A3;
+}
+@font-face {
+  font-family: "Godo";
+  font-weight: 500;
+  src: url("./assets/fonts/godoFont/GodoB.ttf") format("truetype");
+}
+/* Noto Sans KR (영어, 숫자) */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 100;
+  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Thin.otf") format("opentype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 300;
+  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Light.otf")
+    format("opentype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Regular.otf")
+    format("opentype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Medium.otf")
+    format("opentype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 700;
+  src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Bold.otf") format("opentype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+/* Open Sans (영어, 숫자, 특수문자) */
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 300;
+  src: url("./assets/fonts/Open_Sans/OpenSans-Light.ttf") format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: url("./assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  src: url("./assets/fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 800;
+  src: url("./assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf") format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+
+/* Spoqa Han Sans */
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 300;
+  src: url("./assets/fonts/SpoqaHanSans/Spoqa\ Han\ Sans\ Light.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 400;
+  src: url("./assets/fonts/SpoqaHanSans/Spoqa\ Han\ Sans\ Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 600;
+  src: url("./assets/fonts/SpoqaHanSans/Spoqa\ Han\ Sans\ Bold.ttf")
+    format("truetype");
 }
