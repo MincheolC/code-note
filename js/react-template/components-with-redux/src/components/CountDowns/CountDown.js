@@ -3,33 +3,9 @@ import classNames from "classnames";
 import { format } from "date-fns";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import styles from "../../assets/jss/components/countDownStyle";
 
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  title: {
-    fontFamily: "'Jua', sans-serif",
-  },
-  container: {
-    display: "flex",
-    margin: 10,
-  },
-  count: {
-    margin: "0 2rem",
-    textAlign: "center",
-    "& p": {
-      fontWeight: 600,
-    },
-    "& span": {
-      fontSize: "1rem",
-    },
-  },
-  day: {},
-});
+const useStyles = makeStyles(styles);
 
 function CountDown(props) {
   const { startedAt, day, hour, minute, second } = props;
@@ -37,9 +13,7 @@ function CountDown(props) {
 
   return (
     <div className={classes.root}>
-      <Typography classNames={classes.title} variant="h2">
-        발효 시간
-      </Typography>
+      <Typography variant="h2">발효 시간</Typography>
       <Typography variant="p">{`시작: ${format(
         startedAt,
         "yyyy-MM-dd HH:mm"
