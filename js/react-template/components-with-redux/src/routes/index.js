@@ -17,6 +17,7 @@ import FormsContainer from "../containers/FormsContainer";
 import CountDownContainer from "../containers/CountDownContainer";
 import ButtonContainer from "../containers/ButtonContainer";
 import GridBPContainer from "../containers/GridBPContainer";
+import TablesContainer from "../containers/TablesContainer";
 
 export const Links = () => (
   <>
@@ -47,6 +48,9 @@ export const Links = () => (
         key={"EditableTableRow"}
       >
         <ListItemText primary="Editable Table Row" />
+      </ListItem>
+      <ListItem button component={Link} to="/tables" key={"Tables"}>
+        <ListItemText primary="Tables" />
       </ListItem>
       <ListItem button component={Link} to="/a_cardlist" key={"CardListA"}>
         <ListItemText primary="Card List Version A" />
@@ -88,6 +92,7 @@ export const Routes = () => (
       component={EditableTableRowContainer}
     ></Route>
     <Route path="/sortselecttable" component={SortSelectTableContainer}></Route>
+    <Route path="/tables" component={TablesContainer}></Route>
     <Route path="/a_cardlist" component={ACardListContainer}></Route>
     <Route path="/a_gridlist" component={AGridListContainer}></Route>
     <Route path="/cards" component={CardsContainer}></Route>

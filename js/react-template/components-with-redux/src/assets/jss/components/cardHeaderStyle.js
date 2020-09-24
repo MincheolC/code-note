@@ -5,6 +5,10 @@ import {
   redCardHeader,
   yellowCardHeader,
   greenCardHeader,
+  bPinkCardHeader,
+  bGreenCardHeader,
+  bYellowCardHeader,
+  bOrangeCardHeader,
   WHITE,
 } from "../";
 
@@ -15,7 +19,7 @@ const cardHeaderStyle = {
     borderBottom: "none",
     background: "transparent",
     zIndex: "3 !important",
-    "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader": {
+    "&$cardHeaderPlain,&$cardHeaderIcon,&$cardHeaderStats,&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader,&$bGreenCardHeader,&$bYellowCardHeader,&$bPinkCardHeader,&$bOrangeCardHeader": {
       margin: "0 15px",
       padding: "0",
       position: "relative",
@@ -24,7 +28,7 @@ const cardHeaderStyle = {
     "&:first-child": {
       borderRadius: "calc(.25rem - 1px) calc(.25rem - 1px) 0 0",
     },
-    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader": {
+    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader,&$bGreenCardHeader,&$bYellowCardHeader,&$bPinkCardHeader,&$bOrangeCardHeader": {
       "&:not($cardHeaderIcon)": {
         borderRadius: "3px",
         marginTop: "-20px",
@@ -48,7 +52,7 @@ const cardHeaderStyle = {
     marginRight: "0px !important",
   },
   cardHeaderIcon: {
-    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader": {
+    "&$indigoCardHeader,&$orangeCardHeader,&$grayCardHeader,&$redCardHeader,&$yellowCardHeader,&$greenCardHeader,&$bGreenCardHeader,&$bYellowCardHeader,&$bPinkCardHeader,&$bOrangeCardHeader": {
       background: "transparent",
       boxShadow: "none",
     },
@@ -101,6 +105,30 @@ const cardHeaderStyle = {
     color: WHITE,
     "&:not($cardHeaderIcon)": {
       ...greenCardHeader,
+    },
+  },
+  bPinkCardHeader: {
+    color: WHITE,
+    "&:not($cardHeaderIcon)": {
+      ...bPinkCardHeader,
+    },
+  },
+  bGreenCardHeader: {
+    color: WHITE,
+    "&:not($cardHeaderIcon)": {
+      ...bGreenCardHeader,
+    },
+  },
+  bYellowCardHeader: {
+    color: WHITE,
+    "&:not($cardHeaderIcon)": {
+      ...bYellowCardHeader,
+    },
+  },
+  bOrangeCardHeader: {
+    color: WHITE,
+    "&:not($cardHeaderIcon)": {
+      ...bOrangeCardHeader,
     },
   },
 };
