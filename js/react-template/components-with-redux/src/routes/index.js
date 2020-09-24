@@ -16,6 +16,7 @@ import PoppersContainer from "../containers/PoppersContainer";
 import FormsContainer from "../containers/FormsContainer";
 import CountDownContainer from "../containers/CountDownContainer";
 import ButtonContainer from "../containers/ButtonContainer";
+import GridBPContainer from "../containers/GridBPContainer";
 
 export const Links = () => (
   <>
@@ -71,6 +72,9 @@ export const Links = () => (
       <ListItem button component={Link} to="/buttons" key={"Buttons"}>
         <ListItemText primary="Buttons" />
       </ListItem>
+      <ListItem button component={Link} to="/grid_breakpoint" key={"GridBP"}>
+        <ListItemText primary="Grid BP" />
+      </ListItem>
     </List>
   </>
 );
@@ -92,5 +96,6 @@ export const Routes = () => (
     <Route path="/forms" component={FormsContainer}></Route>
     <Route path="/count_down" component={CountDownContainer}></Route>
     <Route path="/buttons" component={ButtonContainer}></Route>
+    <Route path="/grid_breakpoint" component={GridBPContainer}></Route>
   </Switch>
 );
