@@ -101,6 +101,11 @@ export const GREEN = [
   "#2f9e44",
   "#2b8a3e",
 ];
+export const BRAND = "#ea684b";
+export const BRAND_GREEN = ["#68b82e", "#00723a", "#00694d"];
+export const BRAND_YELLOW = ["#fae600", "#f3ae00", "#f39a00"];
+export const BRAND_PINK = ["#d95097", "#a0005b", "#720056"];
+export const BRAND_ORANGE = ["#f5a21b", "#ed6b00", "#ea5607"];
 
 /* boxShadow */
 export const boxShadow = {
@@ -132,6 +137,22 @@ export const greenBoxShadow = {
   boxShadow: `0 4px 20px 0 rgba(${hexToRgb(BLACK)}, 0.14),
      0 7px 10px -5px rgba(${hexToRgb(GREEN[6])}, 0.4)`,
 };
+export const bGreenBoxShadow = {
+  boxShadow: `0 4px 20px 0 rgba(${hexToRgb(BLACK)}, 0.14),
+     0 7px 10px -5px rgba(${hexToRgb(BRAND_GREEN[0])}, 0.4)`,
+};
+export const bYellowBoxShadow = {
+  boxShadow: `0 4px 20px 0 rgba(${hexToRgb(BLACK)}, 0.14),
+     0 7px 10px -5px rgba(${hexToRgb(BRAND_YELLOW[0])}, 0.4)`,
+};
+export const bPinkBoxShadow = {
+  boxShadow: `0 4px 20px 0 rgba(${hexToRgb(BLACK)}, 0.14),
+     0 7px 10px -5px rgba(${hexToRgb(BRAND_PINK[0])}, 0.4)`,
+};
+export const bOrangeBoxShadow = {
+  boxShadow: `0 4px 20px 0 rgba(${hexToRgb(BLACK)}, 0.14),
+     0 7px 10px -5px rgba(${hexToRgb(BRAND_ORANGE[0])}, 0.4)`,
+};
 
 /* CardHeader */
 export const indigoCardHeader = {
@@ -157,4 +178,20 @@ export const yellowCardHeader = {
 export const greenCardHeader = {
   background: `linear-gradient(60deg, ${GREEN[6]}, ${GREEN[8]})`,
   ...yellowBoxShadow,
+};
+export const bOrangeCardHeader = {
+  background: `linear-gradient(60deg, ${BRAND_ORANGE[0]}, ${BRAND_ORANGE[1]})`,
+  ...bOrangeBoxShadow,
+};
+export const bYellowCardHeader = {
+  background: `linear-gradient(60deg, ${BRAND_YELLOW[0]}, ${BRAND_YELLOW[1]})`,
+  ...bYellowBoxShadow,
+};
+export const bGreenCardHeader = {
+  background: `linear-gradient(60deg, ${BRAND_GREEN[0]}, ${BRAND_GREEN[1]})`,
+  ...bGreenBoxShadow,
+};
+export const bPinkCardHeader = {
+  background: `linear-gradient(60deg, ${BRAND_PINK[0]}, ${BRAND_PINK[1]})`,
+  ...bPinkBoxShadow,
 };

@@ -23,7 +23,17 @@ const responsiveDrawerStyle = (theme) => ({
     },
   },
   // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    ...theme.mixins.toolbar,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  brand: {
+    marginLeft: theme.spacing(2),
+    fontSize: "1.5rem",
+    fontWeight: 600,
+  },
   drawerPaper: {
     width: DRAWER_WIDTH,
   },

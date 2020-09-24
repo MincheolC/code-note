@@ -8,6 +8,7 @@ import Hidden from "@material-ui/core/Hidden";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import styles from "../assets/jss/navigations/responsiveDrawerStyle";
 import { Links, Routes } from "../routes";
+import { Typography } from "@material-ui/core";
 
 const history = createBrowserHistory();
 const useStyles = makeStyles(styles);
@@ -24,7 +25,9 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <div className={classes.toolbar}>
+        <Typography className={classes.brand}>React Custom</Typography>
+      </div>
       <Divider />
       <Links />
     </div>

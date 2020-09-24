@@ -14,7 +14,7 @@ import styles from "../../assets/jss/components/countDownStyle";
 const useStyles = makeStyles(styles);
 
 function CountDown(props) {
-  const { startedAt, day, hour, minute, second } = props;
+  const { startedAt, day, hour, minute, second, tank, tea } = props;
   const classes = useStyles();
 
   return (
@@ -23,7 +23,7 @@ function CountDown(props) {
         <CardIcon color="orange">
           <AccessAlarms />
         </CardIcon>
-        <p className={classes.category}>발효 시간</p>
+        <p className={classes.category}>{`${tank} (${tea})`}</p>
         <div className={classes.container}>
           <div className={classNames(classes.count, classes.day)}>
             {/* <Typography variant="h4" component="p"> */}
@@ -55,7 +55,7 @@ function CountDown(props) {
       <CardFooter stats>
         <div className={classes.stats}>
           <DateRange />
-          {`${format(startedAt, "yyyy-MM-dd HH:mm")}`}
+          {`${format(startedAt, "yyyy-MM-dd HH:mm")} 시작`}
         </div>
       </CardFooter>
     </Card>

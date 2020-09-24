@@ -15,6 +15,7 @@ import GraphsContainer from "../containers/GraphsContainer";
 import PoppersContainer from "../containers/PoppersContainer";
 import FormsContainer from "../containers/FormsContainer";
 import CountDownContainer from "../containers/CountDownContainer";
+import ButtonContainer from "../containers/ButtonContainer";
 
 export const Links = () => (
   <>
@@ -67,6 +68,9 @@ export const Links = () => (
       <ListItem button component={Link} to="/count_down" key={"CountDowns"}>
         <ListItemText primary="CountDowns" />
       </ListItem>
+      <ListItem button component={Link} to="/buttons" key={"Buttons"}>
+        <ListItemText primary="Buttons" />
+      </ListItem>
     </List>
   </>
 );
@@ -87,5 +91,6 @@ export const Routes = () => (
     <Route path="/poppers" component={PoppersContainer}></Route>
     <Route path="/forms" component={FormsContainer}></Route>
     <Route path="/count_down" component={CountDownContainer}></Route>
+    <Route path="/buttons" component={ButtonContainer}></Route>
   </Switch>
 );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import CountDown from "../components/CountDowns/CountDown";
 import CountDownCard from "../components/CountDowns/CountDownCard";
+import NameCard from "../components/Cards/NameCard";
 
 function formatTime(time) {
   return time < 10 ? `0${time}` : time;
@@ -43,14 +44,19 @@ function CountDownContainer() {
           second={time.second}
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={3} sm={5}>
         <CountDownCard
+          tank="Tank 1"
+          tea="Original"
           startedAt={startedAt}
           day={time.day}
           hour={time.hour}
           minute={time.minute}
           second={time.second}
         />
+      </Grid>
+      <Grid item xs={2} sm={3}>
+        <NameCard tank="Tank 1" tea="Original" />
       </Grid>
     </Grid>
   );
