@@ -19,6 +19,7 @@ import ButtonContainer from "../containers/ButtonContainer";
 import GridBPContainer from "../containers/GridBPContainer";
 import TablesContainer from "../containers/TablesContainer";
 import SkeletonContainer from "../containers/SkeletonContainer";
+import HistoryChartContainer from "../containers/HistoryChartContainer";
 
 export const Links = () => (
   <>
@@ -83,6 +84,14 @@ export const Links = () => (
       <ListItem button component={Link} to="/skeleton" key={"Skeleton"}>
         <ListItemText primary="Skeleton" />
       </ListItem>
+      <ListItem
+        button
+        component={Link}
+        to="/history_chart"
+        key={"HistoryChart"}
+      >
+        <ListItemText primary="HistoryChart" />
+      </ListItem>
     </List>
   </>
 );
@@ -107,5 +116,6 @@ export const Routes = () => (
     <Route path="/buttons" component={ButtonContainer}></Route>
     <Route path="/grid_breakpoint" component={GridBPContainer}></Route>
     <Route path="/skeleton" component={SkeletonContainer}></Route>
+    <Route path="/history_chart" component={HistoryChartContainer}></Route>
   </Switch>
 );
