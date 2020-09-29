@@ -15,7 +15,7 @@ import GraphsContainer from "../containers/GraphsContainer";
 import PoppersContainer from "../containers/PoppersContainer";
 import FormsContainer from "../containers/FormsContainer";
 import CountDownContainer from "../containers/CountDownContainer";
-import ButtonContainer from "../containers/ButtonContainer";
+import InputsContainer from "../containers/InputsContainer";
 import GridBPContainer from "../containers/GridBPContainer";
 import TablesContainer from "../containers/TablesContainer";
 import SkeletonContainer from "../containers/SkeletonContainer";
@@ -75,8 +75,8 @@ export const Links = () => (
       <ListItem button component={Link} to="/count_down" key={"CountDowns"}>
         <ListItemText primary="CountDowns" />
       </ListItem>
-      <ListItem button component={Link} to="/buttons" key={"Buttons"}>
-        <ListItemText primary="Buttons" />
+      <ListItem button component={Link} to="/inputs" key={"Inputs"}>
+        <ListItemText primary="Inputs" />
       </ListItem>
       <ListItem button component={Link} to="/grid_breakpoint" key={"GridBP"}>
         <ListItemText primary="Grid BP" />
@@ -113,7 +113,7 @@ export const Routes = () => (
     <Route path="/poppers" component={PoppersContainer}></Route>
     <Route path="/forms" component={FormsContainer}></Route>
     <Route path="/count_down" component={CountDownContainer}></Route>
-    <Route path="/buttons" component={ButtonContainer}></Route>
+    <Route path="/inputs" component={InputsContainer}></Route>
     <Route path="/grid_breakpoint" component={GridBPContainer}></Route>
     <Route path="/skeleton" component={SkeletonContainer}></Route>
     <Route path="/history_chart" component={HistoryChartContainer}></Route>
