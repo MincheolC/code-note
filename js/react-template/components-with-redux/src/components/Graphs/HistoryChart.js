@@ -1,57 +1,43 @@
 import React, { useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { INDIGO } from "../../assets/jss";
+import { GRAY } from "../../assets/jss";
 import Chart from "chart.js";
+import styles from "../../assets/jss/components/historyChartStyle";
 
-const useStyles = makeStyles({
-  container: {
-    width: 900,
-    height: 500,
-    overflow: "auto",
-  },
-  content: {
-    width: (props) => (props.length > 90 ? props.length * 20 : "100%"),
-    height: 450,
-  },
-  y: {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    pointerEvents: "none",
-  },
-});
+const useStyles = makeStyles(styles);
 
-const gData = {
-  datasets: [
-    {
-      fill: false,
-      lineTension: 1,
+const datasetOptions = {
+  fill: false,
+  lineTension: 0.1,
 
-      backgroundColor: INDIGO[5],
-      borderColor: INDIGO[5],
-      borderWidth: 3,
+  backgroundColor: GRAY[5],
+  borderColor: GRAY[5],
+  borderWidth: 2,
 
-      pointBackgroundColor: INDIGO[5],
-      pointBorderWidth: 1,
-      pointRadius: 3,
+  pointBackgroundColor: GRAY[5],
+  pointBorderWidth: 1,
+  pointRadius: 2,
 
-      pointHoverRadius: 3,
-      pointHoverBackgroundColor: INDIGO[5],
-      pointHoverBorderColor: INDIGO[5],
-      pointHoverBorderWidth: 1,
-    },
-  ],
+  pointHoverRadius: 2,
+  pointHoverBackgroundColor: GRAY[7],
+  pointHoverBorderColor: GRAY[7],
+  pointHoverBorderWidth: 3,
 };
 
 let myChart;
 
 function HistoryChart(props) {
-  const { data } = props;
-  const classes = useStyles({ length: data.length });
+  const { datas } = props;
+  const classes = useStyles({ length: datas[0].length });
   const chartRef = useRef();
   const yAxisRef = useRef();
 
-  gData.datasets[0].data = data;
+  const gData = {
+    datasets: datas.map((data, index) => ({
+      ...datasetOptions,
+      data,
+    })),
+  };
 
   useEffect(() => {
     if (myChart) {
@@ -114,7 +100,7 @@ function HistoryChart(props) {
         },
       },
     });
-  }, [data]);
+  }, [gData]);
 
   return (
     <div style={{ position: "relative" }}>
