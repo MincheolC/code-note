@@ -1,18 +1,19 @@
+import { WHITE } from '../';
 const historyChartStyle = {
   container: {
-    width: 1500,
-    height: 700,
-    overflow: "auto",
+    width: '80vw',
+    height: 300,
+    overflow: 'auto',
   },
   content: {
-    width: (props) => (props.length > 90 ? props.length * 20 : "100%"),
-    height: 650,
+    width: (props) => (props.length > 90 ? props.length * 20 : '100%'),
+    height: 290,
   },
   y: {
-    position: "absolute",
+    position: 'absolute',
     left: 0,
     top: 0,
-    pointerEvents: "none",
+    pointerEvents: 'none',
   },
 };
 export default historyChartStyle;

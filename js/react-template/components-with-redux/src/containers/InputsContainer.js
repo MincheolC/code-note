@@ -16,3 +16,4 @@ function InputsContainer() {
   );
 }
 
+export default InputsContainer;

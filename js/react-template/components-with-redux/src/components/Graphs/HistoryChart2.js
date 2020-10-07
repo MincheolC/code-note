@@ -26,7 +26,7 @@ const datasetOptions = {
 
 let myChart;
 
-function HistoryChart(props) {
+function HistoryChart2(props) {
   const { datas } = props;
   const classes = useStyles({ length: datas[0].length });
   const chartRef = useRef();
@@ -113,4 +113,4 @@ function HistoryChart(props) {
   );
 }
 
-export default HistoryChart;
+export default HistoryChart2;
