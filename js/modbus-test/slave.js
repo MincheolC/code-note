@@ -69,7 +69,7 @@ function vector() {
 // set the server to answer for modbus requests
 console.log(`ModbusTCP listening on modbus://${host}:${port}`);
 const serverTCP = new ModbusRTU.ServerTCP(vector(), {
-  host,
+  host: "0.0.0.0",
   port,
   debug: true,
   unitID: 1,

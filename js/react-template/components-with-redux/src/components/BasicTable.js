@@ -16,8 +16,8 @@ function BasicTable(props) {
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
-                <TableCell>{column}</TableCell>
+              {columns.map((column, index) => (
+                <TableCell key={index}>{column}</TableCell>
               ))}
             </TableRow>
           </TableHead>
@@ -27,7 +27,7 @@ function BasicTable(props) {
                 {Object.keys(row)
                   .filter((key) => key !== "id")
                   .map((key) => (
-                    <TableCell>{row[key]}</TableCell>
+                    <TableCell key={key}>{row[key]}</TableCell>
                   ))}
               </TableRow>
             ))}
