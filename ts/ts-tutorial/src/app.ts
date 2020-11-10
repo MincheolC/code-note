@@ -1,1 +1,1 @@
-console.log("hello typescript");
+require('./basicTypes');
