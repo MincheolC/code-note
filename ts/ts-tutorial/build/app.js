@@ -1,3 +1,3 @@
 "use strict";
-console.log("hello typescript");
+require('./basicTypes');
 //# sourceMappingURL=app.js.map

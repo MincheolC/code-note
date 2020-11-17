@@ -1,9 +1,8 @@
+"use strict";
 /*
  * Value로부터 쉽게 타입 추론이 되면 타입 선언을 하지 않아도 됨.
  * (bigint, boolean, number, null, RegExp, string, symbol, undefined)
  */
-console.log('===== Basic Tyeps =====');
-
 // Boolean
 const isDone = false;
 console.log('[boolean]', isDone);
@@ -19,29 +18,32 @@ const color = 'blue';
 const sentence = `i like ${color}`;
 console.log('[string]', sentence);
 // Array
-const list: number[] = [1, 2, 3];
+const list = [1, 2, 3];
 console.log('[array]', list);
 // Tuple
-const tuple: [string, number] = ['hello', 10];
+const tuple = ['hello', 10];
 console.log('[tuple]', tuple, tuple[0], tuple[1]);
 // Enum
-enum Color {
-  Red = 1,
-  Green,
-  Blue,
-}
-const c: Color = Color.Green;
-const colorName: string = Color[2];
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 1] = "Red";
+    Color[Color["Green"] = 2] = "Green";
+    Color[Color["Blue"] = 3] = "Blue";
+})(Color || (Color = {}));
+const c = Color.Green;
+const colorName = Color[2];
 console.log('[enum]', c, colorName);
 // Unknown
-const maybe: unknown = 'hello';
+const maybe = 'hello';
 if (maybe === true) {
-  const aBoolean: boolean = maybe;
-  console.log('[unknown]', aBoolean);
-} else if (typeof maybe === 'string') {
-  const aString: string = maybe;
-  console.log('[unknown]', aString);
+    const aBoolean = maybe;
+    console.log('[unknown]', aBoolean);
+}
+else if (typeof maybe === 'string') {
+    const aString = maybe;
+    console.log('[unknown]', aString);
 }
 // Any
-const looselyTyped: any = {};
-// const d = looselyTyped.a.b.c.d; // compile OK but runtime ERROR
+const looselyTyped = {};
+const d = looselyTyped.a.b.c.d;
+//# sourceMappingURL=basicTypes.js.map
