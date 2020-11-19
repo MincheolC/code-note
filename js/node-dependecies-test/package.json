@@ -23,6 +23,7 @@
     "nodemailer": "^6.4.10",
     "qs": "^6.9.4",
     "redis": "^3.0.2",
+    "winston": "^3.3.3",
     "yup": "^0.29.3"
   },
   "devDependencies": {
