@@ -41,7 +41,6 @@ function solution(number, k) {
       left -= 1;
     }
     answer.push(num);
-    console.log(answer)
   }
 
   answer.splice(answer.length - left, left);
