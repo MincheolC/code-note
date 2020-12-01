@@ -44,3 +44,27 @@ function solution1(progresses, speeds) {
 
   return answer;
 }
+
+function solution3(progresses, speeds) {
+  const durations = progresses.map((p, index) => Math.ceil((100 - p) / speeds[index]));
+  const answer = [];
+  let max = durations[0];
+  let count = 1;
+
+  for (let i = 1; i < durations.length; i += 1) {
+    const duration = durations[i];
+    if (max < duration) {
+      max = duration;
+      answer.push(count);
+      count = 1;
+    } else {
+      count += 1;
+    }
+  }
+
+  answer.push(count);
+  return answer;
+}
+
+console.log(solution3([93, 30, 55], [1, 30, 5]));
+console.log(solution3([95, 90, 99, 99, 80, 99], [1, 1, 1, 1, 1, 1]));
