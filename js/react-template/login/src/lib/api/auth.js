@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const signUp = ({ id, password }) => axios.post('/auth/signup', { id, password });
-export const login = ({ id, password }) => axios.post('/auth/login', { id, password });
+export const signUp = (data) => axios.post('/auth/signup', data);
+export const login = (data) => axios.post('/auth/login', data);
 export const checkStatus = () => axios.get('/auth/check');

@@ -14,8 +14,8 @@ const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_ERROR = 'LOGIN_ERROR';
 
 export const checkStatus = () => ({ type: CHECK_STATUS });
-export const signUp = () => ({ type: SIGN_UP });
-export const login = () => ({ type: LOGIN });
+export const signUp = (payload) => ({ type: SIGN_UP, payload });
+export const login = (payload) => ({ type: LOGIN, payload });
 
 function* checkStatusSaga() {
   try {
