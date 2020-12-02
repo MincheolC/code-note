@@ -82,22 +82,20 @@ export default function auth(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        error: null,
-        status: null,
       };
     case CHECK_STATUS_SUCCESS:
       return {
-        ...state,
         loading: false,
         error: null,
-        status: action.payload,
+        status: true,
+        id: action.payload.id,
       };
     case CHECK_STATUS_ERROR:
       return {
-        ...state,
         loading: false,
         error: action.error,
-        status: null,
+        status: false,
+        id: null,
       };
     case SIGN_UP:
       return {
