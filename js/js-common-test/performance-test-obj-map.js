@@ -1,9 +1,6 @@
 /*
  * Object vs Map Perfomance Test
  */
-
-const { fn } = require("moment");
-
 function timelog(fn, n) {
   console.time(fn.name);
   fn(n);
