@@ -81,8 +81,6 @@ function activityNotifications(expenditure, d) {
     map[i] += 1;
   });
 
-  console.log(map);
-
   for (let i = 0; expenditure.length - d > i; i += 1) {
     if (i !== 0) {
       map = updateMap(map, expenditure[i - 1], expenditure[i + d - 1]);
