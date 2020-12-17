@@ -8,7 +8,7 @@ module.exports = {
           allowNull: false,
           autoIncrement: true,
           primaryKey: true,
-          type: Sequelize.INTEGER,
+          type: Sequelize.DataTypes.INTEGER,
         },
         userId: {
           allowNull: false,
@@ -18,7 +18,7 @@ module.exports = {
           },
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',
-          type: Sequelize.INTEGER,
+          type: Sequelize.DataTypes.INTEGER,
         },
         followingId: {
           allowNull: false,
@@ -28,17 +28,17 @@ module.exports = {
           },
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',
-          type: Sequelize.INTEGER,
+          type: Sequelize.DataTypes.INTEGER,
         },
         createdAt: {
           allowNull: false,
           defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-          type: Sequelize.DATE,
+          type: Sequelize.DataTypes.DATE,
         },
         updatedAt: {
           allowNull: false,
           defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
-          type: Sequelize.DATE,
+          type: Sequelize.DataTypes.DATE,
         },
       })
       .then(() =>
