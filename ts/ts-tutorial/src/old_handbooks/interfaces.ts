@@ -114,4 +114,3 @@ const myArray: IndexStringDic = {
 myArray[2] = 'c';
 
 console.log('[Indexable Types3] ', myArray);
-

@@ -1,5 +1,5 @@
-require('./basicTypes');
-require('./interfaces');
-require('./functions');
-require('./classes');
-require('./enums');
+require('./old_handbooks/basicTypes');
+require('./old_handbooks/interfaces');
+require('./old_handbooks/functions');
+require('./old_handbooks/classes');
+require('./old_handbooks/enums');
