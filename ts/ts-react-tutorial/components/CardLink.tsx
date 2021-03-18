@@ -1,6 +1,6 @@
 import styles from '../styles/components/CardLink.module.scss'
 
-type CardLinkProps = {
+interface CardLinkProps {
   href: string;
 };
 
