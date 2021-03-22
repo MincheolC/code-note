@@ -36,9 +36,7 @@ const Home: React.FC = () => {
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </CardLink>
 
-          <CardLink
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
+          <CardLink href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
             <h3>Deploy &rarr;</h3>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
