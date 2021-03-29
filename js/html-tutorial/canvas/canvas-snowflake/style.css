@@ -1,0 +1,23 @@
+.canvas-container {
+  position: absolute;
+  left: 0;
+}
+
+.container {
+  position: relative;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+canvas {
+  border: 1px solid black;
+  background: #343a40;
+}
+
+body {
+  margin: 0;
+}
