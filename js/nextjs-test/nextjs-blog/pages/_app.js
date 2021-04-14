@@ -1,5 +1,10 @@
 import '../styles/global.css'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+App.getInitialProps = async () => {
+  return { customData: 'custome' };
+};
+
+export default function App({ Component, pageProps, customData }) {
+  console.log(pageProps, customData);
+  return <Component {...pageProps} />;
 }
