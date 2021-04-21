@@ -1,3 +1,5 @@
+const { printHeapMemoryUsage } = require('../helpers/utils');
+
 function timelog(fn, n) {
   console.time(fn.name);
   fn(n);
@@ -32,4 +34,6 @@ function useForUnroll(arr) {
 }
 
 timelog(useFor, arr);
+printHeapMemoryUsage();
 timelog(useForUnroll, arr);
+printHeapMemoryUsage();
