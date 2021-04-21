@@ -1,0 +1,16 @@
+h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+canvas {
+  border: 1px solid black;
+  background: #040c22;
+  /* background: #212529; */
+  /* background: white; */
+}
+
+body {
+  margin: 0;
+}
