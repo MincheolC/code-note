@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'star_counter.dart';
+import 'privacy_policy.dart';
 
 void main() {
   runApp(StarCounterApp());
@@ -15,6 +16,7 @@ class StarCounterApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => HomePage(),
+          '/privacypolicy': (context) => PrivacyPolicy(),
         });
   }
 }
@@ -55,6 +57,16 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                     ),
+                    TextButton(
+                        style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all(Colors.blue),
+                          overlayColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed('/privacypolicy'),
+                        child: Text('Privacy Policy')),
                     Padding(
                       padding: const EdgeInsets.only(top: 32.0),
                       child: GitHubStarCounter(repositoryName: _repositoryName),
