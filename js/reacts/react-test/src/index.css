@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hovered {
+  color: #ff6b6b;
+}
+
+.normal {
+  color: #4dabf7;
+}
