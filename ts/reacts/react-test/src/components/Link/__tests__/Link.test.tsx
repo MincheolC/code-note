@@ -1,7 +1,7 @@
 // Link.react.test.js
 import React from 'react';
 import renderer, { ReactTestRenderer, ReactTestRendererJSON } from 'react-test-renderer';
-import Link from './Link';
+import Link from '../';
 
 const { act } = renderer;
 
