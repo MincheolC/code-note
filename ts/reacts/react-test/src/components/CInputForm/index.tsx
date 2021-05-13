@@ -22,4 +22,4 @@ const CInputForm: React.FC<CInputFormProps> = (props) => {
   )
 }
 
-export default CInputForm
+export default React.memo(CInputForm)
