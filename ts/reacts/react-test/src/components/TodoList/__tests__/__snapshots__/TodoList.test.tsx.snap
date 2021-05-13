@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo render properly 1`] = `
+<ul>
+  <li>
+    <span>
+      test1
+    </span>
+    <button
+      onClick={[Function]}
+    >
+      x
+    </button>
+  </li>
+  <li>
+    <span>
+      test2
+    </span>
+    <button
+      onClick={[Function]}
+    >
+      x
+    </button>
+  </li>
+</ul>
+`;

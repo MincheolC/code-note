@@ -1,16 +1,16 @@
 import React from 'react'
+import { Todo } from '../../shared/types'
 
 interface TodoItemProps {
-  id: number,
-  todo: string,
+  todo: Todo,
   onRemove: (id: number) => void,
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ id, todo, onRemove }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, onRemove }) => {
   return (
     <li>
-      <span>{todo}</span>
-      <button onClick={() => onRemove(id)}>x</button>
+      <span>{todo.todo}</span>
+      <button onClick={() => onRemove(todo.id)}>x</button>
     </li>
   )
 }
