@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 
-interface LinkProps {
-  page: string
+export interface LinkProps {
+  href?: string
+  ref?: React.ForwardedRef<HTMLAnchorElement>
 }
 
 const STATUS = {
@@ -9,7 +10,7 @@ const STATUS = {
   NORMAL: 'normal',
 };
 
-const Link: React.FC<LinkProps> = ({page, children}) => {
+const Link: React.FC<LinkProps> = ({ref, href, children}) => {
   const [status, setStatus] = useState(STATUS.NORMAL);
 
   const onMouseEnter = () => {
@@ -22,8 +23,9 @@ const Link: React.FC<LinkProps> = ({page, children}) => {
 
   return (
     <a
+      ref={ref}
       className={status}
-      href={page || '#'}
+      href={href}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
