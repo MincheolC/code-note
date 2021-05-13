@@ -4,7 +4,14 @@ exports[`CInputForm render properly 1`] = `
 <form
   onSubmit={[Function]}
 >
+  <label
+    htmlFor="todo"
+  >
+    할 일
+  </label>
   <input
+    aria-label="todo"
+    name="todo"
     onChange={[Function]}
     value=""
   />

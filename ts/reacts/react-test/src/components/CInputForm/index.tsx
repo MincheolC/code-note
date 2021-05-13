@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 
 interface CInputFormProps {
-  onSubmit: (e: React.FormEvent) => void;
+  onSubmit: (input: string) => void;
 }
 
-const CInputForm: React.FC<CInputFormProps> = ({ onSubmit }) => {
+const CInputForm: React.FC<CInputFormProps> = (props) => {
   const [text, setText] = useState<string>('');
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value);
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    props.onSubmit(text);
+    setText('');
+  }
 
   return (
     <form onSubmit={onSubmit}>
-      <input value={text} onChange={onChange} />
+      <label htmlFor='todo'>할 일</label>
+      <input name='todo' value={text} onChange={onChange} aria-label="todo"/>
       <button type='submit'>저장</button>
     </form>
   )
