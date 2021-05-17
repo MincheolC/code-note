@@ -31,4 +31,15 @@ console.log('2020-01-02'.replace(RE_DATE, '$<month>/$<day>/$<year>'));
 // Emoji (astral planes)
 console.log('😀', '😀'.length, '😀'.charCodeAt(0).toString(16), '😀'.charCodeAt(1).toString(16));
 
+// Parse URL https://www.google.com/dir/1/2/search.html?arg=0-a&arg1=1-b&amp;arg3-c#hash
+let url = 'https://www.google.com/dir/1/2/search.html?arg=0-a&arg1=1-b&amp;arg3-c#hash';
+let RE_URL =
+  /^(?<protocol>http[s]?):\/\/(?<host>(www.)?[a-z0-9.\-]+[.][a-z]{2,4})(?<port>:[0-9])?(?<path>(\/\w+)*[\w\-\.]*)?/;
+// let RE_URL = /^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/;
 
+console.log(RE_URL.test('http://www.google.com'));
+console.log(RE_URL.test('http://google.com'));
+console.log(RE_URL.test('https://google.com'));
+console.log(RE_URL.test('https://api.google.com'));
+console.log(RE_URL.test('http://www.domain.org/'));
+console.log(RE_URL.exec(url))
