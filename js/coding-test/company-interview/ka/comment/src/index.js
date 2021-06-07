@@ -1,6 +1,5 @@
 require('./style.css');
 
-/* eslint-disable no-undef */
 const { buildCommentList, getCurrentPageNum, setCurrentPageNum, isValidAuthor, isValidComment } = require('./helpers');
 
 let httpRequest;
@@ -17,7 +16,7 @@ function handleComments(currentPageNum) {
   const commentList = buildCommentList(response);
 
   if (commentsDiv.childElementCount) commentsDiv.removeChild(commentsDiv.firstChild);
-  commentsDiv.append(commentList);
+  commentsDiv.appendChild(commentList);
 }
 
 function request(method, url, body, callback) {
