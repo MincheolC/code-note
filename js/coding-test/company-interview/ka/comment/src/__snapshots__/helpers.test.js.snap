@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`commentTemplate valid 1`] = `
+<div>
+  <p
+    class="author"
+  >
+    김다음
+  </p>
+  <p>
+    Thu Sep 01 2016 18:52:17 GMT+0900 (대한민국 표준시)
+  </p>
+  <p>
+    첫 번째 댓글입니다.
+  </p>
+</div>
+`;

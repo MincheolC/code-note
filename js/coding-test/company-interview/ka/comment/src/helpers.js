@@ -5,7 +5,7 @@ function commentTemplate(comment) {
   const content = document.createElement('p');
 
   author.textContent = comment.author;
-  date.textContent = comment.id;
+  date.textContent = new Date(comment.id);
   content.textContent = comment.comment;
 
   author.className = 'author';
@@ -46,4 +46,8 @@ module.exports = {
   setCurrentPageNum,
   isValidAuthor,
   isValidComment,
+};
+
+module.exports._ = {
+  commentTemplate,
 };

@@ -32,7 +32,11 @@ function request(method, url, body, callback) {
   httpRequest.onload = callback;
 }
 
-function getComments(pageNum, prevNum) {
+function getComments() {
+  request('GET', 'http://localhost:9999/api/comments/', null, () => handleComments(1));
+}
+
+function getCommentsPage(pageNum, prevNum) {
   request('GET', `http://localhost:9999/api/comments/page/${pageNum}`, null, () => handleComments(prevNum));
 }
 
@@ -46,7 +50,7 @@ function onPrevPage() {
   const prevPageNum = currentPageNum > 1 ? currentPageNum - 1 : 1;
 
   setCurrentPageNum(prevPageNum);
-  getComments(prevPageNum, currentPageNum);
+  getCommentsPage(prevPageNum, currentPageNum);
 }
 
 function onNextPage() {
@@ -54,7 +58,7 @@ function onNextPage() {
   const nextPageNum = currentPageNum + 1;
 
   setCurrentPageNum(nextPageNum);
-  getComments(nextPageNum, currentPageNum);
+  getCommentsPage(nextPageNum, currentPageNum);
 }
 
 function onAuthorChange() {
@@ -83,13 +87,21 @@ function onSubmit() {
     postComment(author.value, comment.value);
     author.value = '';
     comment.value = '';
+    comment.nextSibling.style.display = 'none';
+    author.nextSibling.style.display = 'none';
+  } else {
+    if (!isValidAuthor(author.value)) {
+      author.nextSibling.style.display = 'block';
+    }
+    if (!isValidComment(comment.value)) {
+      comment.nextSibling.style.display = 'block';
+    }
   }
 }
 
 function init() {
-  const initialPageNum = 1;
-  getComments(initialPageNum);
-  sessionStorage.setItem('pageNum', initialPageNum);
+  getComments();
+  sessionStorage.setItem('pageNum', 1);
 
   document.getElementById('prevBtn').addEventListener('click', onPrevPage);
   document.getElementById('nextBtn').addEventListener('click', onNextPage);
