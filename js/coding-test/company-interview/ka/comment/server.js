@@ -12,7 +12,7 @@ var commentFile = path.join(__dirname, 'comments.json');
 
 var app = express();
 
-app.use('/', express.static(path.join(__dirname, 'src')));
+app.use('/', express.static(path.join(__dirname, 'dist')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
