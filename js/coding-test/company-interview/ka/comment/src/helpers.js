@@ -32,8 +32,18 @@ function setCurrentPageNum(num) {
   sessionStorage.setItem('pageNum', num);
 }
 
+function isValidAuthor(author) {
+  return author.length >= 1;
+}
+
+function isValidComment(comment) {
+  return comment.length >= 10;
+}
+
 module.exports = {
   buildCommentList,
   getCurrentPageNum,
   setCurrentPageNum,
+  isValidAuthor,
+  isValidComment,
 };

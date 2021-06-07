@@ -1,7 +1,7 @@
 require('./style.css');
 
 /* eslint-disable no-undef */
-const { buildCommentList, getCurrentPageNum, setCurrentPageNum } = require('./helpers');
+const { buildCommentList, getCurrentPageNum, setCurrentPageNum, isValidAuthor, isValidComment } = require('./helpers');
 
 let httpRequest;
 
@@ -23,12 +23,22 @@ function handleComments(currentPageNum) {
 function request(method, url, body, callback) {
   httpRequest = new XMLHttpRequest();
   httpRequest.open(method, url);
-  httpRequest.send();
+
+  if (method === 'POST') {
+    httpRequest.setRequestHeader('Content-Type', 'application/json');
+  }
+
+  httpRequest.send(body);
   httpRequest.onload = callback;
 }
 
 function getComments(pageNum, prevNum) {
   request('GET', `http://localhost:9999/api/comments/page/${pageNum}`, null, () => handleComments(prevNum));
+}
+
+function postComment(author, comment) {
+  const body = JSON.stringify({ author, comment });
+  request('POST', 'http://localhost:9999/api/comments', body, () => getComments(1, 1));
 }
 
 function onPrevPage() {
@@ -47,6 +57,35 @@ function onNextPage() {
   getComments(nextPageNum, currentPageNum);
 }
 
+function onAuthorChange() {
+  const author = document.getElementById('author');
+  if (!isValidAuthor(author.value)) {
+    author.nextSibling.style.display = 'block';
+  } else {
+    author.nextSibling.style.display = 'none';
+  }
+}
+
+function onCommentChange() {
+  const comment = document.getElementById('comment');
+  if (!isValidComment(comment.value)) {
+    comment.nextSibling.style.display = 'block';
+  } else {
+    comment.nextSibling.style.display = 'none';
+  }
+}
+
+function onSubmit() {
+  const author = document.getElementById('author');
+  const comment = document.getElementById('comment');
+
+  if (isValidAuthor(author.value) && isValidComment(comment.value)) {
+    postComment(author.value, comment.value);
+    author.value = '';
+    comment.value = '';
+  }
+}
+
 function init() {
   const initialPageNum = 1;
   getComments(initialPageNum);
@@ -54,6 +93,9 @@ function init() {
 
   document.getElementById('prevBtn').addEventListener('click', onPrevPage);
   document.getElementById('nextBtn').addEventListener('click', onNextPage);
+  document.getElementById('submitBtn').addEventListener('click', onSubmit);
+  document.getElementById('author').addEventListener('change', onAuthorChange);
+  document.getElementById('comment').addEventListener('change', onCommentChange);
 }
 
 init();
