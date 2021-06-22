@@ -17,3 +17,8 @@ out/
 
 # Folder
 dist/
+
+# Clojure
+.calva/
+.cpcache
+.nrepl-port
