@@ -1,0 +1,18 @@
+{:objects
+ {:Team 
+  {:description "Team"
+   :fields
+   {:id {:type (non-null Int)}
+    :manager {:type (non-null String)}
+    :office {:type (non-null String)}
+    }}
+  
+  :Supply
+  {:description "Supply"
+   :fields
+   {:id {:type (non-null Int)}
+    :team {:type (non-null Int)}
+    }}
+
+  :queries {}
+  :mutations {}}}
