@@ -1,23 +1,21 @@
 (ns controller
   (:require [ring.util.http-response :as hr]
-            [model :refer :all]))
+            [model :refer :all]
+            [clojure.pprint :refer [pprint]]))
 
-(defn handler [request]
-  {:status 200
-   :header {"Content-Type" "text/html"}
-   :body "Hello World!! version 2"})
+(defn handler [_]
+  (hr/ok "Hello World!! Version 2"))
 
-(defn admin-handler [request]
+(defn admin-handler [_]
   (hr/ok "Version 2 Admin"))
 
-(defn user-handler [{:keys [parameters]}]
-  (hr/ok (fetch-user (-> parameters :path :user-id))))
+(defn user-handler [{:keys [db parameters]}]
+  (hr/ok (fetch-user db (-> parameters :path :user-id))))
 
-(defn users-handler [request]
-  (hr/ok (fetch-users)))
+(defn users-handler [{:keys [db]}]
+  (hr/ok (fetch-users db)))
 
-(defn user-creator [{:keys [parameters]}]
-  (let [{:keys [GENERATED_KEY]} (-> (parameters :body)
-                                    create-user
-                                    first)]
-    (hr/ok (fetch-user GENERATED_KEY))))
+(defn user-creator [{:keys [db parameters]}]
+  (let [{:keys [body]} parameters
+        {:keys [GENERATED_KEY]} (first (create-user db body))]
+    (hr/ok (fetch-user db GENERATED_KEY))))

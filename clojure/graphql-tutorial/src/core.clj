@@ -1,46 +1,42 @@
 (ns core
-  (:require [ring.adapter.jetty :refer [run-jetty]]
-            [ring.middleware.params :as params]
-            [ring.middleware.reload :as reload]
-            [reitit.ring :as ring]
-            [reitit.ring.middleware.exception :as exception]
-            [reitit.coercion.spec]
-            [reitit.ring.coercion :as rrc]
-            [muuntaja.core :as m]
-            [reitit.ring.middleware.muuntaja :as muuntaja]
-            [controller :refer :all]
-            [clojure.pprint :refer [pprint]]))
+  (:require [integrant.core :as ig]
+            [clojure.java.io :as io]
+            [hikari-cp.core :refer [make-datasource close-datasource]]
+            [ring.adapter.jetty :refer [run-jetty]]
+            [route]))
 
-(def app
-  (ring/ring-handler
-    (ring/router
-      [["/v2"
-        [""  {:get handler}]
-        ["/admin" {:get admin-handler}]
-        ["/users"
-         ["" {:post {:handler user-creator
-                     :parameters {:body {:name string?
-                                         :age int?}}}
-              :get {:handler users-handler}}]
-         ["/:user-id" {:get user-handler
-                       :parameters {:path {:user-id int?}}}]]]]
-      {:data {:muuntaja m/instance
-              :coercion reitit.coercion.spec/coercion
-              :middleware [params/wrap-params
-                           muuntaja/format-middleware
-                           rrc/coerce-exceptions-middleware
-                           rrc/coerce-request-middleware
-                           rrc/coerce-response-middleware
-                           exception/exception-middleware]}})
-    (ring/create-default-handler)))
+(defmethod ig/init-key :db/mysql
+  [_ config]
+  (make-datasource config))
 
-(def reloadable-app
-  (reload/wrap-reload #'app))
+(defmethod ig/init-key :handler/app
+  [_ config]
+  (route/app config))
 
-(defonce server (run-jetty reloadable-app {:port    3000
-                                           :join? false}))
+(defmethod ig/init-key :server/jetty
+  [_ {:keys [handler] :as options}]
+  (run-jetty handler options))
+
+(defmethod ig/halt-key! :db/mysql
+  [_ conn]
+  (close-datasource conn))
+
+(defmethod ig/halt-key! :server/jetty
+  [_ server]
+  (.stop server))
+
+(defmethod ig/suspend-key! :db/mysql
+  [_ conn]
+  (close-datasource conn))
+
+(defmethod ig/suspend-key! :server/jetty
+  [_ server]
+  (.stop server))
+
+(defn -main []
+  (let [config (-> "config.edn" io/resource slurp ig/read-string)]
+    (ig/init config)))
 
 (comment
-  (.stop server)
-  (.start server)
+  (-main)
   )
