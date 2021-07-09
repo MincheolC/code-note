@@ -1,0 +1,6 @@
+{:queries
+ {:healthCheck
+  {:type        String
+   :description "Hello, GreenLabs!"
+   :args        {:name {:type String}}
+   :resolve     :health-check}}}
