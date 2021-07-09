@@ -1,0 +1,64 @@
+{:interfaces
+ {:Team
+  {:fields {:name    {:type (non-null String)}
+            :members {:type (non-null (list (non-null User)))}}}}
+
+ :objects
+ {:User
+  {:description "User"
+   :fields      {:id     {:type (non-null Int)}
+                 :name   {:type (non-null String)}
+                 :age    {:type (non-null Int)}
+                 :active {:type (non-null Boolean)}
+                 :role   {:type (non-null Role)}}}
+
+  :BackendTeam
+  {:implements  [:Team]
+   :description "Backend team"
+   :fields      {:name       {:type (non-null String)}
+                 :members    {:type (non-null (list (non-null User)))}
+                 :tech_stack {:type (non-null (list (non-null String)))}}}
+
+  :FrontendTeam
+  {:implements  [:Team]
+   :description "Frontend team"
+   :fields      {:name       {:type (non-null String)}
+                 :members    {:type (non-null (list (non-null User)))}
+                 :tech_stack {:type (non-null (list (non-null String)))}}}
+  }
+
+ :queries
+ {:healthCheck
+  {:type        String
+   :description "Hello, Mincheol!"
+   :args        {:name {:type String}}
+   :resolve     :health-check}
+
+  :userById
+  {:type        :User
+   :description "User information"
+   :args        {:id {:type Int}}
+   :resolve     :user-by-id}
+
+  :users
+  {:type        (list :User)
+   :description "User list"
+   :resolve     :users}
+
+  :backendTeam
+  {:type        :BackendTeam
+   :description "Backend team information"
+   :resolve     :backend-team}
+
+  :frontendTeam
+  {:type        :BackendTeam
+   :description "Backend team information"
+   :resolve     :frontend-team}}
+
+ :enums
+ {:Role
+  {:description "roles of user"
+   :values      [{:enum-value :MEMBER :description "memeber user"}
+                 {:enum-value :ADMIN :description "admin user"}
+                 {:enum-value :PARTNER :description "partner user"}]}}
+ }
