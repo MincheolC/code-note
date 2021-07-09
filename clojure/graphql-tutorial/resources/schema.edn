@@ -17,15 +17,32 @@
    :description "Backend team"
    :fields      {:name       {:type (non-null String)}
                  :members    {:type (non-null (list (non-null User)))}
-                 :tech_stack {:type (non-null (list (non-null String)))}}}
+                 :tech_stacks {:type (non-null (list (non-null String)))}}}
 
   :FrontendTeam
   {:implements  [:Team]
    :description "Frontend team"
    :fields      {:name       {:type (non-null String)}
                  :members    {:type (non-null (list (non-null User)))}
-                 :tech_stack {:type (non-null (list (non-null String)))}}}
-  }
+                 :tech_stacks {:type (non-null (list (non-null String)))}}}
+
+  :InfraTeam
+  {:implements  [:Team]
+   :description "Infrastructure team"
+   :fields      {:name       {:type (non-null String)}
+                 :members    {:type (non-null (list (non-null User)))}
+                 :tech_stacks {:type (non-null (list (non-null String)))}}}}
+
+ :enums
+ {:Role
+  {:description "roles of user"
+   :values      [{:enum-value :MEMBER :description "memeber user"}
+                 {:enum-value :ADMIN :description "admin user"}
+                 {:enum-value :PARTNER :description "partner user"}]}}
+
+ :unions
+ {:searchable
+  {:members [:BackendTeam :FrontendTeam :InfraTeam]}}
 
  :queries
  {:healthCheck
@@ -51,14 +68,18 @@
    :resolve     :backend-team}
 
   :frontendTeam
-  {:type        :BackendTeam
+  {:type        :FrontendTeam
    :description "Backend team information"
-   :resolve     :frontend-team}}
+   :resolve     :frontend-team}
 
- :enums
- {:Role
-  {:description "roles of user"
-   :values      [{:enum-value :MEMBER :description "memeber user"}
-                 {:enum-value :ADMIN :description "admin user"}
-                 {:enum-value :PARTNER :description "partner user"}]}}
+  :infraTeam
+  {:type        :InfraTeam
+   :description "Infrastructure team information"
+   :resolve     :infra-team}
+
+  :searchTeamsByTechStack
+  {:type (list :searchable)
+   :args {:tech_stack {:type String}}
+   :resolve :search-teams-by-tech-stack}
+  }
  }

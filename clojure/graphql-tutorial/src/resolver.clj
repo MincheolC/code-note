@@ -2,6 +2,7 @@
   (:require [clojure.java.io :as io]
             [com.walmartlabs.lacinia.util :as util]
             [com.walmartlabs.lacinia.schema :as schema]
+            [com.walmartlabs.lacinia.resolve :refer [resolve-as]]
             [clojure.edn :as edn]))
 
 (def data-map (-> "data.edn" io/resource slurp edn/read-string))
@@ -33,12 +34,29 @@
         frontend-team-data (get data-map :frontend-team)]
     (assoc frontend-team-data :members members)))
 
+(defn infra-team
+  [_ _ _]
+  (let [members (get data-map :users)
+        infra-team-data (get data-map :infra-team)]
+    (assoc infra-team-data :members members)))
+
+(defn search-teams-by-tech-stack
+  [_ {:keys [tech_stack]} _]
+  (let [be (-> data-map :backend-team (schema/tag-with-type :BackendTeam))
+        fe (-> data-map :frontend-team (schema/tag-with-type :FrontendTeam))
+        infra (-> data-map :infra-team (schema/tag-with-type :InfraTeam))]
+    (->> [be fe infra]
+         (filter (fn [{:keys [tech_stacks]}]
+                   (.contains tech_stacks tech_stack))))))
+
 (def resolver-map
   {:health-check health-check
    :user-by-id   user-by-id
    :users users
    :backend-team backend-team
-   :frontend-team frontend-team})
+   :frontend-team frontend-team
+   :infra-team infra-team
+   :search-teams-by-tech-stack search-teams-by-tech-stack})
 
 (defn load-schema
   []

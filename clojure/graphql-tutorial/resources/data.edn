@@ -11,11 +11,16 @@
    :role :MEMBER}]
 
  :backend-team
- {:name "백엔져스"
+ {:name "백엔드팀"
   :members []
-  :tech_stack []}
+  :tech_stacks ["AWS"]}
 
  :frontend-team
- {:name "프론져스"
+ {:name "프론트팀"
   :members []
-  :tech_stack ["React", "ClojureScript"]}}
+  :tech_stacks ["React" "ClojureScript" "AWS"]}
+
+ :infra-team
+ {:name "인프라팀"
+  :members []
+  :tech_stacks ["AWS" "Python"]}}
