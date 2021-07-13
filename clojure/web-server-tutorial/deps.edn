@@ -12,5 +12,6 @@
         com.github.seancorfield/honeysql    {:mvn/version "2.0.0-rc3"}
         integrant                           {:mvn/version "0.8.0"}
         integrant/repl                      {:mvn/version "0.3.2"}
-        com.taoensso/timbre                 {:mvn/version "5.1.2"}}
+        com.taoensso/timbre                 {:mvn/version "5.1.2"}
+        camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.2"}}
  :aliases {:dev {:extra-paths ["dev/src"]}}}

@@ -12,3 +12,7 @@
   (halt)
   (reset)
   )
+(clojure.tools.namespace.repl/set-refresh-dirs "src")
+(go)
+(halt)
+(reset)

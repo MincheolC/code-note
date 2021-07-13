@@ -2,16 +2,18 @@
   (:require [model :refer [fetch-users fetch-user]]))
 
 (defn health-check
-  [_ {name :name} _]
-  (str "hello, " name " from Greenlabs!"))
+  [_ _ _]
+  (str "hello, Greenlabs!"))
 
-;(def resolver-map
-;  {:health-check health-check
-;   ;:query/fetch-users (fn [{db :db} _ _]
-;   ;                     (fetch-users db))
-;   ;:query/fetch-user (fn [{db :db} _ {id :id}]
-;   ;                    (fetch-user db id))
-;   })
+(defn get-users
+  [{db :db} _ _]
+  (fetch-users db))
+
+(defn get-user-by-id
+  [{db :db} {id :id} _]
+  (fetch-user db id))
 
 (def resolver-map
-  {:health-check health-check})
+  {:health-check health-check
+   :get-users get-users
+   :get-user-by-id get-user-by-id})
