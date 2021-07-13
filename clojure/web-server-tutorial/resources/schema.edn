@@ -21,4 +21,26 @@
   {:type        :User
    :description "Get User by its unique Id, if it exists"
    :args        {:id {:type Int}}
-   :resolve     :get-user-by-id}}}
+   :resolve     :get-user-by-id}}
+
+ :mutations
+ {:addUser
+  {:type        :User
+   :description "Add User"
+   :args        {:name {:type String}
+                 :age  {:type Int}}
+   :resolve     :add-user}
+
+  :updateUser
+  {:type        :User
+   :description "Update User"
+   :args        {:id   {:type Int}
+                 :name {:type String}
+                 :age  {:type Int}}
+   :resolve     :update-user}
+
+  :deleteUser
+  {:type        (non-null Int)
+   :description "Delete User"
+   :args        {:id {:type Int}}
+   :resolve     :delete-user}}}
