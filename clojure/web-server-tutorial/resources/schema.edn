@@ -1,6 +1,46 @@
-{:queries
+{:objects
+ {:User
+  {:description "User"
+   :fields
+                {:id   {:type (non-null Int)}
+                 :name {:type (non-null String)}
+                 :age  {:type (non-null Int)}}}}
+
+ :queries
  {:healthCheck
   {:type        String
    :description "Hello, GreenLabs!"
-   :args        {:name {:type String}}
-   :resolve     :health-check}}}
+   :resolve     :health-check}
+
+  :users
+  {:type        (non-null (list (non-null :User)))
+   :description "Get User list"
+   :resolve     :get-users}
+
+  :userById
+  {:type        :User
+   :description "Get User by its unique Id, if it exists"
+   :args        {:id {:type Int}}
+   :resolve     :get-user-by-id}}
+
+ :mutations
+ {:addUser
+  {:type        :User
+   :description "Add User"
+   :args        {:name {:type String}
+                 :age  {:type Int}}
+   :resolve     :add-user}
+
+  :updateUser
+  {:type        :User
+   :description "Update User"
+   :args        {:id   {:type Int}
+                 :name {:type String}
+                 :age  {:type Int}}
+   :resolve     :update-user}
+
+  :deleteUser
+  {:type        (non-null Int)
+   :description "Delete User"
+   :args        {:id {:type Int}}
+   :resolve     :delete-user}}}

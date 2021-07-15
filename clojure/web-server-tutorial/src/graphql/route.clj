@@ -14,17 +14,14 @@
       slurp
       edn/read-string
       (util/attach-resolvers (merge gru/resolver-map {}))
-      (#(spy :info %))
       schema/compile))
 
 (defn graphql-handler
   [request]
   (let [schema (load-schema)
-        _ (prn schema)
         db (get request :db)
         query (get-in request [:body-params :query])
-        variables (get-in request [:body-params :variables])
-        _ (prn db query variables)]
+        variables (get-in request [:body-params :variables])]
     (hr/ok (lacinia/execute schema query variables {:db db}))))
 
 (defn routes [handler]

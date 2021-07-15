@@ -1,0 +1,26 @@
+{:users
+ [{:id 1
+   :name "mincheol"
+   :age 32
+   :active true
+   :role :MEMBER}
+  {:id 2
+   :name "gina"
+   :age 33
+   :active true
+   :role :MEMBER}]
+
+ :backend-team
+ {:name "백엔드팀"
+  :members []
+  :tech_stacks ["AWS"]}
+
+ :frontend-team
+ {:name "프론트팀"
+  :members []
+  :tech_stacks ["React" "ClojureScript" "AWS"]}
+
+ :infra-team
+ {:name "인프라팀"
+  :members []
+  :tech_stacks ["AWS" "Python"]}}
