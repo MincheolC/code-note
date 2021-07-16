@@ -6,7 +6,7 @@
   (testing "single value"
     (is (= (pre' 1) 1))
     (is (thrown? AssertionError (pre' -1))))
-  
+
   (testing "multiple values"
     (is (= (pre-value' {} []) {:x {} :y []}))
     (is (thrown? AssertionError (pre-value' {} nil)))))
