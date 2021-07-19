@@ -4,3 +4,5 @@ const c = 2;
 
 console.log('hello ', a);
 console.log('world')
+
+const e = 1;
