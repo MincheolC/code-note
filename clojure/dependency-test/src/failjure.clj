@@ -1,7 +1,5 @@
 (ns failjure
-  (:require [failjure.core :as f]
-            [next.jdbc :as jdbc]
-            [database :refer [execute! ds]]))
+  (:require [failjure.core :as f]))
 
 (f/fail "Failed")
 
@@ -11,10 +9,12 @@
 (f/try*
  (throw (Exception. "Fail")))
 
+;; Uncaught Exception
 (let [result (f/ok-> (throw (Exception. "Fail")))]
   (when (f/failed? result)
     result))
 
+;; Test if-let-ok? & attempt-all
 (defn a [m]
   (assoc m :a 1))
 
@@ -30,9 +30,25 @@
     (assoc m :c 2)))
 
 (f/if-let-ok? [result (f/ok->> {}
-                          a
-                          (b false)
-                          (c false))]
+                               a
+                               (b false)
+                               (c false))]
               result
               result)
 
+(let [resultA (f/ok? (b false {}))
+      resultB (f/ok? (c true {}))]
+  (prn resultA resultB))
+
+(f/attempt-all [resultA (b false {})
+                resultB false
+                resultC (f/ok->> {}
+                                 a
+                                 (b resultB)
+                                 (c false))]
+               (prn resultA resultB resultC)
+               (f/when-failed [e]
+                              (prn e)))
+
+(f/failed? false)
+(f/failed? (f/fail "c"))
