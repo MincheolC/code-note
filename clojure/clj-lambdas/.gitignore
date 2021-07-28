@@ -3,3 +3,5 @@ classes/
 
 evn.edn
 *.pkg
+
+.idea/

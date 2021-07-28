@@ -10,7 +10,7 @@
    (java.util LinkedHashMap ArrayList)))
 
 (def ^:private env
-  (if (.exists (io/as-file "./env.edn"))
+  (if (.exists (io/as-file "env.edn"))
     (->> (slurp "env.edn")
          edn/read-string)
     {}))
