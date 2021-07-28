@@ -2,7 +2,7 @@ LAMBDA_FUNCTION_NAME=clj-lambda-test
 LAMBDA_HANDLER=core::handler
 LAMBDA_RUNTIME=java11
 LAMBDA_MEMORY=512
-LAMBDA_TIMEOUT=600
+LAMBDA_TIMEOUT=15
 LAMBDA_ROLE=arn:aws:iam::140131123595:role/lambda-s3-sqs
 
 build:
@@ -53,4 +53,15 @@ update:lambda.zip
 delete:
 	aws lambda --profile me delete-function
 	--function-name $(LAMBDA_FUNCTION_NAME)
+	--no-cli-pager
+
+
+# For Test
+QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/140131123595/test
+MESSAGE_BODY='{"date-str":"20210721","specie-code":"061401"}'
+
+send-message:
+	aws sqs --profile me send-message \
+	--queue-url $(QUEUE_URL) \
+	--message-body $(MESSAGE_BODY)
 	--no-cli-pager
