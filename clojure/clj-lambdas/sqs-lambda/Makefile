@@ -58,10 +58,21 @@ delete:
 
 # For Test
 QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/140131123595/test
+FIFO_QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/140131123595/test.fifo
 MESSAGE_BODY='{"date-str":"20210721","specie-code":"061401"}'
+MESSAGE_GROUP_ID=test
+MESSAGE_DEDUPL_ID=test
 
 send-message:
 	aws sqs --profile me send-message \
 	--queue-url $(QUEUE_URL) \
-	--message-body $(MESSAGE_BODY)
+	--message-body $(MESSAGE_BODY) \
+	--no-cli-pager
+
+send-message-fifo:
+	aws sqs --profile me send-message \
+	--queue-url $(FIFO_QUEUE_URL) \
+	--message-body $(MESSAGE_BODY) \
+	--message-group-id $(MESSAGE_GROUP_ID) \
+	--message-deduplication-id $(MESSAGE_DEDUPL_ID) \
 	--no-cli-pager
