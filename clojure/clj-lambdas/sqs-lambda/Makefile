@@ -16,7 +16,7 @@ clean:
 
 deploy:
 	$(MAKE) build
-	$(MAKE) lambda-update
+	$(MAKE) update
 
 aot:
 	mkdir -p classes
@@ -25,8 +25,8 @@ aot:
 pack:classes
 	clojure -M:pack mach.pack.alpha.aws-lambda -C:aot lambda.zip
 
-lambda-create:lambda.zip
-	aws lambda create-function \
+create:lambda.zip
+	aws lambda --profile me create-function \
 	--function-name $(LAMBDA_FUNCTION_NAME) \
 	--handler $(LAMBDA_HANDLER) \
 	--runtime $(LAMBDA_RUNTIME) \
@@ -36,12 +36,12 @@ lambda-create:lambda.zip
 	--zip-file fileb://./lambda.zip \
 	--no-cli-pager
 
-lambda-update:lambda.zip
-	aws lambda update-function-code \
+update:lambda.zip
+	aws lambda --profile me update-function-code \
 	--function-name $(LAMBDA_FUNCTION_NAME) \
 	--zip-file fileb://./lambda.zip \
 	--no-cli-pager
-	aws lambda update-function-configuration \
+	aws lambda --profile me update-function-configuration \
 	--function-name $(LAMBDA_FUNCTION_NAME) \
 	--handler $(LAMBDA_HANDLER) \
 	--runtime $(LAMBDA_RUNTIME) \
@@ -50,7 +50,7 @@ lambda-update:lambda.zip
 	--role $(LAMBDA_ROLE) \
 	--no-cli-pager
 
-lambda-delete:
-	aws lambda delete-function
+delete:
+	aws lambda --profile me delete-function
 	--function-name $(LAMBDA_FUNCTION_NAME)
 	--no-cli-pager
