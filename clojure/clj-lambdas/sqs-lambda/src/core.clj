@@ -44,8 +44,11 @@
   [msg]
   (let [msg (-> msg simplify ->keyword)
         _ (prn msg)
+        receivedCount (-> msg :Records first :attributes :ApproximateReceiveCount Integer/parseInt)
         {:keys [date-str specie-code]} (-> msg :Records first :body json/read-json)]
-    (prn date-str specie-code (get-env :ENV))))
+    (if (< receivedCount 3)
+      (throw (AssertionError. "Wrong Input"))
+      (prn date-str specie-code (get-env :ENV)))))
 
 (comment
   (get-env :ENV))
