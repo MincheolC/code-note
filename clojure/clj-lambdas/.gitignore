@@ -5,3 +5,4 @@ evn.edn
 *.pkg
 
 .idea/
+.vscode/
