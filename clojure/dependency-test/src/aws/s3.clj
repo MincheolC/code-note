@@ -1,5 +1,5 @@
 ;; https://github.com/cognitect-labs/aws-api
-(ns aws
+(ns aws.s3
   (:require  [clojure.edn :as edn]
              [clojure.java.io :as io]
              [buddy.core.codecs :as codec]
