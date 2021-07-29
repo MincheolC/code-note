@@ -1,6 +1,6 @@
 (ns database
   (:require [next.jdbc :as jdbc]
-            [hikari-cp.core :refer [make-datasource]]
+            [hikari-cp.core :refer [make-datasource close-datasource]]
             [honeysql.core :as honeysql]
             [honeysql.format :as honeysql-format]
             [honeysql.helpers :refer [limit]]
@@ -8,8 +8,8 @@
             [clojure.java.io :as io]
             [clojure.string :as str]))
 
-(defonce ^:private db-config (-> "config.edn" io/resource edn/read-string))
-(defonce ^:private ds (make-datasource db-config))
+(defonce ^:private db-config (-> "config.edn" io/resource slurp edn/read-string))
+(defonce ds (make-datasource (db-config :mysql)))
 
 (defmethod honeysql-format/format-clause :on-duplicate
   [[_ update-expr] _]
@@ -21,23 +21,26 @@
 (honeysql-format/register-clause! :on-duplicate 225)
 
 (defn execute!
-  ([ds qs] (execute! ds qs {}))
-  ([ds qs opts]
+  ([qs] (execute! qs {}))
+  ([qs opts]
    (let [sql (honeysql/format qs {:dialect :mysql})]
      (jdbc/execute! ds sql opts))))
 
 (defn execute-one!
-  ([ds qs] (execute-one! ds qs {}))
-  ([ds qs opts]
+  ([qs] (execute-one! qs {}))
+  ([qs opts]
    (let [sql (honeysql/format (limit qs 1) {:dialect :mysql})]
      (jdbc/execute-one! ds sql opts))))
 
+(comment
+  (honeysql/format {:insert-into :user
+                    :columns [:name :age]
+                    :values [["greenlabs" 5]]
+                    :on-duplicate {:age 5}} {:dialect :mysql})
 
-(honeysql/format {:insert-into :user
-                  :columns [:name :age]
-                  :values [["greenlabs" 5]]
-                  :on-duplicate {:age 5}} {:dialect :mysql})
+  (honeysql/call :case
+                 [:= :region3 "region3"] -1
+                 :else 1)
 
-(honeysql/call :case
-               [:= :region3 "region3"] -1
-               :else 1)
+  (close-datasource ds))
+
