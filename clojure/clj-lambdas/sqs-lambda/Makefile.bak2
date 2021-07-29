@@ -1,9 +1,9 @@
-LAMBDA_FUNCTION_NAME=clj-lambda-test
+LAMBDA_FUNCTION_NAME=market-price-lambda-test
 LAMBDA_HANDLER=core::handler
 LAMBDA_RUNTIME=java11
 LAMBDA_MEMORY=512
 LAMBDA_TIMEOUT=30
-LAMBDA_ROLE=arn:aws:iam::140131123595:role/lambda-s3-sqs
+LAMBDA_ROLE=arn:aws:iam::887960154422:role/lambda-exec-role
 
 build:
 	$(MAKE) clean
@@ -26,7 +26,7 @@ pack:classes
 	clojure -M:pack mach.pack.alpha.aws-lambda -C:aot lambda.zip
 
 create:lambda.zip
-	aws lambda --profile me create-function \
+	aws lambda create-function \
 	--function-name $(LAMBDA_FUNCTION_NAME) \
 	--handler $(LAMBDA_HANDLER) \
 	--runtime $(LAMBDA_RUNTIME) \
@@ -37,11 +37,11 @@ create:lambda.zip
 	--no-cli-pager
 
 update:lambda.zip
-	aws lambda --profile me update-function-code \
+	aws lambda update-function-code \
 	--function-name $(LAMBDA_FUNCTION_NAME) \
 	--zip-file fileb://./lambda.zip \
 	--no-cli-pager
-	aws lambda --profile me update-function-configuration \
+	aws lambda update-function-configuration \
 	--function-name $(LAMBDA_FUNCTION_NAME) \
 	--handler $(LAMBDA_HANDLER) \
 	--runtime $(LAMBDA_RUNTIME) \
@@ -51,26 +51,26 @@ update:lambda.zip
 	--no-cli-pager
 
 delete:
-	aws lambda --profile me delete-function
+	aws lambda delete-function
 	--function-name $(LAMBDA_FUNCTION_NAME)
 	--no-cli-pager
 
 
 # For Test
-QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/140131123595/test
-FIFO_QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/140131123595/test.fifo
-MESSAGE_BODY='{"date-str":"20210721","specie-code":"061401"}'
+QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/887960154422/market-price-test11
+FIFO_QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/887960154422/market-price-test.fifo
+MESSAGE_BODY='{"date-str":"20210721","specie-code":"061404"}'
 MESSAGE_GROUP_ID=test
-MESSAGE_DEDUPL_ID=test2
+MESSAGE_DEDUPL_ID=test1
 
 send-message:
-	aws sqs --profile me send-message \
+	aws sqs send-message \
 	--queue-url $(QUEUE_URL) \
 	--message-body $(MESSAGE_BODY) \
 	--no-cli-pager
 
 send-message-fifo:
-	aws sqs --profile me send-message \
+	aws sqs send-message \
 	--queue-url $(FIFO_QUEUE_URL) \
 	--message-body $(MESSAGE_BODY) \
 	--message-group-id $(MESSAGE_GROUP_ID) \
