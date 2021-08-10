@@ -52,16 +52,33 @@
         bucket-name (get-in config [:aws :community-s3])]
     (delete-images-from-s3 s3-client bucket-name path)))
 
+(defn list-objects-v2 [contents next-continuation-token]
+  (let [s3 (aws/client {:api    :s3
+                        :region :ap-northeast-2})
+        response (aws/invoke s3 {:op      :ListObjectsV2
+                                 :request {:Bucket  "farmmorning-market-price-v2"
+                                           :Prefix  "2021/07/29/"
+                                           :ContinuationToken next-continuation-token
+                                           :MaxKeys 1000}})
+        next-continuation-token (:NextContinuationToken response)
+        contents (concat contents (:Contents response))]
+    (if next-continuation-token
+      (recur contents next-continuation-token)
+      contents)))
+
 (comment
   ;; examaples
   (def s3 (aws/client {:api :s3}))
   (aws/ops s3)
   (aws/doc s3 :PutObject)
   (aws/doc s3 :DeleteObjects)
-  )
+
+  (-> (list-objects-v2 [] nil)
+      count))
 
 (comment
   (upload)
   (delete)
-  (deletes)
-  )
+  (deletes))
+
+(concat [{:a 3}] [{:a 1} {:a 2}])
