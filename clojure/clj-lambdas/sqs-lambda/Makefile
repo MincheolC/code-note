@@ -1,4 +1,4 @@
-LAMBDA_FUNCTION_NAME=clj-lambda-test
+LAMBDA_FUNCTION_NAME=sqs-lambda-test
 LAMBDA_HANDLER=core::handler
 LAMBDA_RUNTIME=java11
 LAMBDA_MEMORY=512
@@ -59,9 +59,9 @@ delete:
 # For Test
 QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/140131123595/test
 FIFO_QUEUE_URL=https://sqs.ap-northeast-2.amazonaws.com/140131123595/test.fifo
-MESSAGE_BODY='{"date-str":"20210721","specie-code":"061401"}'
+MESSAGE_BODY='{"hello":"world"}'
 MESSAGE_GROUP_ID=test
-MESSAGE_DEDUPL_ID=test2
+MESSAGE_DEDUPL_ID=test
 
 send-message:
 	aws sqs --profile me send-message \
