@@ -40,15 +40,38 @@
       resultB (f/ok? (c true {}))]
   (prn resultA resultB))
 
-(f/attempt-all [resultA (b false {})
-                resultB false
-                resultC (f/ok->> {}
-                                 a
-                                 (b resultB)
-                                 (c false))]
-               (prn resultA resultB resultC)
-               (f/when-failed [e]
-                              (prn e)))
+
+(defn testA [pred]
+  (if pred
+    (f/fail "Failed A")
+    (do
+      (prn "do something")
+      "A")))
+
+(defn testB [pred]
+  (if pred
+    (f/fail "Failed B")
+    (do
+      (prn "do something")
+      "B")))
+
+(defn testC [pred]
+  (if pred
+    (f/fail "Failed C")
+    (do
+      (prn "do something")
+      "C")))
+
+(defn fails [] (f/attempt-all [resultA (testA true)
+                            resultB (testB false)
+                            resultC (testC true)]
+                           (prn resultA resultB resultC)
+                           (f/when-failed [e]
+                                          (prn e)
+                                          e)))
+(f/if-let-failed? [result (fails)]
+                  (prn result)
+                  (prn "success"))
 
 (f/failed? false)
 (f/failed? (f/fail "c"))
