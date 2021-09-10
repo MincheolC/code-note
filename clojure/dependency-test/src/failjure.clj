@@ -75,3 +75,19 @@
 
 (f/failed? false)
 (f/failed? (f/fail "c"))
+
+(defn parse-row [row]
+  (-> row
+      (update :a #(Float/parseFloat %))))
+
+(defn tests [pred]
+  (if pred
+    (f/fail "f")
+    [{:a "1"}]))
+
+(f/attempt-all [result (tests true)
+                result (map parse-row result)]
+               result
+               (f/when-failed [e]
+                              e))
+(tests)
