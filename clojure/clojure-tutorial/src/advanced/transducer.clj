@@ -25,3 +25,15 @@
 
 (def iter (eduction xf (range 5)))
 (reduce + 0 iter)
+
+(def inputs [3 3 4 -2 -4])
+(def infinite-acc (reductions + (cycle inputs)))
+
+(defn first-duplicate [acc-seq]
+  (reduce (fn [visited v]
+            (if (visited v)
+              (reduced v)
+              (conj visited v))) #{} acc-seq))
+
+
+(first-duplicate infinite-acc)
