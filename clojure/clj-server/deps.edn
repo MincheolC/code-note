@@ -1,0 +1,4 @@
+{:paths ["src" "resources"]
+ :deps {ring/ring             {:mvn/version "1.9.3"}
+        metosin/reitit        {:mvn/version "0.5.15"}
+        metosin/reitit-ring   {:mvn/version "0.5.15"}}}
