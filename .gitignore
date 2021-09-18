@@ -26,3 +26,5 @@ dist/
 .calva/
 target/
 classes/
+
+.clj-kondo/
