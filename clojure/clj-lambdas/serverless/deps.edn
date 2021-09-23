@@ -7,4 +7,4 @@
                                                 :sha     "e518d9b2b70f4292c9988d2792b8667d88a6f4df"}}
                   :main-opts   ["-m"]}
            :aot  {:extra-paths ["classes"]
-                  :main-opts   ["-e" "(compile,'core)"]}}}
+                  :main-opts   ["-e" "(compile,'alimtalk_soldoutnotice.core)"]}}}

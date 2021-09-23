@@ -1,4 +1,9 @@
 {:paths ["src" "resources"]
  :deps {ring/ring             {:mvn/version "1.9.3"}
         metosin/reitit        {:mvn/version "0.5.15"}
-        metosin/reitit-ring   {:mvn/version "0.5.15"}}}
+        metosin/reitit-ring   {:mvn/version "0.5.15"}}
+ :aliases {:pack {:extra-deps {pack/pack.alpha {:git/url "https://github.com/juxt/pack.alpha.git"
+                                                :sha     "e518d9b2b70f4292c9988d2792b8667d88a6f4df"}}
+                  :main-opts   ["-m"]}
+           :aot  {:extra-paths ["classes"]
+                  :main-opts   ["-e" "(compile,'core)"]}}}

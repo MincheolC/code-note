@@ -78,92 +78,6 @@
         "RetentionInDays": 14
       }
     },
-    "IamRoleLambdaExecution": {
-      "Type": "AWS::IAM::Role",
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": [
-                  "lambda.amazonaws.com"
-                ]
-              },
-              "Action": [
-                "sts:AssumeRole"
-              ]
-            }
-          ]
-        },
-        "Policies": [
-          {
-            "PolicyName": {
-              "Fn::Join": [
-                "-",
-                [
-                  "serverless-test",
-                  "dev",
-                  "lambda"
-                ]
-              ]
-            },
-            "PolicyDocument": {
-              "Version": "2012-10-17",
-              "Statement": [
-                {
-                  "Effect": "Allow",
-                  "Action": [
-                    "logs:CreateLogStream",
-                    "logs:CreateLogGroup"
-                  ],
-                  "Resource": [
-                    {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-test-dev*:*"
-                    }
-                  ]
-                },
-                {
-                  "Effect": "Allow",
-                  "Action": [
-                    "logs:PutLogEvents"
-                  ],
-                  "Resource": [
-                    {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-test-dev*:*:*"
-                    }
-                  ]
-                },
-                {
-                  "Effect": "Allow",
-                  "Action": [
-                    "kms:Decrypt"
-                  ],
-                  "Resource": [
-                    "arn:aws:iam::140131123595:role/lambda-s3-sqs"
-                  ]
-                }
-              ]
-            }
-          }
-        ],
-        "Path": "/",
-        "RoleName": {
-          "Fn::Join": [
-            "-",
-            [
-              "serverless-test",
-              "dev",
-              {
-                "Ref": "AWS::Region"
-              },
-              "lambdaRole"
-            ]
-          ]
-        }
-      }
-    },
     "ServerlessLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -171,33 +85,33 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-test/dev/1631967755984-2021-09-18T12:22:35.984Z/lambda.zip"
+          "S3Key": "serverless/serverless-test/dev/1632388537692-2021-09-23T09:15:37.692Z/lambda.zip"
         },
         "Handler": "core::handler",
         "Runtime": "java11",
         "FunctionName": "serverless-test-dev-serverless",
         "MemorySize": 512,
         "Timeout": 30,
-        "KmsKeyArn": "arn:aws:iam::140131123595:role/lambda-s3-sqs",
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        }
+        "KmsKeyArn": "arn:aws:kms:ap-northeast-2:140131123595:key/dd9d682c-4713-4bd0-a8ad-c6f378676d53",
+        "Environment": {
+          "Variables": {
+            "HELLO": "WORLD"
+          }
+        },
+        "Role": "arn:aws:iam::140131123595:role/lambda-s3-sqs"
       },
       "DependsOn": [
         "ServerlessLogGroup"
       ]
     },
-    "ServerlessLambdaVersionpmYp39XOsBDOPQeG5RAfqZC9oyNJaYpiu2fpcyvA4s4": {
+    "ServerlessLambdaVersionPmI7gtXaSzlymFHOqomack1dReIVu1sg6OMdzn80TvM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ServerlessLambdaFunction"
         },
-        "CodeSha256": "3J2mKIZ6DgJhT+ta/8J8e1fxEf4UKpQeMShz9zpEE4s="
+        "CodeSha256": "jWFXq4ySSZQ+iH37+smutQ2gIzzrRzPSEl5R3Y/0Yy0="
       }
     },
     "ServerlessEventsRuleSchedule1": {
@@ -251,7 +165,7 @@
     "ServerlessLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ServerlessLambdaVersionpmYp39XOsBDOPQeG5RAfqZC9oyNJaYpiu2fpcyvA4s4"
+        "Ref": "ServerlessLambdaVersionPmI7gtXaSzlymFHOqomack1dReIVu1sg6OMdzn80TvM"
       },
       "Export": {
         "Name": "sls-serverless-test-dev-ServerlessLambdaFunctionQualifiedArn"
