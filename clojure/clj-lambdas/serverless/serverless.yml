@@ -19,6 +19,7 @@ service: serverless-test
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 frameworkVersion: '2'
+useDotenv: true
 
 provider:
   name: aws
@@ -29,8 +30,8 @@ provider:
   profile: me
   memorySize: 512
   timeout: 30
-  kmsKeyArn: arn:aws:iam::140131123595:role/lambda-s3-sqs
   logRetentionInDays: 14
+  kmsKeyArn: arn:aws:kms:ap-northeast-2:140131123595:key/dd9d682c-4713-4bd0-a8ad-c6f378676d53
 
 package:
   artifact: lambda.zip
@@ -38,6 +39,9 @@ package:
 functions:
   serverless:
     handler: core::handler
+    role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+    environment:
+      HELLO: ${env:HELLO}
     events:
       - schedule:
           name: every-5-minutes
