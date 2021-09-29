@@ -2,96 +2,30 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "The AWS CloudFormation template for this Serverless application",
   "Resources": {
-    "ServerlessDeploymentBucket": {
-      "Type": "AWS::S3::Bucket",
-      "Properties": {
-        "BucketEncryption": {
-          "ServerSideEncryptionConfiguration": [
-            {
-              "ServerSideEncryptionByDefault": {
-                "SSEAlgorithm": "AES256"
-              }
-            }
-          ]
-        }
-      }
-    },
-    "ServerlessDeploymentBucketPolicy": {
-      "Type": "AWS::S3::BucketPolicy",
-      "Properties": {
-        "Bucket": {
-          "Ref": "ServerlessDeploymentBucket"
-        },
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": "s3:*",
-              "Effect": "Deny",
-              "Principal": "*",
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":s3:::",
-                      {
-                        "Ref": "ServerlessDeploymentBucket"
-                      },
-                      "/*"
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":s3:::",
-                      {
-                        "Ref": "ServerlessDeploymentBucket"
-                      }
-                    ]
-                  ]
-                }
-              ],
-              "Condition": {
-                "Bool": {
-                  "aws:SecureTransport": false
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
-    "ServerlessLogGroup": {
+    "AlimtalkUnderscoresoldoutnoticeLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverless-test-dev-serverless",
+        "LogGroupName": "/aws/lambda/serverless-test-dev-alimtalk_soldoutnotice",
         "RetentionInDays": 14
       }
     },
-    "ServerlessLambdaFunction": {
+    "AlimtalkUnderscoresoldoutnoticeLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": {
-            "Ref": "ServerlessDeploymentBucket"
-          },
-          "S3Key": "serverless/serverless-test/dev/1632388537692-2021-09-23T09:15:37.692Z/lambda.zip"
+          "S3Bucket": "charles-serverless-deployments",
+          "S3Key": "serverless/serverless-test/dev/1632818126053-2021-09-28T08:35:26.053Z/lambda.zip"
         },
-        "Handler": "core::handler",
+        "Handler": "alimtalk_soldoutnotice.src.core::handler",
         "Runtime": "java11",
-        "FunctionName": "serverless-test-dev-serverless",
+        "FunctionName": "serverless-test-dev-alimtalk_soldoutnotice",
         "MemorySize": 512,
         "Timeout": 30,
+        "Tags": [
+          {
+            "Key": "VERSION"
+          }
+        ],
         "KmsKeyArn": "arn:aws:kms:ap-northeast-2:140131123595:key/dd9d682c-4713-4bd0-a8ad-c6f378676d53",
         "Environment": {
           "Variables": {
@@ -101,44 +35,44 @@
         "Role": "arn:aws:iam::140131123595:role/lambda-s3-sqs"
       },
       "DependsOn": [
-        "ServerlessLogGroup"
+        "AlimtalkUnderscoresoldoutnoticeLogGroup"
       ]
     },
-    "ServerlessLambdaVersionPmI7gtXaSzlymFHOqomack1dReIVu1sg6OMdzn80TvM": {
+    "AlimtalkUnderscoresoldoutnoticeLambdaVersionBzbuI4wJgXZmOTwGGDQfzzAntJCnL2kudWVrXBWEIb8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "ServerlessLambdaFunction"
+          "Ref": "AlimtalkUnderscoresoldoutnoticeLambdaFunction"
         },
-        "CodeSha256": "jWFXq4ySSZQ+iH37+smutQ2gIzzrRzPSEl5R3Y/0Yy0="
+        "CodeSha256": "sxm2WyXWYNcEnp28eep87B3dAvKgn9seYryxZS1OqK0="
       }
     },
-    "ServerlessEventsRuleSchedule1": {
+    "AlimtalkUnderscoresoldoutnoticeEventsRuleSchedule1": {
       "Type": "AWS::Events::Rule",
       "Properties": {
         "ScheduleExpression": "rate(5 minutes)",
         "State": "ENABLED",
-        "Name": "every-5-minutes",
+        "Name": "every-5-minutes-dev",
         "Targets": [
           {
             "Arn": {
               "Fn::GetAtt": [
-                "ServerlessLambdaFunction",
+                "AlimtalkUnderscoresoldoutnoticeLambdaFunction",
                 "Arn"
               ]
             },
-            "Id": "serverlessSchedule"
+            "Id": "alimtalk_soldoutnoticeSchedule"
           }
         ]
       }
     },
-    "ServerlessLambdaPermissionEventsRuleSchedule1": {
+    "AlimtalkUnderscoresoldoutnoticeLambdaPermissionEventsRuleSchedule1": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "ServerlessLambdaFunction",
+            "AlimtalkUnderscoresoldoutnoticeLambdaFunction",
             "Arn"
           ]
         },
@@ -146,7 +80,7 @@
         "Principal": "events.amazonaws.com",
         "SourceArn": {
           "Fn::GetAtt": [
-            "ServerlessEventsRuleSchedule1",
+            "AlimtalkUnderscoresoldoutnoticeEventsRuleSchedule1",
             "Arn"
           ]
         }
@@ -155,20 +89,18 @@
   },
   "Outputs": {
     "ServerlessDeploymentBucketName": {
-      "Value": {
-        "Ref": "ServerlessDeploymentBucket"
-      },
+      "Value": "charles-serverless-deployments",
       "Export": {
         "Name": "sls-serverless-test-dev-ServerlessDeploymentBucketName"
       }
     },
-    "ServerlessLambdaFunctionQualifiedArn": {
+    "AlimtalkUnderscoresoldoutnoticeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ServerlessLambdaVersionPmI7gtXaSzlymFHOqomack1dReIVu1sg6OMdzn80TvM"
+        "Ref": "AlimtalkUnderscoresoldoutnoticeLambdaVersionBzbuI4wJgXZmOTwGGDQfzzAntJCnL2kudWVrXBWEIb8"
       },
       "Export": {
-        "Name": "sls-serverless-test-dev-ServerlessLambdaFunctionQualifiedArn"
+        "Name": "sls-serverless-test-dev-AlimtalkUnderscoresoldoutnoticeLambdaFunctionQualifiedArn"
       }
     }
   }

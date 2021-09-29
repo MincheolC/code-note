@@ -1,4 +1,4 @@
-(ns alimtalk_soldoutnotice.core
+(ns alimtalk-soldoutnotice.src.core
   (:gen-class :methods [^:static [handler [Object] Object]]))
 
 (defn -handler [_]
