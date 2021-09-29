@@ -1,0 +1,9 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure                  {:mvn/version "1.10.3"}
+        org.clojure/tools.deps.alpha         {:mvn/version "0.7.541"}}
+ :aliases {:pack    {:extra-deps {pack/pack.alpha {:git/url "https://github.com/juxt/pack.alpha.git"
+                                                   :sha     "511c32d4238afb860ad0b16c4827322d80c7d615"}}
+                     :main-opts ["-m"]}
+           :aot
+                    {:extra-paths ["classes"]
+                     :main-opts ["-e" "(compile,'core)"]}}}
