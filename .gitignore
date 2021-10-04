@@ -17,6 +17,7 @@ out/
 
 # Folder
 dist/
+.DS_Store
 
 # Clojure
 .nrepl-port
