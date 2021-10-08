@@ -1,0 +1,30 @@
+service: greenlabs-sinsun-market
+
+frameworkVersion: '2'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: java11
+  lambdaHashingVersion: 20201221
+  region: ap-northeast-2
+  memorySize: 512
+  timeout: 30ㅊ
+  logRetentionInDays: 14
+  tags:
+    VERSION: ${file(target/target.json):version}
+
+functions:
+  imweb-api-server:
+    handler: core::handler
+    package:
+      artifact: ${file(target/target.json):file}
+      individually: true
+    role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+      - httpApi:
+          path: /hello
+          method: post
