@@ -27,7 +27,9 @@ dist/
 .calva/
 target/
 classes/
+**/*/env.edn
 
 .clj-kondo/
 
 .serverless/
+*.iml
