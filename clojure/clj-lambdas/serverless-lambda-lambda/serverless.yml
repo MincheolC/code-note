@@ -1,0 +1,37 @@
+service: greenlabs-sinsun-market
+
+frameworkVersion: '2'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: java11
+  lambdaHashingVersion: 20201221
+  region: ap-northeast-2
+  memorySize: 512
+  timeout: 30
+  logRetentionInDays: 14
+  tags:
+    VERSION: ${file(target/target.json):version}
+
+functions:
+  products:
+    handler: products.handler::handler
+    package:
+      artifact: ${file(target/target.json):file}
+      individually: true
+    role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+
+  product-options:
+    handler: product_options.handler::handler
+    package:
+      artifact: ${file(target/target.json):file}
+      individually: true
+    role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+
+  product-option-details:
+    handler: product_option_details.handler::handler
+    package:
+      artifact: ${file(target/target.json):file}
+      individually: true
+    role: arn:aws:iam::140131123595:role/lambda-s3-sqs
