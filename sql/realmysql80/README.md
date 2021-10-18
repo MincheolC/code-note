@@ -5,3 +5,7 @@
 ```sh
 docker exec -i [container_name] mysql -u [account] [db_name] < employees.sql
 ```
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED BY ''; -- 나중에 비번 다시 설정.
+```

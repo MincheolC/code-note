@@ -66,3 +66,6 @@ CREATE TABLE user (
 );
 
 INSERT INTO user VALUES (1, 'Matt', 'Lee', '{"credit_scores":[360, 353, 351]}');
+
+SELECT * FROM user WHERE 360 MEMBER OF(credit_info->'$.credit_scores');
+EXPLAIN SELECT * FROM user WHERE 360 MEMBER OF(credit_info->'$.credit_scores');
