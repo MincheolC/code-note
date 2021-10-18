@@ -1,4 +1,5 @@
-(ns basic.cond)
+(ns basic.cond
+  (:require [basic.redef :as r]))
 
 (def type' "E")
 (cond-> [:and [:= :user_id 1] [:= :code "2"]]
@@ -7,3 +8,7 @@
 
 (->> {:a 1}
     :a)
+
+(with-redefs [r/original (fn []
+                         "redef")]
+  (r/redef-test))
