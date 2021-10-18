@@ -14,24 +14,23 @@ provider:
   tags:
     VERSION: ${file(target/target.json):version}
 
+package:
+  artifact: ${file(target/target.json):file}
+
 functions:
   products:
     handler: products.handler::handler
-    package:
-      artifact: ${file(target/target.json):file}
-      individually: true
     role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+    maximumRetryAttempts: 0
 
   product-options:
     handler: product_options.handler::handler
-    package:
-      artifact: ${file(target/target.json):file}
-      individually: true
     role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+    maximumRetryAttempts: 0
 
   product-option-details:
     handler: product_option_details.handler::handler
-    package:
-      artifact: ${file(target/target.json):file}
-      individually: true
     role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+    maximumRetryAttempts: 0
+
+

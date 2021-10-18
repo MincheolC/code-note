@@ -5,6 +5,7 @@
 
 (defn -handler [event]
   (println *ns*)
+  (println event)
   (println (p/datafy event)))
 
 (comment
