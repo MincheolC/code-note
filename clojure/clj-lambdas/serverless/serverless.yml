@@ -29,11 +29,8 @@ provider:
   memorySize: 512
   timeout: 30
   logRetentionInDays: 14
-  kmsKeyArn: arn:aws:kms:ap-northeast-2:140131123595:key/dd9d682c-4713-4bd0-a8ad-c6f378676d53
   deploymentBucket:
     name: charles-serverless-deployments # 버킷 미리 만들어져 있어야함.
-  tags:
-    VERSION: ${file(target/target.json):version}
 
 functions:
   alimtalk_soldoutnotice:
