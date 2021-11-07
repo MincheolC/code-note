@@ -14,7 +14,7 @@
 
 (defn dummy-user-deposit-changes [{:keys [user_id tx_created_at created_at deposit]}]
   (let [tx-types ["order-complete" "order-cancel" "imweb-pay" "imweb-cancel"
-                     "order-refund-delivery-delayed" "order-refund-defective-product"]
+                  "order-refund-delivery-delayed" "order-refund-defective-product" "cash-refund"]
         change-amount (u/rand-int-min-max -100000 100000)]
     {:user_id       user_id
      :tx_type    (rand-nth tx-types)
@@ -36,10 +36,21 @@
     (insert-dummy! :notification_alimtalk values))
 
   ;; user-deposit-changes
-  (let [values (->> (iterate dummy-user-deposit-changes {:user_id 389
-                                                         :tx_created_at "2021-10-19T00:00"
-                                                         :created_at "2021-10-19T00:00"
+  (let [values (->> (iterate dummy-user-deposit-changes {:user_id 389 ; 234 389
+                                                         :tx_created_at "2021-08-01T14:00"
+                                                         :created_at "2021-08-01T14:00"
                                                          :deposit 0})
                     (take 104)
                     (rest))]
     (insert-dummy! :user_deposit_changes values)))
+
+(comment
+  (let [options (map name [:Content-Encoding, :X-Kuma-Revision])]
+    (update-in {:headers {}} [:headers :a] (fn [m]
+                                                   (str m "," (str/join "," options)))))
+
+  (str nil "," (str/join "," [1 2 3]))
+  (->> (conj [1 2 3] "a,b")
+       (str/join ","))
+  )
+
