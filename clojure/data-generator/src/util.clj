@@ -16,3 +16,9 @@
   ([n] (rand-date (t/local-date) n))
   ([from n] (let [days (rand-int-min-max 0 n)]
     (.toString (t/plus (t/local-date from) (t/days days))))))
+
+(defn plus-minutes [start-dt n]
+  (.toString (t/plus (t/local-date-time start-dt) (t/minutes n))))
+
+(comment
+  (plus-minutes "2021-10-21T00:00" 5))
