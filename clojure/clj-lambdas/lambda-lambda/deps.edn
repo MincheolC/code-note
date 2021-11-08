@@ -3,6 +3,7 @@
         org.clojure/data.json               {:mvn/version "2.3.1"}
         com.cognitect.aws/api               {:mvn/version "0.8.505"}
         com.cognitect.aws/endpoints         {:mvn/version "1.1.11.946"}
+        com.cognitect.aws/lambda            {:mvn/version "814.2.1008.0", :aws/serviceFullName "AWS Lambda"}
         com.cognitect.aws/sqs               {:mvn/version "811.2.934.0"}
         com.cognitect.aws/s3                {:mvn/version "811.2.934.0"}}
  :aliases {:pack {:extra-deps {pack/pack.alpha {:git/url "https://github.com/juxt/pack.alpha.git"

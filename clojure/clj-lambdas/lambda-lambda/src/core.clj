@@ -48,5 +48,10 @@
   )
 
 (comment
-  (send-missing-codes-to-scheduler))
+  (send-missing-codes-to-scheduler)
+  (let [lambda-client (aws/client {:api :lambda
+                                   :region :ap-northeast-2})]
+    (aws/invoke lambda-client {:op :InvokeAsync
+                               :request {:FunctionName "action-test"
+                                         :InvokeArgs   (json/write-str {:specie-codes []})}})))
 
