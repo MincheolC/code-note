@@ -1,0 +1,30 @@
+service: test-watch-lambda
+
+frameworkVersion: '2'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: java11
+  lambdaHashingVersion: 20201221
+  region: ap-northeast-2
+  memorySize: 512
+  timeout: 30
+  logRetentionInDays: 14
+  tags:
+    VERSION: ${file(target/target.json):version}
+
+package:
+  artifact: ${file(target/target.json):file}
+
+functions:
+  wl:
+    handler: handler::handler
+    role: arn:aws:iam::140131123595:role/lambda-s3-sqs
+    maximumRetryAttempts: 0
+    events:
+      - schedule:
+          rate: rate(10 minutes)
+          input:
+            period: 14
+
