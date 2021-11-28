@@ -1,7 +1,8 @@
 (ns core
   (:require [clojure.data.json :as json]
             [clojure.string :as str]
-            [db :refer [execute!]]
+            [db :refer [execute! ds]]
+            [next.jdbc :as jdbc]
             [util :as u]))
 
 (defn dummy-notification_alimtalk [_]
@@ -52,5 +53,21 @@
   (str nil "," (str/join "," [1 2 3]))
   (->> (conj [1 2 3] "a,b")
        (str/join ","))
-  )
+
+  ;; tx test
+  (jdbc/with-transaction [tx ds]
+    (let [values (->> (iterate dummy-notification_alimtalk {})
+                      (take 2)
+                      (rest))]
+      (execute! tx {:insert-into [:notification_alimtalk]
+                    :values values} {}))
+
+    (let [values (->> (iterate dummy-user-deposit-changes {:user_id 389 ; 234 389
+                                                           :tx_created_at "2021-08-01T14:00"
+                                                           :created_at "2021-08-01T14:00"
+                                                           :deposit 0})
+                      (take 2)
+                      (rest))]
+      (execute! tx {:insert-into [:user_deposit_changes]
+                    :values values} {}))))
 
