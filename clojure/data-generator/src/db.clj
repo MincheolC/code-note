@@ -31,9 +31,9 @@
 
 (comment
   (sql/format {:insert-into :user
-                    :columns [:name :age]
-                    :values [["greenlabs" 5]]
-                    :on-duplicate {:age 5}} {:dialect :mysql})
+               :columns [:name :age]
+               :values [["greenlabs" 5]]
+               :on-duplicate {:age 5}} {:dialect :mysql})
 
   (sql/call :case
                  [:= :region3 "region3"] -1
