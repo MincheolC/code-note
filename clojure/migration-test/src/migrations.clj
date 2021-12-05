@@ -4,13 +4,19 @@
 
 (def config {:store                :database
              :migration-dir        "migrations/"
+             :init-script          "init.sql"
              :migration-table-name "migratus_migrations"
              :db {:datasource (hk/make-datasource {:adapter       "mysql8"
-                                                   :username      "root"
-                                                   :password      "ckalscjf"
+                                                   :username      "dev"
+                                                   :password      "1234"
                                                    :server-name   "localhost"
                                                    :port-number   3306
                                                    :database-name "cljdev"})}})
+
+(defn init!
+  "init.sql을 실행."
+  []
+  (migratus/init config))
 
 (defn migrate-up!
   "실행되지 않은 모든 마이그레이션을 실행"
@@ -28,7 +34,9 @@
   (migratus/create config desc))
 
 (comment
-  #_(create-migration-files "alter-sms-certifications")
+  (create-migration-files "init")
+
+  (init!)
   (migrate-up!)
   (rollback!))
 
