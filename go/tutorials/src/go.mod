@@ -7,7 +7,10 @@ replace (
 	example.com/practice01 => ./practice01
 )
 
-require example.com/hello v0.0.0
+require (
+	example.com/hello v0.0.0
+	example.com/practice01 v0.0.0-00010101000000-000000000000
+)
 
 require (
 	golang.org/x/text v0.0.0-20170915032832-14c0d48ead0c // indirect
