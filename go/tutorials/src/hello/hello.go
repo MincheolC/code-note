@@ -1,4 +1,4 @@
-package main
+package hello
 
 import (
 	"fmt"
@@ -53,7 +53,7 @@ func pow(x, n, lim float64) float64 {
 	return lim
 }
 
-func main() {
+func Hello() {
 	// lib 사용하기
 	fmt.Println(quote.Go())
 	fmt.Println("My favorite number is", math.Sqrt(7), math.Pi)
