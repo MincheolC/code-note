@@ -3,6 +3,8 @@ package hello
 import (
 	"fmt"
 	"math"
+	"runtime"
+	"time"
 
 	"rsc.io/quote"
 )
@@ -111,4 +113,31 @@ func Hello() {
 		pow(3, 2, 10),
 		pow(3, 3, 20),
 	)
+
+	// Switch
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("[Switch] %s OS X.", time.Now().Weekday())
+	case "linux":
+		fmt.Println("[Switch] Linux.")
+	default:
+		// freebsd, openbsd,
+		// plan9, windows...
+		fmt.Printf("[Switch] %s.\n", os)
+	}
+	// 조건 없는 Switch (= If-else)
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
+	default:
+		fmt.Println("Good evening.")
+	}
+
+	// Defer (Stack)
+	defer fmt.Println("Deferred First!!")
+	defer fmt.Println("Deferred Second!!")
+
 }
