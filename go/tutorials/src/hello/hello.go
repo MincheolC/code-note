@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"runtime"
+	"strings"
 	"time"
 
 	"rsc.io/quote"
@@ -53,6 +54,10 @@ func pow(x, n, lim float64) float64 {
 		fmt.Printf("%g >= %g\n", v, lim)
 	}
 	return lim
+}
+
+func printSlice(s string, x []int) {
+	fmt.Printf("%s len=%d cap=%d %v\n", s, len(x), cap(x), x)
 }
 
 func Hello() {
@@ -139,5 +144,87 @@ func Hello() {
 	// Defer (Stack)
 	defer fmt.Println("Deferred First!!")
 	defer fmt.Println("Deferred Second!!")
+
+	// Pointers
+	k, h := 42, 2701
+
+	p := &k            // point to k
+	fmt.Println(p, *p) // read k through the pointer (42)
+	*p = 21            // set k through the pointer
+	fmt.Println(p, *p) // see the new value of k (21)
+
+	p = &h             // point to h
+	*p = *p / 37       // divide h through the pointer
+	fmt.Println(p, *p) // see the new value of h (2701/37)
+
+	// Struct
+	type Vertex struct {
+		X int
+		Y int
+	}
+	v := Vertex{1, 2}
+	pv := &v
+	pv.X = 1e9
+	fmt.Println(v, v.X)
+	fmt.Printf("%p\n", pv)
+
+	// Array & Slice
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	slice := []struct {
+		i int
+		b bool
+	}{
+		{2, true},
+		{3, false},
+	}
+	var s []int = primes[1:4]
+	fmt.Println(s, s[0:3], s[:3], s[0:], s[:])
+	fmt.Println(slice)
+
+	s = s[:0]
+	printSlice("s", s)
+	s = s[:4]
+	printSlice("s", s)
+	s = s[2:]
+	printSlice("s", s)
+
+	//// make
+	ma := make([]int, 5)
+	mb := make([]int, 0, 5)
+
+	printSlice("ma", ma)
+	printSlice("mb", mb)
+	printSlice("mb1", mb[:2])
+	printSlice("mb2", mb[2:5])
+
+	//// slice of slice
+	board := [][]string{
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+	}
+
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][2] = "X"
+	board[1][0] = "O"
+	board[0][2] = "X"
+
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
+
+	printSlice("ma", append(ma, 1))
+	printSlice("mb", append(mb, 1))
+
+	// range
+	var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+	for i, v := range pow {
+		fmt.Printf("2**%d = %d\n", i, v)
+	}
+	for _, v := range pow {
+		fmt.Printf("%d ", v)
+	}
+	println()
 
 }
