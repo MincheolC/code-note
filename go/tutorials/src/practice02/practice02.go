@@ -1,4 +1,4 @@
-package practice02
+package main
 
 import "golang.org/x/tour/pic"
 
@@ -13,6 +13,6 @@ func Pic(dx, dy int) [][]uint8 {
 	return picture
 }
 
-func Run() {
+func main() {
 	pic.Show(Pic)
 }
