@@ -90,4 +90,3 @@
                result
                (f/when-failed [e]
                               e))
-(tests)

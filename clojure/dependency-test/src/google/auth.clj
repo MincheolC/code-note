@@ -1,7 +1,8 @@
 (ns google.auth
   (:require [clojure.data.json :as json]
             [buddy.sign.jws :as jws]
-            [buddy.core.keys :as keys]))
+            [buddy.core.keys :as keys]
+            [clojure.java.io :as io]))
 
 ;; 1. 서비스 계정 만들기
 ;; 2. 승인된 API 호출 준비
@@ -16,23 +17,32 @@
 ;;                :exp 0
 ;;                :iat 0})
 
-(def PRIV_KEY (keys/private-key "resources/priv.key"))
-(def JWT_CLAM {:iss "id-alimtalk-bot@greenlabs-project.iam.gserviceaccount.com"
-               :sub "developer@greenlabs.co.kr"
-               :scope "https://www.googleapis.com/auth/spreadsheets.readonly"
-               :aud "https://oauth2.googleapis.com/token"
-               :exp 0
-               :iat 0})
 
-(def GRANT_TYPE "urn:ietf:params:oauth:grant-type:jwt-bearer")
+;; GCP Token
+(def iss "id-alimtalk-bot@greenlabs-project.iam.gserviceaccount.com")
+(def sub "developer@greenlabs.co.kr")
+(def private-key (keys/private-key (io/resource "priv.key")))
+(def aud "https://oauth2.googleapis.com/token")
 
-(defn jwt []
-  (let [assertion-time (quot (System/currentTimeMillis) 1000)
-        claim (-> JWT_CLAM
-                  (assoc :iat assertion-time)
-                  (assoc :exp (+ assertion-time 3000)))]
-    (jws/sign (json/write-str claim) PRIV_KEY {:header JWT_HEADER :alg :rs256})))
+(defn create-jwt
+  "참고: https://developers.google.com/identity/protocols/oauth2/service-account#authorizingrequests
+
+   반환값 형식
+   {Base64url encoded header}.{Base64url encoded claim set}.{Base64url encoded signature}"
+  []
+  (let [assertion-timestamp (quot (System/currentTimeMillis) 1000)
+        headers {:alg "RS256"
+                 :typ "JWT"}
+        claim  {:iss iss
+                :sub sub
+                :scope "https://www.googleapis.com/auth/spreadsheets.readonly"
+                :aud aud
+                :exp (+ assertion-timestamp 3000)
+                :iat assertion-timestamp}]
+    (jws/sign (json/write-str claim) private-key {:header headers
+                                                  :alg    :rs256})))
 
 
-(prn (jwt))
+(comment
+  (create-jwt))
 
