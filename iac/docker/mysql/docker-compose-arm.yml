@@ -15,4 +15,4 @@ services:
     command: --default-authentication-plugin=mysql_native_password # Caching SHA-2 Authentication 인증 방식이 기본이기 때문에 변경.
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: "ckalscjf"
+      MYSQL_ROOT_PASSWORD: "0000"

@@ -1,0 +1,17 @@
+## 컨테이너 외부에서 MySQL에 로그인도 가능해야 하므로 dev@localhost에서 localhost 대신 %를 사용한다.
+# CREATE USER 'dev'@'%' IDENTIFIED BY 'password';
+# GRANT ALL PRIVILEGES ON *.* TO 'dev'@'%';
+# flush privileges;
+
+version: '3.1'
+
+services:
+  mysql8: # 서비스명
+    image: mysql
+    container_name: mysql8 # 컨테이너명
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password # Caching SHA-2 Authentication 인증 방식이 기본이기 때문에 변경.
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "0000"
