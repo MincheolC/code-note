@@ -1,0 +1,8 @@
+{:objects {:User
+           {:description "유저 정보"
+            :fields      {:id    {:type Int}
+                          :name  {:type String}
+                          :phone {:type String}}}}
+ :queries {:getUsers
+           {:type    (list (non-null :User))
+            :resolve :get-users}}}
