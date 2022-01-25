@@ -5,4 +5,10 @@
                           :phone {:type String}}}}
  :queries {:getUsers
            {:type    (list (non-null :User))
-            :resolve :get-users}}}
+            :resolve :get-users}}
+
+ :mutations {:createUser
+             {:type :User
+              :args {:name {:type (non-null String)}
+                     :phone {:type (non-null String)}}
+              :resolve :create-user}}}

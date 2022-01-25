@@ -22,8 +22,9 @@
 (defn handler [ctx]
   (fn [request]
     (let [query  (get-in request [:body-params :query])
-          identity {:identity (:identity request)}
-          result (lacinia/execute schema query nil (merge ctx identity))]
+          variables (get-in request [:body-params :variables])
+          identity (:identity request)
+          result (lacinia/execute schema query variables (assoc ctx :identity identity))]
       (hr/ok result))))
 
 (comment
