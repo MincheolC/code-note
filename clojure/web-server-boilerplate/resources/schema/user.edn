@@ -11,4 +11,11 @@
              {:type :User
               :args {:name {:type (non-null String)}
                      :phone {:type (non-null String)}}
-              :resolve :create-user}}}
+              :resolve :create-user}
+
+             :updateUser
+             {:type :User
+              :args {:id {:type (non-null Int)}
+                     :name {:type String}
+                     :phone {:type String}}
+              :resolve :update-user}}}
