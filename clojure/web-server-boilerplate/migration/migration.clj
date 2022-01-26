@@ -14,7 +14,7 @@
      :db                   {:datasource (hk/make-datasource ds-options)}}))
 
 (comment
-  (migratus/create (get-config "local") "insert-user-seed-data")
+  (migratus/create (get-config "local") "insert-article-seed-data")
 
   (migratus/migrate (get-config "local"))
   (migratus/rollback (get-config "local"))
