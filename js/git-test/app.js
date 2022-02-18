@@ -7,4 +7,4 @@ console.log('world');
 
 const d = 5;
 const e = 1;
-const f = 2;
+const f =32;
