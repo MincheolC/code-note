@@ -6,3 +6,5 @@ console.log('hello ', a);
 console.log('world');
 
 const d = 5;
+
+const e = 6;
