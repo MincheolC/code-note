@@ -6,4 +6,6 @@ console.log('hello ', a);
 console.log('world');
 
 const d = 5;
-const f = 10;
+const f = 10
+const e = 11;
+const g = 12;
