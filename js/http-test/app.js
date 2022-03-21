@@ -14,6 +14,9 @@ app.use(cors(corsOptions))
 app.use(cookieParser())
 
 app.get('/', (req, res) => {
+  const agent = req.header('User-Agent');
+  const ip = req.headers['x-forwarded-for'] ||  req.connection.remoteAddress;
+  console.log(agent, ip)
   console.log('Cookies: ', req.cookies)
   res.send('Hello World!')
 })
@@ -30,6 +33,6 @@ app.get('/token/refresh', (req, res) => {
   res.send('Get refresh!')
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Example app listening on port ${port}`)
 })
