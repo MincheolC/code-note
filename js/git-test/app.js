@@ -9,3 +9,6 @@ const d = 5;
 const f = 10
 const e = 11;
 const g = 12;
+
+const t = 1;
+const s = 2;
