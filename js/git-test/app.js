@@ -11,3 +11,4 @@ const e = 11;
 const g = 12;
 
 const t = 1;
+const s = 2;
