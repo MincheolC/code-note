@@ -1,0 +1,7 @@
+enum PhotoCateogry {
+    SELFIE
+    PORTRAIT
+    ACTION
+    LANDSCAPE
+    GRAPIC
+}
