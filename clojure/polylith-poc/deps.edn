@@ -1,7 +1,8 @@
 {:aliases  {:dev {:extra-paths ["development/src"]
-                  :extra-deps {poly/log {:local/root "components/log"}
-                               
-                               org.clojure/clojure {:mvn/version " 1.11.0"}}}
+                  :extra-deps {base/rest-api {:local/root "components/log"}
+                               components/log {:local/root "components/log"}
+
+                               org.clojure/clojure            {:mvn/version "1.10.3"}}}
 
             :test {:extra-paths []}
 
