@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:flutter_playground/signaling.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,6 +57,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Signaling signaling = Signaling();
   RTCVideoRenderer _localRenderer = RTCVideoRenderer();
   RTCVideoRenderer _remoteRenderer = RTCVideoRenderer();
   String? roomId;
@@ -73,6 +75,11 @@ class _MyHomePageState extends State<MyHomePage> {
     //   - Stream 구독, 알림 변경, 위젯의 데이터를 변경할 수 있는 다른 객체 핸들링
     _localRenderer.initialize();
     _remoteRenderer.initialize();
+
+    signaling.onAddRemoteStream = ((stream) {
+      _remoteRenderer.srcObject = stream;
+      setState(() {});
+    });
 
     super.initState();
   }
@@ -120,21 +127,40 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               ElevatedButton(
                   style: style,
-                  onPressed: () {},
+                  onPressed: () {
+                    signaling.openUserMedia(_localRenderer, _remoteRenderer);
+                  },
                   child: Text("Open camera & microphone")),
               SizedBox(width: 8),
               ElevatedButton(
-                  style: style, onPressed: () {}, child: Text("Create room"))
+                  style: style,
+                  onPressed: () async {
+                    roomId = await signaling.createRoom(_remoteRenderer);
+                    textEditingController.text = roomId!;
+                    setState(() {});
+                  },
+                  child: Text("Create room"))
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                  style: style, onPressed: () {}, child: Text("Join room")),
+                  style: style,
+                  onPressed: () {
+                    signaling.joinRoom(
+                      textEditingController.text,
+                      _remoteRenderer,
+                    );
+                  },
+                  child: Text("Join room")),
               SizedBox(width: 8),
               ElevatedButton(
-                  style: style, onPressed: () {}, child: Text("Hang up"))
+                  style: style,
+                  onPressed: () {
+                    signaling.hangUp(_localRenderer);
+                  },
+                  child: Text("Hang up"))
             ],
           ),
           SizedBox(height: 8),
@@ -149,6 +175,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       Expanded(child: RTCVideoView(_remoteRenderer))
                     ],
                   ))),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Join the following Room: "),
+                Flexible(
+                  child: TextFormField(
+                    controller: textEditingController,
+                  ),
+                )
+              ],
+            ),
+          ),
           SizedBox(height: 8)
         ],
       ),
