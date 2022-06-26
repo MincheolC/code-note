@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mdc/page/home.dart';
 import 'package:mdc/page/login.dart';
+import 'package:mdc/style/colors.dart';
 
 // TODO: Convert ShrineApp to stateful widget (104)
 class ShrineApp extends StatelessWidget {
@@ -25,7 +26,7 @@ class ShrineApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shrine',
-      theme: ThemeData(),
+      theme: _kShrineTheme,
       initialRoute: '/login',
       routes: {
         '/login': (BuildContext context) => const LoginPage(),
@@ -41,4 +42,56 @@ class ShrineApp extends StatelessWidget {
 }
 
 // TODO: Build a Shrine Theme (103)
+final ThemeData _kShrineTheme = _buildShrineTheme();
+
+ThemeData _buildShrineTheme() {
+  final ThemeData base = ThemeData.light();
+  return base.copyWith(
+      colorScheme: base.colorScheme.copyWith(
+        primary: MdcColors.black171717,
+        onPrimary: MdcColors.whiteFFFCED,
+        secondary: MdcColors.grey505,
+        error: MdcColors.redFF0,
+      ),
+      // TODO: Add the text themes (103)
+      scaffoldBackgroundColor: MdcColors.whiteFFFCED,
+      textTheme: _buildShrineTextTheme(base.textTheme),
+      textSelectionTheme: const TextSelectionThemeData(
+        selectionColor: MdcColors.redFF0,
+      ),
+      // TODO: Add the icon themes (103)
+      // TODO: Decorate the inputs (103)
+      inputDecorationTheme: const InputDecorationTheme(
+        border: OutlineInputBorder(),
+        focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 2.0)),
+        floatingLabelStyle: TextStyle(
+          color: MdcColors.greenB2E,
+        ),
+      ));
+}
+
 // TODO: Build a Shrine Text Theme (103)
+TextTheme _buildShrineTextTheme(TextTheme base) {
+  return base
+      .copyWith(
+        headline5: base.headline5!.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        headline6: base.headline6!.copyWith(
+          fontSize: 18.0,
+        ),
+        caption: base.caption!.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 14.0,
+        ),
+        bodyText1: base.bodyText1!.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+        ),
+      )
+      .apply(
+        fontFamily: 'Rubik',
+        displayColor: MdcColors.black171717,
+        bodyColor: MdcColors.black171717,
+      );
+}

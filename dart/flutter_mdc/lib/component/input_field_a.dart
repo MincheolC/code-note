@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:mdc/style/colors.dart';
 
@@ -19,8 +17,8 @@ class InputFieldA extends StatelessWidget {
     const borderRadius = 15.0;
 
     return TextFormField(
-      style: const TextStyle(color: MdcColors.white50),
-      cursorColor: MdcColors.white50,
+      style: const TextStyle(color: MdcColors.whiteFFFFFF),
+      cursorColor: MdcColors.whiteFFFFFF,
       obscureText: obscureText,
       decoration: InputDecoration(
         filled: true,
@@ -28,17 +26,17 @@ class InputFieldA extends StatelessWidget {
         hintText: labelText,
         hintStyle: const TextStyle(color: MdcColors.grey8F8),
         enabledBorder: const OutlineInputBorder(
-          borderRadius:  BorderRadius.all(Radius.circular(borderRadius)),
-          borderSide: BorderSide(
-            color: backgroundColor
-          )
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+          // borderSide: BorderSide(
+          //   color: backgroundColor
+          // )
         ),
         focusedBorder: const OutlineInputBorder(
-            borderRadius:  BorderRadius.all(Radius.circular(borderRadius)),
+            borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
             borderSide: BorderSide(
-                color: backgroundColor
-            )
-        ),
+              width: 2.0,
+              color: MdcColors.redFF0,
+            )),
       ),
     );
   }

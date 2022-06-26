@@ -15,6 +15,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:mdc/component/input_field_a.dart';
+import 'package:mdc/style/colors.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -55,10 +56,13 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 SizedBox(height: 12.0),
                 ElevatedButton(
-                  // style: ElevatedButton.styleFrom(
-                  //   onPrimary: Theme.of(context).colorScheme.primary,
-                  //   primary: Theme.of(context).colorScheme.primary,
-                  // ),
+                  style: ElevatedButton.styleFrom(
+                    elevation: 8.0,
+                    minimumSize: Size.fromHeight(48),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0))
+                    )
+                  ),
                   onPressed: () {
                     Navigator.pop(context);
                   },

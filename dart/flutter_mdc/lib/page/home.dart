@@ -18,6 +18,8 @@ import 'package:intl/intl.dart';
 import 'package:mdc/model/product.dart';
 import 'package:mdc/model/products_repository.dart';
 
+import 'package:mdc/layout/asymmetric_view.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -51,19 +53,22 @@ class HomePage extends StatelessWidget {
                     child: Padding(
                   padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         product.name,
-                        style: theme.textTheme.headline6,
+                        style: theme.textTheme.button,
+                        softWrap: false,
+                        overflow: TextOverflow.ellipsis, // 넘치는 경우 ...
                         maxLines: 1,
                       ),
                       const SizedBox(
-                        height: 8.0,
+                        height: 4.0,
                       ),
                       Text(
                         formatter.format(product.price),
-                        style: theme.textTheme.subtitle2,
+                        style: theme.textTheme.caption,
                       ),
                     ],
                   ),
@@ -116,6 +121,9 @@ class HomePage extends StatelessWidget {
         childAspectRatio: 8.0 / 9.0,
         children: _buildGridCards(context),
       ),
+      // body: AsymmetricView(
+      //   products: ProductsRepository.loadProducts(Category.all)
+      // ),
       // TODO: Set resizeToAvoidBottomInset (101)
       resizeToAvoidBottomInset: false,
     );
