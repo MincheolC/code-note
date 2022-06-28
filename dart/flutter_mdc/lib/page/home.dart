@@ -81,51 +81,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: Return an AsymmetricView (104)
+    // return AsymmetricView(
+    //     products: ProductsRepository.loadProducts(Category.all)
+    // );
     // TODO: Pass Category variable to AsymmetricView (104)
-    return Scaffold(
-      // TODO: Add app bar (102)
-      appBar: AppBar(
-        title: const Text('SHRINE'),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.menu,
-            semanticLabel: 'menu',
-          ),
-          onPressed: () {
-            print('Menu button');
-          },
-        ),
-        actions: <Widget>[
-          IconButton(
-              onPressed: () {
-                print('Search button');
-              },
-              icon: const Icon(
-                Icons.search,
-                semanticLabel: 'search',
-              )),
-          IconButton(
-              onPressed: () {
-                print('Filter button');
-              },
-              icon: const Icon(
-                Icons.tune,
-                semanticLabel: 'filter',
-              ))
-        ],
-      ),
-      // TODO: Add a grid view (102)
-      body: GridView.count(
-        crossAxisCount: 2,
-        padding: const EdgeInsets.all(16.0),
-        childAspectRatio: 8.0 / 9.0,
-        children: _buildGridCards(context),
-      ),
-      // body: AsymmetricView(
-      //   products: ProductsRepository.loadProducts(Category.all)
-      // ),
-      // TODO: Set resizeToAvoidBottomInset (101)
-      resizeToAvoidBottomInset: false,
+
+    return GridView.count(
+      crossAxisCount: 2,
+      padding: const EdgeInsets.all(16.0),
+      childAspectRatio: 8.0 / 9.0,
+      children: _buildGridCards(context),
     );
+
+
   }
 }
