@@ -1,0 +1,13 @@
+{:objects
+ {:Pet
+  {:fields {:id {:type (non-null Int)}
+            :detail {:type (non-null :PetDetail)
+                     :resolve :resolve-pet-detail}}}
+
+  :PetDetail
+  {:fields {:id {:type (non-null Int)}
+            :name {:type (non-null String)}}}}
+
+ :queries
+ {:pets {:type (non-null (list (non-null :Pet)))
+         :resolve :resolve-pets}}}
