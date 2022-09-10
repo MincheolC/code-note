@@ -12,9 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// TODO: Import ad_helper.dart
-
-// TODO: Import google_mobile_ads.dart
+import 'package:flutter_admob/ad_helper.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:flutter_admob/app_theme.dart';
 import 'package:flutter_admob/drawing.dart';
@@ -31,6 +30,7 @@ class GameRoute extends StatefulWidget {
 
 class _GameRouteState extends State<GameRoute> implements QuizEventListener {
   // TODO: Add _bannerAd
+  BannerAd? _bannerAd;
 
   // TODO: Add _interstitialAd
 
@@ -45,6 +45,22 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
       ..startGame();
 
     // TODO: Load a banner ad
+    BannerAd(
+      adUnitId: AdHelper.bannerAdUnitId,
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          print('Failed to load a banner ad: ${err.message}');
+          ad.dispose();
+        },
+      ),
+    ).load();
 
     // TODO: Load a rewarded ad
   }
@@ -138,6 +154,15 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
               ),
             ),
             // TODO: Display a banner when ready
+            if (_bannerAd != null)
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: _bannerAd!.size.width.toDouble(),
+                  height: _bannerAd!.size.height.toDouble(),
+                  child: AdWidget(ad: _bannerAd!),
+                ),
+              ),
           ],
         ),
       ),
@@ -183,6 +208,7 @@ class _GameRouteState extends State<GameRoute> implements QuizEventListener {
   @override
   void dispose() {
     // TODO: Dispose a BannerAd object
+    _bannerAd?.dispose();
 
     // TODO: Dispose an InterstitialAd object
 
