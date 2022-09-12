@@ -1,0 +1,13 @@
+#gallery-title {
+  color: #BE9E7D;
+  font-size: 5em;
+  font-weight: bold;
+  font-family: 'Nanum Myeongjo', serif;
+  width: 100%;
+  padding-top: 8vh;
+}
+
+.gallery-image {
+  max-width: 100%;
+  max-height: 100%;
+}

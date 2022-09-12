@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import MainImageSection from './components/MainImageSection';
 import InvitationSection from './components/InvitationSection';
 import ContactSection from './components/ContactSection';
+import GallerySection from './components/GallerySection';
 import './App.css';
 
 function App() {
@@ -39,7 +40,21 @@ function App() {
       "축복과 격려 주시면",
       "더없는 기쁨으로 간직하겠습니다."
     ],
-
+    imageUrls: [
+      "/images/1.jpg",
+      "/images/2.jpg",
+      "/images/3.jpg",
+      "/images/4.jpg",
+      "/images/5.jpg",
+      "/images/6.jpg",
+      "/images/7.jpg",
+      "/images/8.jpg",
+      "/images/9.jpg",
+      "/images/10.jpg",
+      "/images/11.jpg",
+      "/images/12.jpg",
+      "/images/13.jpg",
+    ]
   }
 
   return (
@@ -77,6 +92,7 @@ function App() {
           brideDadPhone={state.bride.dadPhone}
           brideMomPhone={state.bride.momPhone}
           />
+        <GallerySection imageUrls={state.imageUrls}/>
       </Container>
     </div>
   );
