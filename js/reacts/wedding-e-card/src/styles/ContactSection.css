@@ -1,0 +1,12 @@
+.contact-icon {
+  color: #BE9E7D;
+  font-size: 5em;
+}
+
+.contact-info {
+  color: #555555;
+  font-size: 2.8em;
+  font-weight: bold;
+  font-family: 'Nanum Myeongjo', serif !important;
+  padding-right: 2vh;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import MainImageSection from './components/MainImageSection';
 import InvitationSection from './components/InvitationSection';
+import ContactSection from './components/ContactSection';
 import './App.css';
 
 function App() {
@@ -22,9 +23,9 @@ function App() {
       name: "GINA CHAN",
       phone: "010-2352-1023",
       dadName: "SAM CHAN",
-      dadPhone: null,
+      dadPhone: "",
       momName: "MANDY LAU",
-      momPhone: null,
+      momPhone: "",
       childNumberStr: "삼녀"
     },
     weddingDate: new Date("2022-10-22T18:30:00+09:00"),
@@ -63,6 +64,18 @@ function App() {
           brideMomName={state.bride.momName}
           brideChildNumberStr={state.bride.childNumberStr}
           brideName={state.bride.name}
+          />
+        <ContactSection 
+          groomPhone={state.groom.phone}
+          bridePhone={state.bride.phone}
+          groomDadName={state.groom.dadName}
+          groomDadPhone={state.groom.dadPhone}
+          groomMomPhone={state.groom.momPhone}
+          groomMomName={state.groom.momName}
+          brideDadName={state.bride.dadName}
+          brideMomName={state.bride.momName}
+          brideDadPhone={state.bride.dadPhone}
+          brideMomPhone={state.bride.momPhone}
           />
       </Container>
     </div>
